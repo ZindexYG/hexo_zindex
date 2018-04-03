@@ -31,11 +31,11 @@ npm install -g hexo-cli
 安装完之后，接下来就是建站了
 
 ```bash
-hexo init <hexo_name>
+hexo init <hexo_name> //本地创建 hexo 文件夹
 
-cd <hexo_name>
+cd <hexo_name> //指令进入所创建的 hexo 文件夹
 
-npm install
+npm install //下载 hexo 所需的依赖
 
 ```
 
@@ -53,7 +53,7 @@ title | 网站标题 |
 subtitle | 网站副标题 |
 description | 网站描述 | 简单加点描述 有利于SEO
 author | 您的名字 |
-language | 网站使用的语言 | zh-Hans（中文） 建议最好
+language | 网站使用的语言 | zh-Hans（中文）
 timezone | 网站时区 |
 
 #### 部署配置 `deploy`
@@ -112,6 +112,6 @@ hexo server
 
 感谢[学姐大人](https://yufan.me/)很久以前（大概3年前）的推荐；
 
-感谢[小心校长大人](http://www.liaoyunduo.com/)的配置指导文章(http://www.liaoyunduo.com/2017/10/01/1/)；
+感谢[小心校长大人](http://www.liaoyunduo.com/)的[配置指导文章](http://www.liaoyunduo.com/2017/10/01/1/)；
 
-感谢两位同学的催更，[天亮](#)，[凯荣](#)；
+感谢两位同学的催更，[天亮](#)，[凯荣]()；
