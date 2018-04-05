@@ -15,20 +15,18 @@ tags:
 
 一键搭建？不存在的!
 
-在安装 `Hexo` 之前，需要已经安装好 `Node.js`, `Git` 环境，没有的话，下面链接，了解一下？
+查看本随记的时候，请先安装好了 [Node.js](https://nodejs.org/en/) 与 [Git](https://git-scm.com/)
 
-- [Node.js](https://nodejs.org/en/)
-- [Git](https://git-scm.com/)
-
-如果安装好了，接下来就是 `Hexo` 的安装
+`Hexo` 的全局安装
 
 ```bash
 npm install -g hexo-cli
 ```
-
 ## 开始建站
 
-安装完之后，接下来就是建站了
+### 本地建站
+
+进入一个安全的目录，比如`F:/`，注意别在根目录 `/` 瞎搞，打开 `Git bash`，逐个输入指令，
 
 ```bash
 hexo init <hexo_name> //本地创建 hexo 文件夹
@@ -37,74 +35,74 @@ cd <hexo_name> //指令进入所创建的 hexo 文件夹
 
 npm install //下载 hexo 所需的依赖
 
+hexo server //启动本地服务，
 ```
 
-建站之后，就请去 官网了解一下 [建站文档](https://hexo.io/zh-cn/docs/setup.html)， 这里说的比已经很全面了
+默认情况下，访问网址为：`http://localhost:4000/`这下可以大概看到自己的站点是个啥样了，开启第一篇文章之路，运行下一个指令，
 
-## 开始配置
 
-配置文件 `_config.yml` 可以到官方的 [配置文档](https://hexo.io/zh-cn/docs/configuration.html) 了解一下？这边只聊一些，必须知道的几个配置项
+```bash
+hexo new [第一篇文章]
+```
+
+默认 `[第一篇文章].md` 文件会生成在 `<hexo_name>\source\_posts\` 路径下，`.md` 是一款使用 [Markdown语法](http://markdown.cn/) 的写作文件，[Markdown语法](http://markdown.cn/)了解一下？
+
+更多文章指令，尽在[基本操作-写作](https://hexo.io/zh-cn/docs/writing.html)
 
 ### 基本配置
 
+官方的 [配置文档](https://hexo.io/zh-cn/docs/configuration.html) 里面或许太过凌乱不堪，直接看文件 `_config.yml` 并开始配置一些建站需要的几个基本属性先，
+
 参数 | 描述 | 备注
 -- | -- | --
-title | 网站标题 |
+title | 网站标题 | 修改为自己的网站标题
 subtitle | 网站副标题 |
 description | 网站描述 | 简单加点描述 有利于SEO
 author | 您的名字 |
 language | 网站使用的语言 | zh-Hans（中文）
 timezone | 网站时区 |
 
-#### 部署配置 `deploy`
+建站之后，就请去 官网了解一下 [建站文档](https://hexo.io/zh-cn/docs/setup.html)， 这里说的比已经很全面了
 
-一键建站是不太可能的，配置好之后一键部署上线还是可以的，这里我们关注的是 `Git` 上面的部署，其余部署配置，[部署文档](https://hexo.io/zh-cn/docs/deployment.html) 了解一下？ 顺便 `Github` 官方配置 [GitPage](https://pages.github.com/) 了解一下？图文教学了，简直不要太友好。
 
-首先先安装
+## 部署配置
+
+一键建站是不太可能的，配置好之后一键部署上线还是可以的，这里我们关注的是 `Git` 上面的部署，其余部署配置，[部署文档](https://hexo.io/zh-cn/docs/deployment.html) 了解一下？ 顺便 `Github` 官方配置 [GitPage](https://pages.github.com/) 了解一下？
+
+展开讲一下，首先先安装 `hexo-deployer-git`
 
 ```bash
 npm install hexo-deployer-git --save
 ```
 
+然后在 `GitHub` 上新建一个空 `repo`，名称为 「你的用户名.github.io」，接着找到配置文件 `_config.yml`,搜索关键字 `deploy` 配置如下
+
+
 ```json
 deploy:
   type: git
-  repo: <repository url> //库（Repository）地址
-  branch: [branch] //分支名称
-  message: [message] //自定义提交信息，默认是更新日期
+  repo: <repository url> //库（Repository）地址 例：你的用户名.github.io
+  branch: [branch] //分支名称 例：master
+  message: [message] //自定义提交信息，默认是更新日期 可不填写
 ```
 
-## 指令
-
-部署完成之后，大概就差不多了，我们首先看几个指令
-
-新建文章指令，`layout` 指的是文章格式，详情了解一下[基本操作-写作](https://hexo.io/zh-cn/docs/writing.html)，`title` 为文章标题
+接下来运行指令，即可在 `你的用户名.github.io` 网址上看到你的 `bolg` 了
 
 ```bash
-hexo new [layout] <title>
-//example
-hexo new post Hexo配置
-```
-
-文章写完之后，需要生成为静态文件，再部署上传，即可看到自己的文章了。
-
-```bash
-//生成静态文件，快捷指令：hexo g
 hexo generate
+//生成静态文件，快捷指令：hexo g
 
-//部署上传文件，快捷指令：hexo d
 hexo deploy
+//部署上传文件，快捷指令：hexo d
 ```
 
-若是对自己的文字或者配置不太自信的，可以使用本地测试指令，启动服务器，默认情况下，访问网址为： `http://localhost:4000/`
+大概就是`项目 -> setting -> GitHub Page -> 开启` 这样一个流程 ，就可以预览 `blog` 了
 
-```bash
-hexo server
-```
+打开项目，打开 `Github page` 功能，[官方开启说明](https://pages.github.com/)
 
 ## 总结
 
-其实大部分的而配置指令，都是可以在官方的[文档](https://hexo.io/zh-cn)这边大概是一丢丢配置，以及常用指令的总结，后续看反馈，可以继续写一篇 [NexT](http://theme-next.iissnan.com/) 主题上面的配置，如果写不下，`本酱` 就直接在这里更吧~
+其实大部分的而配置都是可以在官方的[文档](https://hexo.io/zh-cn)这边大概是一丢丢配置，以及常用指令的总结，后续看反馈，可以继续写一篇 [NexT](http://theme-next.iissnan.com/) 主题上面的配置，如果写不下，`本酱` 就直接在这里更吧~
 
 好了，今年的 4月到了，1号完美的没有人跟`本酱`表白~
 
@@ -114,4 +112,4 @@ hexo server
 
 感谢[小心校长大人](http://www.liaoyunduo.com/)的[配置指导文章](http://www.liaoyunduo.com/2017/10/01/1/)；
 
-感谢两位同学的催更，[天亮](#)，[凯荣]()；
+感谢两位同学的催更，[天亮](#)，[凯荣](#)；
