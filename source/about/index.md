@@ -1,6 +1,7 @@
 ---
 title: 关于我
 date: 2017-12-15 01:25:05
+comments: true
 ---
 
 <p style="margin-top: 60px; text-align: center;">期待友情，朋友很少；</p>

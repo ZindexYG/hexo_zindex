@@ -57,7 +57,7 @@ async created() {
   if (window.AMap && window.AMapUI) {
     this.initMap()
   } else {
-    await remoteLoad('http://webapi.amap.com/maps?v=1.4.5&key=914e6ed06f2ba0675ba4b00243293807')
+    await remoteLoad('http://webapi.amap.com/maps?v=1.4.5&key={key}')
     await remoteLoad('http://webapi.amap.com/ui/1.0/main.js')
     this.initMap()
   }
