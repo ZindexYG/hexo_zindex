@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Sublime,工具,语言环境," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="工具只是工具，本文只是本人的一点心得，无意引战">
+<meta name="keywords" content="Sublime,工具,语言环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime 配置与使用">
+<meta property="og:url" content="https://z-index.me/2017/12/17/sublime 配置与使用/index.html">
+<meta property="og:site_name" content="时之物语">
+<meta property="og:description" content="工具只是工具，本文只是本人的一点心得，无意引战">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://z-index.me/images/sublime-index.jpg">
+<meta property="og:updated_time" content="2018-07-08T10:23:49.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime 配置与使用">
+<meta name="twitter:description" content="工具只是工具，本文只是本人的一点心得，无意引战">
+<meta name="twitter:image" content="https://z-index.me/images/sublime-index.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://z-index.me/2017/12/17/sublime 配置与使用/"/>
+
+
+
+
+
+  <title>Sublime 配置与使用 | 时之物语</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时之物语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/17/sublime 配置与使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之物语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Sublime 配置与使用</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T10:05:11+08:00">
+                2017-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/17/sublime 配置与使用/" class="leancloud_visitors" data-flag-title="Sublime 配置与使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/sublime-index.jpg" alt=""></p>
+<blockquote>
+<p>工具只是工具，本文只是本人的一点心得，无意引战</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><p><code>Preferences – Distraction-Settings</code> 打开；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>, <span class="comment">//是否自动移除多余空格</span></span><br><span class="line"><span class="string">"ensure_newline_at_eof_on_save"</span>: <span class="literal">true</span>,<span class="comment">//是否在结束符号上换行</span></span><br><span class="line"><span class="string">"highlight_line"</span>: <span class="literal">true</span>,<span class="comment">//是否显示高亮</span></span><br><span class="line"><span class="string">"disable_tab_abbreviations"</span>: <span class="literal">true</span>, <span class="comment">//是否使用 tab 案件 显示缩写</span></span><br><span class="line"><span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>, <span class="comment">// 是否将 tab 符号 换为空格</span></span><br><span class="line"><span class="string">"draw_minimap_border"</span>: <span class="literal">true</span>, <span class="comment">//是否打开小地图的边框</span></span><br><span class="line"><span class="string">"save_on_focus_lost"</span>: <span class="literal">true</span>,<span class="comment">//是否打开吃失去焦点时立即自动保存</span></span><br><span class="line"><span class="string">"word_wrap"</span>: <span class="literal">true</span>,<span class="comment">//是否打开自动换行</span></span><br><span class="line"><span class="string">"fade_fold_buttons"</span>: <span class="literal">false</span>, <span class="comment">//是否打开右侧的闭合标签的符号</span></span><br><span class="line"><span class="string">"bold_folder_labels"</span>: <span class="literal">true</span>,<span class="comment">//是否打开侧栏加粗显示</span></span><br><span class="line"><span class="string">"highlight_modified_tabs"</span>: <span class="literal">true</span>,<span class="comment">//是否打开高亮尚未保存的文件</span></span><br><span class="line"><span class="string">"vintage_start_in_command_mode"</span>: <span class="literal">true</span>,<span class="comment">//命令模式是否看开启</span></span><br><span class="line"><span class="string">"auto_find_in_selection"</span>: <span class="literal">true</span>,<span class="comment">//是否打开选中范围搜索</span></span><br><span class="line"></span><br><span class="line"><span class="string">"scroll_past_end"</span>: <span class="literal">true</span>,<span class="comment">//是否打开滚动结束行为</span></span><br><span class="line"><span class="string">"tab_completion"</span>: <span class="literal">false</span>,<span class="comment">//是否打开 tab 自动完成标签</span></span><br><span class="line"></span><br><span class="line"><span class="string">"default_line_ending"</span>: <span class="string">"unix"</span>,<span class="comment">//默认table</span></span><br><span class="line"><span class="string">"ignored_packages"</span>: [],</span><br><span class="line"><span class="string">"line_padding_bottom"</span>: <span class="number">1</span>,<span class="comment">//行下间距</span></span><br><span class="line"><span class="string">"line_padding_top"</span>: <span class="number">1</span>,<span class="comment">//行上间距</span></span><br><span class="line"></span><br><span class="line"><span class="string">"font_options"</span>: <span class="string">"subpixel_antialias"</span>,<span class="comment">//字体默认配置</span></span><br><span class="line"><span class="string">"font_face"</span>: <span class="string">"microsoft yahei"</span>,<span class="comment">// 字体选择</span></span><br><span class="line"><span class="string">"tab_size"</span>: <span class="number">2</span>,<span class="comment">//标签栏，字体大小</span></span><br><span class="line"><span class="string">"font_size"</span>: <span class="number">14</span>,<span class="comment">//字代替大小</span></span><br><span class="line"></span><br><span class="line"><span class="string">"color_scheme"</span>: <span class="string">"Packages/ayu/ayu.tmTheme"</span>,<span class="comment">//颜色选择</span></span><br><span class="line"><span class="string">"theme"</span>: <span class="string">"Soda Light.sublime-theme"</span>,<span class="comment">//主题</span></span><br><span class="line"></span><br><span class="line"><span class="string">"rulers"</span>: [</span><br><span class="line">    <span class="number">80</span></span><br><span class="line">],<span class="comment">//行距</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置-Package-Control"><a href="#配置-Package-Control" class="headerlink" title="配置 Package Control"></a>配置 Package Control</h3><p> Package Control 也算是插件管理器，官网在 <a href="https://packagecontrol.io/" target="_blank" rel="noopener">这里</a>；</p>
+<p>快捷键 <code>clrl+`</code> 或者 <code>View -&gt; Show Console</code> 打开窗口，粘贴下方代码至窗口，等待配置完成，重启即可；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure>
+<p>准备完成，现在可以玩弄插件了；</p>
+<h3 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h3><p>下面是我平常使用的插件列表；</p>
+<ul>
+<li>Alignment / 多选择器/</li>
+<li>AutoFileName / 自动补全文件路径与文件名/</li>
+<li>Sublime Batter Completion / 代码提示/</li>
+<li>BracketHighlighter / 行高亮工具/</li>
+<li>CSS Format / css代码提示/</li>
+<li>Emmet / 创建文件/</li>
+<li>GitSavvy / sublime 里面的git 工具/</li>
+<li>JsFormat / javascript格式化(貌似没更新了，没用了)/</li>
+<li>LESS / LESS 代码提示/</li>
+<li>Markdown Preview / MD文档格式化显示工具，好用/</li>
+<li>Nodejs / 链接 nodejs(主要用作依赖)/</li>
+<li>QuoteHTML / 把 HTML 拼接成 js 插入字符串/</li>
+<li>SideBar / 侧栏增强工具/</li>
+<li>SublimeTmpl / 新建文件模板/</li>
+<li>AutoPrefixer / 自动补全浏览器私有前缀 /</li>
+<li>HTML/CSS/JS Prettify / 格式化插件/</li>
+</ul>
+<h3 id="个人使用癖好"><a href="#个人使用癖好" class="headerlink" title="个人使用癖好"></a>个人使用癖好</h3><p>配置完插件之后，有几个配置，属于个人癖好，各位看官可以看着玩，打开 <code>Preferences – key-Bindings</code>；</p>
+<h4 id="迅速打开浏览器"><a href="#迅速打开浏览器" class="headerlink" title="迅速打开浏览器"></a>迅速打开浏览器</h4><p>加上这个配置可以在编辑文件时候，按 <code>F5</code> 可以直接用浏览器打开该文件，同理可以配置其他浏览器；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// chrome</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"keys"</span>: [<span class="string">"F5"</span>],</span><br><span class="line">  <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">  <span class="string">"args"</span>: &#123;</span><br><span class="line">    <span class="string">"paths"</span>: [],</span><br><span class="line">    <span class="string">"application"</span>: <span class="string">"C:\\Users\\user_name\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe"</span>,</span><br><span class="line">    <span class="string">"extensions"</span>: <span class="string">".*"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="QutoHTML-把-HTML-拼接成-js-插入字符串"><a href="#QutoHTML-把-HTML-拼接成-js-插入字符串" class="headerlink" title="QutoHTML 把 HTML 拼接成 js 插入字符串"></a>QutoHTML 把 HTML 拼接成 js 插入字符串</h4><p>详细看过 <code>QutoHTML</code> 文档的应该会发现它，有好几种模式，我这里只列举 <code>single</code> 和 <code>double</code>，即转变一行，和多行的字符串；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"keys"</span>: [<span class="string">"ctrl+alt+`"</span>],</span><br><span class="line">    <span class="string">"command"</span>: <span class="string">"quote_html"</span>,</span><br><span class="line">    <span class="string">"args"</span>: &#123;</span><br><span class="line">        <span class="string">"action"</span>: <span class="string">"single"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    <span class="string">"keys"</span>: [<span class="string">"ctrl+alt+shift+'"</span>],</span><br><span class="line">    <span class="string">"command"</span>: <span class="string">"quote_html"</span>,</span><br><span class="line">    <span class="string">"args"</span>: &#123;</span><br><span class="line">        <span class="string">"action"</span>: <span class="string">"double"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="GitSavvy-的翻译"><a href="#GitSavvy-的翻译" class="headerlink" title="GitSavvy 的翻译"></a>GitSavvy 的翻译</h4><p>这个是我目前用的最舒服的一个 git 插件了</p>
+<p><a href="https://github.com/divmain/GitSavvy" target="_blank" rel="noopener">GitSavvy – 原文介绍</a></p>
+<p><a href="https://www.youtube.com/watch?v=HLU_D8ZiqRs" target="_blank" rel="noopener">GitSavvy – 视频教程</a></p>
+<ul>
+<li>最常用的一个指令 <code>shift</code> + <code>ctrl</code> + ‘p’ 输入 <code>Git:status</code> 或者 <code>gs</code></li>
+</ul>
+<p>– OTHER (公共操作) 公共操作几乎所有的都一样就不每一页都解析了  –</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refresh ststus</td>
+<td>刷新</td>
+<td>[r]</td>
+</tr>
+<tr>
+<td>toggle this help menu</td>
+<td>显示 or 隐藏操作帮助</td>
+<td>[?]</td>
+</tr>
+<tr>
+<td>transition to next dashboard</td>
+<td>下一项操作表</td>
+<td>[tab]</td>
+</tr>
+<tr>
+<td>transition to previous dashboard</td>
+<td>上一项操作表</td>
+<td>[shift - tab]</td>
+</tr>
+<tr>
+<td>move cursor to next file</td>
+<td>光标移动到下一个文件</td>
+<td>[.]</td>
+</tr>
+<tr>
+<td>move cursor to previous file</td>
+<td>光标移动到上一个文件</td>
+<td>[,]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="status-状态操作表"><a href="#status-状态操作表" class="headerlink" title="status 状态操作表"></a>status <small>状态操作表</small></h5><p>– SELECTED FILE(单个文件操作) –</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open file</td>
+<td>打开选中文件</td>
+<td>[o]</td>
+</tr>
+<tr>
+<td>stage file</td>
+<td>选中文件进入 add 模式</td>
+<td>[s]</td>
+</tr>
+<tr>
+<td>unstage file</td>
+<td>选中文件取消 add 模式</td>
+<td>[u]</td>
+</tr>
+<tr>
+<td>discard changes to file</td>
+<td>放弃修改文件</td>
+<td>[d]</td>
+</tr>
+<tr>
+<td>open file on remote</td>
+<td>打开所选的远程仓库文件</td>
+<td>[h]</td>
+</tr>
+<tr>
+<td>launch external merge tool for conflict</td>
+<td>为冲突文件启动工具</td>
+<td>[M]</td>
+</tr>
+<tr>
+<td>diff file inline</td>
+<td>对比文件内部差异</td>
+<td>[l]</td>
+</tr>
+<tr>
+<td>diff file</td>
+<td>对比文件与最新版本差异</td>
+<td>[e]</td>
+</tr>
+</tbody>
+</table>
+<p>– ALL FILE(全文件操作) –</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stage all unstaged files</td>
+<td>所有未进入暂缓区的文件，进入暂缓区</td>
+<td>[a]</td>
+</tr>
+<tr>
+<td>stage all unstaged and untracked files</td>
+<td>所有未进入暂缓区的文件，进入暂缓区，包括新建</td>
+<td>[A]</td>
+</tr>
+<tr>
+<td>unstage all staged files</td>
+<td>所有文件退出暂缓区</td>
+<td>[U]</td>
+</tr>
+<tr>
+<td>discard all unstaged changes</td>
+<td>取消所有未进入暂缓区文件的修改</td>
+<td>[D]</td>
+</tr>
+<tr>
+<td>diff all files</td>
+<td>查看所有文件的差异</td>
+<td>[f]</td>
+</tr>
+<tr>
+<td>diff all cached files</td>
+<td>查看所有有作改变文件的差异</td>
+<td>[F]</td>
+</tr>
+</tbody>
+</table>
+<p>– ACTIONS (提交操作) –</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>commit</td>
+<td>提交</td>
+<td>[c]</td>
+</tr>
+<tr>
+<td>commit, including unstaged</td>
+<td>把包含未进入暂缓区的一起提交</td>
+<td>[C]</td>
+</tr>
+<tr>
+<td>amend previous commit</td>
+<td>恢复到之前的提交</td>
+<td>[m]</td>
+</tr>
+<tr>
+<td>push current branch</td>
+<td>提交到某分支</td>
+<td>[p]</td>
+</tr>
+<tr>
+<td>ignore file</td>
+<td>忽略所选文件</td>
+<td>[i]</td>
+</tr>
+<tr>
+<td>ignore pattern</td>
+<td>忽略模式</td>
+<td>[I]</td>
+</tr>
+</tbody>
+</table>
+<p>– STASHES (恢复操作) –</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apply stash</td>
+<td>恢复工作区，修改内容不变</td>
+<td>[t][a]</td>
+</tr>
+<tr>
+<td>pop stash</td>
+<td>恢复版本号，同时修改内容</td>
+<td>[t][p]</td>
+</tr>
+<tr>
+<td>show stash</td>
+<td>查看修改区文件修改情况</td>
+<td>[t][s]</td>
+</tr>
+<tr>
+<td>create stash</td>
+<td>创建修改区</td>
+<td>[t][c]</td>
+</tr>
+<tr>
+<td>create stash including unstaged</td>
+<td>将所有未修改的文件都包含到修改区</td>
+<td>[t][u]</td>
+</tr>
+<tr>
+<td>create stash of staged changes only</td>
+<td>只对修改过的文件创建修改区</td>
+<td>[t][g]</td>
+</tr>
+<tr>
+<td>drop stash</td>
+<td>撤销修改</td>
+<td>[t][d]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="branches-分支操作表"><a href="#branches-分支操作表" class="headerlink" title="branches 分支操作表"></a>branches <small>分支操作表</small></h4><p>– ACTIONS (操作) –</p>
+<p>左边</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>checkout</td>
+<td>选中分支切换</td>
+<td>[c]</td>
+</tr>
+<tr>
+<td>create from selected branch</td>
+<td>创建并切换到该分支</td>
+<td>[b]</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除分支</td>
+<td>[d]</td>
+</tr>
+<tr>
+<td>delete (force)</td>
+<td>强制删除</td>
+<td>[D]</td>
+</tr>
+<tr>
+<td>rename (local)</td>
+<td>重命名</td>
+<td>[R]</td>
+</tr>
+<tr>
+<td>configure tracking</td>
+<td>查看分支情况</td>
+<td>[t]</td>
+</tr>
+<tr>
+<td>diff against active</td>
+<td>查看工作区与分支区别</td>
+<td>[f]</td>
+</tr>
+<tr>
+<td>diff history against active</td>
+<td>查看该分支历史差异</td>
+<td>[h]</td>
+</tr>
+<tr>
+<td>edit branch description</td>
+<td>编辑分支描述</td>
+<td>[e]</td>
+</tr>
+</tbody>
+</table>
+<p>右边</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>push selected to remote</td>
+<td>推送所选分支到远程</td>
+<td>[p]</td>
+</tr>
+<tr>
+<td>push all branches to remote</td>
+<td>推送所有分支到远程</td>
+<td>[P]</td>
+</tr>
+<tr>
+<td>fetch remote branches</td>
+<td>获取远程分支</td>
+<td>[h]</td>
+</tr>
+<tr>
+<td>merge selected into active branch</td>
+<td>合并分支</td>
+<td>[m]</td>
+</tr>
+<tr>
+<td>fetch and merge into active branch</td>
+<td>获取远程分支并合并当前分支</td>
+<td>[M]</td>
+</tr>
+<tr>
+<td>show branch log</td>
+<td>查看分支日志</td>
+<td>[L]</td>
+</tr>
+<tr>
+<td>show branch log graph</td>
+<td>查看分支日志图表</td>
+<td>[g]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="rebase-合并操作表"><a href="#rebase-合并操作表" class="headerlink" title="rebase 合并操作表"></a>rebase <small>合并操作表</small></h5><p>– MANIPULATE COMMITS (提交操作) –</p>
+<p>左边</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>squash commit with previous</td>
+<td>压缩之前的提交信息</td>
+<td>[q]</td>
+</tr>
+<tr>
+<td>squash commit with …</td>
+<td>压缩某一段提交信息</td>
+<td>[Q]</td>
+</tr>
+<tr>
+<td>squash all commits</td>
+<td>压缩所有提交信息</td>
+<td>[S]</td>
+</tr>
+<tr>
+<td>drop commit</td>
+<td>撤销提交</td>
+<td>[p]</td>
+</tr>
+<tr>
+<td>edit commit message</td>
+<td>编辑提交信息</td>
+<td>[e]</td>
+</tr>
+<tr>
+<td>move commit down (after next)</td>
+<td>提交信息下移</td>
+<td>[d]</td>
+</tr>
+<tr>
+<td>move commit after …</td>
+<td>提交信息移至某处之前</td>
+<td>[D]</td>
+</tr>
+<tr>
+<td>move commit up (before previous)</td>
+<td>提交信息上移</td>
+<td>[u]</td>
+</tr>
+<tr>
+<td>move commit before …</td>
+<td>提交信息移至某处之后</td>
+<td>[U]</td>
+</tr>
+<tr>
+<td>show commit</td>
+<td>查看所有提交信息</td>
+<td>[w]</td>
+</tr>
+</tbody>
+</table>
+<p>右边</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>define base ref for dashboard</td>
+<td>以本地选择为基准</td>
+<td>[f]</td>
+</tr>
+<tr>
+<td>rebase branch on top of..</td>
+<td>提交至某远程仓库</td>
+<td>[r]</td>
+</tr>
+<tr>
+<td>toggle preserve merges mode</td>
+<td>切换 保留 or 合并 模式</td>
+<td>[m]</td>
+</tr>
+<tr>
+<td>continue rebase</td>
+<td>跳过本次提交</td>
+<td>[c]</td>
+</tr>
+<tr>
+<td>skip commit during rebase</td>
+<td>重新绑定跳过的提交</td>
+<td>[k]</td>
+</tr>
+<tr>
+<td>abort rebase</td>
+<td>终止提交</td>
+<td>[A]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="tages-标签操作表"><a href="#tages-标签操作表" class="headerlink" title="tages 标签操作表"></a>tages <small>标签操作表</small></h5><p>– ACTIONS (行为) –</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td>创建标签</td>
+<td>[c]</td>
+</tr>
+<tr>
+<td>create smart tag</td>
+<td>创建智能标签</td>
+<td>[s]</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除标签</td>
+<td>[d]</td>
+</tr>
+<tr>
+<td>push to remote</td>
+<td>所选标签提交至远程仓库</td>
+<td>[p]</td>
+</tr>
+<tr>
+<td>push all tags to remote</td>
+<td>提交所有标签到远程仓库</td>
+<td>[P]</td>
+</tr>
+<tr>
+<td>view commit</td>
+<td>查看提交信息</td>
+<td>[L]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="graph-查看操作日志"><a href="#graph-查看操作日志" class="headerlink" title="graph 查看操作日志"></a>graph <small>查看操作日志</small></h5>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sublime/" rel="tag"># Sublime</a>
+          
+            <a href="/tags/工具/" rel="tag"># 工具</a>
+          
+            <a href="/tags/语言环境/" rel="tag"># 语言环境</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/18/jQuery的使用心得/" rel="prev" title="jQuery的使用心得">
+                jQuery的使用心得 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/zindex_avatar.jpg"
+                alt="YG" />
+            
+              <p class="site-author-name" itemprop="name">YG</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZindexYG" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/3249847654" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-coffee"></i>
+                物语伙伴
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alexinea.com/" title="Alexinea" target="_blank">Alexinea</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.verge.wang/" title="一抹愿" target="_blank">一抹愿</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.jiasm.org/" title="贾顺名" target="_blank">贾顺名</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rainylog.com/" title="Rainy's Blog" target="_blank">Rainy's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yufan.me/" title="且听书吟" target="_blank">且听书吟</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础配置"><span class="nav-number">1.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Package-Control"><span class="nav-number">2.</span> <span class="nav-text">配置 Package Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件列表"><span class="nav-number">3.</span> <span class="nav-text">插件列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人使用癖好"><span class="nav-number">4.</span> <span class="nav-text">个人使用癖好</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#迅速打开浏览器"><span class="nav-number">4.1.</span> <span class="nav-text">迅速打开浏览器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QutoHTML-把-HTML-拼接成-js-插入字符串"><span class="nav-number">4.2.</span> <span class="nav-text">QutoHTML 把 HTML 拼接成 js 插入字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitSavvy-的翻译"><span class="nav-number">4.3.</span> <span class="nav-text">GitSavvy 的翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#status-状态操作表"><span class="nav-number">4.3.1.</span> <span class="nav-text">status 状态操作表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#branches-分支操作表"><span class="nav-number">4.4.</span> <span class="nav-text">branches 分支操作表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#rebase-合并操作表"><span class="nav-number">4.4.1.</span> <span class="nav-text">rebase 合并操作表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tages-标签操作表"><span class="nav-number">4.4.2.</span> <span class="nav-text">tages 标签操作表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#graph-查看操作日志"><span class="nav-number">4.4.3.</span> <span class="nav-text">graph 查看操作日志</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YG</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+<script>
+  	var _mtac = {};
+  	(function() {
+  		var mta = document.createElement("script");
+  		mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.setAttribute("name", "MTAH5");
+  		mta.setAttribute("sid", "500566833");
+
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(mta, s);
+  	})();
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://tajs.qq.com/stats?sId=64829990";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Li281zuYVEchoWHi6n7LBXdT-gzGzoHsz", "zPVtChahoqujKQG8P5rMXBGn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

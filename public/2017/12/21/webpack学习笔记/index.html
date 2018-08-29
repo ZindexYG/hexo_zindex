@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="webpack,JavaScript,node," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这是一份学习笔记，仅此记录一个学习过程">
+<meta name="keywords" content="webpack,JavaScript,node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack学习笔记">
+<meta property="og:url" content="https://z-index.me/2017/12/21/webpack学习笔记/index.html">
+<meta property="og:site_name" content="时之物语">
+<meta property="og:description" content="这是一份学习笔记，仅此记录一个学习过程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://z-index.me/images/webpack-banner.jpg">
+<meta property="og:updated_time" content="2018-07-08T10:23:49.530Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack学习笔记">
+<meta name="twitter:description" content="这是一份学习笔记，仅此记录一个学习过程">
+<meta name="twitter:image" content="https://z-index.me/images/webpack-banner.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://z-index.me/2017/12/21/webpack学习笔记/"/>
+
+
+
+
+
+  <title>webpack学习笔记 | 时之物语</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时之物语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/21/webpack学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之物语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">webpack学习笔记</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T22:22:59+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/21/webpack学习笔记/" class="leancloud_visitors" data-flag-title="webpack学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/webpack-banner.jpg" alt=""></p>
+<blockquote>
+<p>这是一份学习笔记，仅此记录一个学习过程</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="理解-WebPack"><a href="#理解-WebPack" class="headerlink" title="理解 WebPack"></a>理解 WebPack</h2><p>学习 WebPack 最好是从服务端的角度出发，或者说从 node 角度出发，到程序的角度，再到用户的角度；</p>
+<p>反过来，一部分用户是不需要一些渲染的页面的，那么从服务端开始，编写用户需要的页面；</p>
+<h2 id="package-json-文件"><a href="#package-json-文件" class="headerlink" title="package.json 文件"></a>package.json 文件</h2><p>package.json 是一个 node 生成的目录文件，下面 vue-cli 生成的一个 package.json；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"vue-test"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"A Vue.js project"</span>,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"yg_zinger"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="comment">//more</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"vue"</span>: <span class="string">"^2.5.2"</span>,</span><br><span class="line">    <span class="string">"vue-router"</span>: <span class="string">"^3.0.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="comment">// more ...</span></span><br><span class="line">    <span class="string">"url-loader"</span>: <span class="string">"^0.5.8"</span>,</span><br><span class="line">    <span class="string">"vue-jest"</span>: <span class="string">"^1.0.2"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^13.3.0"</span>,</span><br><span class="line">    <span class="string">"vue-style-loader"</span>: <span class="string">"^3.0.1"</span>,</span><br><span class="line">    <span class="string">"vue-template-compiler"</span>: <span class="string">"^2.5.2"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.6.0"</span>,</span><br><span class="line">    <span class="string">"webpack-bundle-analyzer"</span>: <span class="string">"^2.9.0"</span>,</span><br><span class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"^2.9.1"</span>,</span><br><span class="line">    <span class="string">"webpack-merge"</span>: <span class="string">"^4.1.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"engines"</span>: &#123;</span><br><span class="line">    <span class="string">"node"</span>: <span class="string">"&gt;= 4.0.0"</span>,</span><br><span class="line">    <span class="string">"npm"</span>: <span class="string">"&gt;= 3.0.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"browserslist"</span>: [</span><br><span class="line">    <span class="string">"&gt; 1%"</span>,</span><br><span class="line">    <span class="string">"last 2 versions"</span>,</span><br><span class="line">    <span class="string">"not ie &lt;= 8"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常见字段解析"><a href="#常见字段解析" class="headerlink" title="常见字段解析"></a>常见字段解析</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>解析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>项目名</td>
+</tr>
+<tr>
+<td>version</td>
+<td>项目版本号，（大改，次改，小改）</td>
+</tr>
+<tr>
+<td>author</td>
+<td>作者名字</td>
+</tr>
+<tr>
+<td>script</td>
+<td>调用命令脚本，封装功能用</td>
+</tr>
+<tr>
+<td>dependencies</td>
+<td>项目运行所需的依赖包</td>
+</tr>
+<tr>
+<td>devDependencies</td>
+<td>项目开发所需的依赖包</td>
+</tr>
+<tr>
+<td>engines</td>
+<td>制定包的运行环境</td>
+</tr>
+<tr>
+<td>browserlist</td>
+<td>浏览器兼容性问题</td>
+</tr>
+<tr>
+<td>config</td>
+<td>用于添加命令行的环境变量</td>
+</tr>
+<tr>
+<td>private</td>
+<td>设置为ture 表示不发布到 npm 平台下</td>
+</tr>
+</tbody>
+</table>
+<h2 id="主要配置"><a href="#主要配置" class="headerlink" title="主要配置"></a>主要配置</h2><p>如果是个人配置，大可不必使用脚手架，以及前端框架，把 webpack 当作一个打包工具即可；</p>
+<p>个人配置上面不需要太复杂，就拿一个 webpack.config.js 来看即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导入所需的依赖</span></span><br><span class="line"><span class="keyword">var</span> FriendlyErrorsWebpackPlugin = <span class="built_in">require</span>(<span class="string">'friendly-errors-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//模块输出</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 入口， 可以是字符串，数组，对象</span></span><br><span class="line">  entry: <span class="string">'./src/mian.js'</span>,</span><br><span class="line">  <span class="comment">// 输出配置， 一般有 filenema=输出名字, path=输出地址, publicPath=输出公共资源的路径 字段</span></span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + <span class="string">'/dist'</span>,</span><br><span class="line">    publicPath: <span class="string">'/static/'</span>,</span><br><span class="line">    filename: <span class="string">'build.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 插件</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.ProgressPlugin(),</span><br><span class="line">    <span class="keyword">new</span> FriendlyErrorsWebpackPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// 模块处理</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    <span class="comment">// 字段配置</span></span><br><span class="line">    rules: [&#123;</span><br><span class="line">      <span class="comment">//test = 正则匹配规则， use = 匹配对应 loader or 对象 options</span></span><br><span class="line">      test: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: <span class="string">"vue-loader"</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          loaders: &#123;</span><br><span class="line">            css: ExtractTextPlugin.extract(&#123;</span><br><span class="line">              use: <span class="string">'css-loader'</span></span><br><span class="line">            &#125;),</span><br><span class="line">            stylus: ExtractTextPlugin.extract(&#123;</span><br><span class="line">              use: [<span class="string">"css-loader"</span>, <span class="string">"scss-loader"</span>]</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      use: [<span class="string">'vue-style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'scss-loader'</span>]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        loader: <span class="string">"url-loader"</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          limit: <span class="number">10000</span>,</span><br><span class="line">          name: <span class="string">'images/[name].[hash:7].[ext]'</span> <span class="comment">// 将图片都放入images文件夹下，[hash:7]防缓存</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.(woff2?|eot|ttf|otf)(\?.*)?$/</span>,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        loader: <span class="string">"url-loader"</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          limit: <span class="number">10000</span>,</span><br><span class="line">          name: <span class="string">'fonts/[name].[hash:7].[ext]'</span> <span class="comment">// 将字体放入fonts文件夹下</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      use: <span class="string">"babel-loader"</span>,</span><br><span class="line">      include: [path.resolve(__dirname, <span class="string">'src'</span>)]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 压缩 javascript 的插件</span></span><br><span class="line"><span class="keyword">new</span> webpack.optimize.UglifyJsPlugin()</span><br><span class="line"><span class="comment">// 抽离 css 到css 文件</span></span><br><span class="line"><span class="keyword">new</span> ExtractTextPlugin(&#123;</span><br><span class="line">  filename: <span class="string">"css/style.css"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="plugins-常用插件"><a href="#plugins-常用插件" class="headerlink" title="plugins 常用插件"></a>plugins 常用插件</h2><p>现在大部分插件都会在 webpack 上面集成好，所以 <a href="https://doc.webpack-china.org/plugins/" target="_blank" rel="noopener">webpack文档</a> 就很关键了，多看文档多成长;</p>
+<p>下面介绍部分常用的，也是使用一些脚手架常见的插件，与个人理解；</p>
+<h3 id="对代码处理的插件"><a href="#对代码处理的插件" class="headerlink" title="对代码处理的插件"></a>对代码处理的插件</h3><table>
+<thead>
+<tr>
+<th>插件</th>
+<th>用处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BannerPlugin</td>
+<td>给代码添加版权信息</td>
+</tr>
+<tr>
+<td>CommonsChunkPlugin</td>
+<td>用于共享抽离代码，整个项目的第三方；多个子 chunk 共用打包进入 父 chunk；Mainfest 每次打包都有变化</td>
+</tr>
+<tr>
+<td>CompressionWebpackPlugin</td>
+<td>使用配置算法</td>
+</tr>
+<tr>
+<td>DefinePlugin</td>
+<td>允许在编译时(compile time)配置的全局常量</td>
+</tr>
+<tr>
+<td>EnvionmetPlugin</td>
+<td>通过 DefinePlugin 来设置 process.env 环境变量的快捷方式</td>
+</tr>
+<tr>
+<td>ProvidePlugin</td>
+<td>自动加载模块，不需要 import 或者 require</td>
+</tr>
+<tr>
+<td>UglifyJsPlugin</td>
+<td>自动压缩 JS 代码(需要安装，不自带)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="辅助打包后的代码"><a href="#辅助打包后的代码" class="headerlink" title="辅助打包后的代码"></a>辅助打包后的代码</h3><table>
+<thead>
+<tr>
+<th>插件</th>
+<th>用处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HtmlWebpackPlugin</td>
+<td>自动依据 entry 的配置引入依赖（需要安装，不自带）</td>
+</tr>
+<tr>
+<td>cleanWebpackPlugin</td>
+<td>每次打包，清空配置的文件夹，包名保持不一致 （需要安装，不自带）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="辅助开发的相关属性"><a href="#辅助开发的相关属性" class="headerlink" title="辅助开发的相关属性"></a>辅助开发的相关属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>devtool</td>
+<td>打包后的代码与原始代码不同，控制是否生成 &amp; 如何生成</td>
+</tr>
+<tr>
+<td>devServer</td>
+<td>打开本地服务器，需要配置</td>
+</tr>
+<tr>
+<td>watch</td>
+<td>持续监听文件的更改，重新构建文件，开发时期使用</td>
+</tr>
+<tr>
+<td>watchOptions</td>
+<td>定制 watch 模式</td>
+</tr>
+<tr>
+<td>performance</td>
+<td>展示性能提示</td>
+</tr>
+<tr>
+<td>stats</td>
+<td>配置打包过程输出的内容，值：none，norml，rerbese，errors-only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="精细的相关属性配置"><a href="#精细的相关属性配置" class="headerlink" title="精细的相关属性配置"></a>精细的相关属性配置</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content</td>
+<td>设置基础路径，默认当前</td>
+</tr>
+<tr>
+<td>resolve</td>
+<td>确定某块如何被解析，有默认值，可自定义</td>
+</tr>
+<tr>
+<td>target</td>
+<td>打包之后代码所执行的环境</td>
+</tr>
+<tr>
+<td>extemals</td>
+<td>控制某个依赖，不打包，直接从用户环境获取</td>
+</tr>
+</tbody>
+</table>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>基本上到这里了，这里大部分东西都在 <a href="https://doc.webpack-china.org/" target="_blank" rel="noopener">Webpack社区</a> 里可以查得到，习惯用了脚手架，会让突然出现的错误，措手不及，所以我们需要学习，和记录；</p>
+<p>当然，最近出了个 <a href="https://parceljs.org/" target="_blank" rel="noopener">Parcel </a>，貌似更好用…有机会试一下</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/19/你不知道的bootstrap中文网/" rel="next" title="你不知道的bootstrap中文网">
+                <i class="fa fa-chevron-left"></i> 你不知道的bootstrap中文网
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/22/时针滴答一下，响了/" rel="prev" title="时针滴答一下，响了">
+                时针滴答一下，响了 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/zindex_avatar.jpg"
+                alt="YG" />
+            
+              <p class="site-author-name" itemprop="name">YG</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZindexYG" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/3249847654" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-coffee"></i>
+                物语伙伴
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alexinea.com/" title="Alexinea" target="_blank">Alexinea</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.verge.wang/" title="一抹愿" target="_blank">一抹愿</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.jiasm.org/" title="贾顺名" target="_blank">贾顺名</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rainylog.com/" title="Rainy's Blog" target="_blank">Rainy's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yufan.me/" title="且听书吟" target="_blank">且听书吟</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解-WebPack"><span class="nav-number">1.</span> <span class="nav-text">理解 WebPack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json-文件"><span class="nav-number">2.</span> <span class="nav-text">package.json 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见字段解析"><span class="nav-number">2.1.</span> <span class="nav-text">常见字段解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要配置"><span class="nav-number">3.</span> <span class="nav-text">主要配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plugins-常用插件"><span class="nav-number">4.</span> <span class="nav-text">plugins 常用插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对代码处理的插件"><span class="nav-number">4.1.</span> <span class="nav-text">对代码处理的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助打包后的代码"><span class="nav-number">4.2.</span> <span class="nav-text">辅助打包后的代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#辅助开发的相关属性"><span class="nav-number">5.</span> <span class="nav-text">辅助开发的相关属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#精细的相关属性配置"><span class="nav-number">6.</span> <span class="nav-text">精细的相关属性配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YG</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+<script>
+  	var _mtac = {};
+  	(function() {
+  		var mta = document.createElement("script");
+  		mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.setAttribute("name", "MTAH5");
+  		mta.setAttribute("sid", "500566833");
+
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(mta, s);
+  	})();
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://tajs.qq.com/stats?sId=64829990";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Li281zuYVEchoWHi6n7LBXdT-gzGzoHsz", "zPVtChahoqujKQG8P5rMXBGn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

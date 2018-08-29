@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery,读书笔记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文大部分都在参考 《锋利的jQuery》 一书，几乎可以说是读书笔记">
+<meta name="keywords" content="jQuery,读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery的使用心得">
+<meta property="og:url" content="https://z-index.me/2017/12/18/jQuery的使用心得/index.html">
+<meta property="og:site_name" content="时之物语">
+<meta property="og:description" content="本文大部分都在参考 《锋利的jQuery》 一书，几乎可以说是读书笔记">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://z-index.me/images/jquery-banner.jpg">
+<meta property="og:updated_time" content="2018-07-08T10:23:49.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery的使用心得">
+<meta name="twitter:description" content="本文大部分都在参考 《锋利的jQuery》 一书，几乎可以说是读书笔记">
+<meta name="twitter:image" content="https://z-index.me/images/jquery-banner.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://z-index.me/2017/12/18/jQuery的使用心得/"/>
+
+
+
+
+
+  <title>jQuery的使用心得 | 时之物语</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时之物语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/18/jQuery的使用心得/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之物语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">jQuery的使用心得</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T00:43:19+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/18/jQuery的使用心得/" class="leancloud_visitors" data-flag-title="jQuery的使用心得">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/jquery-banner.jpg" alt=""></p>
+<blockquote>
+<p>本文大部分都在参考 <a href="https://book.douban.com/subject/10792216/" target="_blank" rel="noopener">《锋利的jQuery》</a> 一书，几乎可以说是读书笔记</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="规则-amp-amp-格式"><a href="#规则-amp-amp-格式" class="headerlink" title="规则 &amp;&amp; 格式"></a>规则 &amp;&amp; 格式</h3><ol>
+<li>对于同一个对象不超过三个操作直接一行显示；</li>
+<li><p>对于同一个对象的较多操作，每个操作一行；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例子</span></span><br><span class="line">$(<span class="keyword">this</span>).removerClass(<span class="string">'add'</span>)</span><br><span class="line">       .addClass(<span class="string">'remove'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于多个对象的少量操作，每个对象一行，其中涉及子元素的可做缩进处理；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例子</span></span><br><span class="line">$(<span class="keyword">this</span>).addClass(<span class="string">'add'</span>)</span><br><span class="line">       .childe.show().</span><br><span class="line">siblings().removerClass(<span class="string">'remove'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果获取 JQ 对象，在变量前面加上 <code>$</code> 符号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $<span class="keyword">var</span> = $(<span class="keyword">this</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果获取的 DOM 对象，则不需要</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v = $(<span class="keyword">this</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JQ 对象和 DOM 对象之间的转换</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.[index]方法</span></span><br><span class="line"><span class="keyword">var</span> $cr = $(<span class="string">'#cr'</span>)</span><br><span class="line"><span class="keyword">var</span> cr = $cr[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.get(index)方法</span></span><br><span class="line"><span class="keyword">var</span> $cr = $(<span class="string">'#cr'</span>)</span><br><span class="line"><span class="keyword">var</span> cr = $cr.get(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>$(‘className Or ID’) 获取的永远是对象，即便网页上没有，即当 jQ 检索某个元素是否存在时候，需根据长度或转化为 dom 对象来判断对象是否存在</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($(<span class="string">'#tt'</span>))&#123;<span class="comment">//do something&#125; X</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($(<span class="string">'#tt'</span>).length &gt; <span class="number">0</span>)&#123;<span class="comment">//do somthing&#125;  ✓</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="jQ-如何解决事件冒泡"><a href="#jQ-如何解决事件冒泡" class="headerlink" title="jQ 如何解决事件冒泡"></a>jQ 如何解决事件冒泡</h3><p>在 jQ.1.7 中，<code>on()</code> 是首选绑定事件，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>,<span class="string">'.btn'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">  <span class="comment">//do somthing</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="on-与-bind-的区别"><a href="#on-与-bind-的区别" class="headerlink" title="on() 与 bind() 的区别"></a><code>on()</code> 与 <code>bind()</code> 的区别</h4><p><code>on()</code> 绑定的对象可以是动态生成的，而 <code>bind()</code> 绑定的对象必须是事先存在的</p>
+<h4 id="阻止冒泡行为"><a href="#阻止冒泡行为" class="headerlink" title="阻止冒泡行为"></a>阻止冒泡行为</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 如果事件可取消，则取消该事件，而不停止事件的进一步传播</span></span><br><span class="line">event.preventDefault();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接阻止默认行为</span></span><br><span class="line">event.stopPropagation();</span><br><span class="line"></span><br><span class="line"><span class="comment">//同时对时间对象停止冒泡和默认行为，在事件处理函数中返回 false</span></span><br><span class="line">$(<span class="string">'element'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//do somthing</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="jQuey-的-Ajax"><a href="#jQuey-的-Ajax" class="headerlink" title="jQuey 的 Ajax()"></a>jQuey 的 Ajax()</h3><h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: &apos;&apos;, // 接口地址</span><br><span class="line">  type: &apos;&apos;,//请求方式</span><br><span class="line">  dataType: &apos;&apos;,//获取格式</span><br><span class="line">  data: &#123;param: &apos;value&apos;&#125;,//请求参数</span><br><span class="line">&#125;)</span><br><span class="line">.done(function() &#123;</span><br><span class="line">  //链接获取成功</span><br><span class="line">  console.log(&quot;success&quot;);</span><br><span class="line">&#125;)</span><br><span class="line">.fail(function() &#123;</span><br><span class="line">  //链接获取失败</span><br><span class="line">  console.log(&quot;error&quot;);</span><br><span class="line">&#125;)</span><br><span class="line">.always(function() &#123;</span><br><span class="line">  //无论失败或者成功</span><br><span class="line">  console.log(&quot;complete&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//post 快速请求</span><br><span class="line">$.post(url, &#123;param: &apos;value&apos;&#125;, function(data, textStatus, xhr) &#123;&#125;,&apos;type&apos;);</span><br><span class="line"></span><br><span class="line">//get 快速请求</span><br><span class="line">$.get(url, function(data) &#123;&#125;,&apos;type&apos;);</span><br></pre></td></tr></table></figure>
+<p><code>$.ajax()</code>，<code>$.post()</code>，<code>$.get()</code> 都是 jQuery 中的全局函数</p>
+<h4 id="ajaxSetup-设置默认值"><a href="#ajaxSetup-设置默认值" class="headerlink" title="$.ajaxSetup() 设置默认值"></a>$.ajaxSetup() 设置默认值</h4><p>为以后要用到的Ajax请求设置默认的值,使用 <code>名称/值</code> 对来规定 AJAX 请求的设置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.ajaxSetup(&#123;</span><br><span class="line">  url:<span class="string">'url'</span>,</span><br><span class="line">  dataType:post,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="常用的-JQ-代码段"><a href="#常用的-JQ-代码段" class="headerlink" title="常用的 JQ 代码段"></a>常用的 JQ 代码段</h3><h4 id="1-禁用页面的右键菜单"><a href="#1-禁用页面的右键菜单" class="headerlink" title="1. 禁用页面的右键菜单"></a>1. 禁用页面的右键菜单</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="built_in">document</span>).bind(<span class="string">"contextmenu"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2-新窗口的开页面"><a href="#2-新窗口的开页面" class="headerlink" title="2. 新窗口的开页面"></a>2. 新窗口的开页面</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.</span></span><br><span class="line">    $(<span class="string">'a[href^="http://"]'</span>).attr(<span class="string">"target"</span>, <span class="string">"_blank"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.</span></span><br><span class="line">    $(<span class="string">'a[re]$="external"'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = <span class="string">"_blank"</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="3-判断浏览器类型"><a href="#3-判断浏览器类型" class="headerlink" title="3. 判断浏览器类型"></a>3. 判断浏览器类型</h4><p>PS:<strong>JQ1.3 后，官方贵贱使用$.supper 来代替 $.browser</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//firefox 2 and above</span></span><br><span class="line">    <span class="keyword">if</span>($.browse.mozilla &amp;&amp; $.browser.version &gt;=<span class="string">"1.8"</span>) &#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//safari</span></span><br><span class="line">    <span class="keyword">if</span>($.browse.safari) &#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// chorme</span></span><br><span class="line">    <span class="keyword">if</span>($.browse.chrome) &#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// opera</span></span><br><span class="line">    <span class="keyword">if</span>($.browse.opera) &#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//ie7 and below</span></span><br><span class="line">    <span class="keyword">if</span>($.browser.msie &amp;&amp; $.browser.version &lt;= <span class="number">6</span>)&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//ie6 and anything</span></span><br><span class="line">    <span class="keyword">if</span>($.browser.msie &amp;&amp; $.browser.version &gt;<span class="number">6</span>) &#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="4-输入框文字获取焦点"><a href="#4-输入框文字获取焦点" class="headerlink" title="4. 输入框文字获取焦点"></a>4. 输入框文字获取焦点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'input.text'</span>).val(<span class="string">'点击回车即可搜索'</span>)</span><br><span class="line">    textFill($(<span class="string">'input.text'</span>))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">textFill</span>(<span class="params">input</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//input focus text function</span></span><br><span class="line">    <span class="keyword">var</span> originalvalue = input.val()</span><br><span class="line">    input.focus(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>($.trim(input.val())== originalvalue)&#123;</span><br><span class="line">            input.val(<span class="string">''</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).blur(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>($.trim(input.val()) == <span class="string">''</span>) &#123;</span><br><span class="line">            input.val(originalvalue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-返回头部滑动动画"><a href="#5-返回头部滑动动画" class="headerlink" title="5. 返回头部滑动动画"></a>5. 返回头部滑动动画</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">jQuery.fn.scrollTo =<span class="function"><span class="keyword">function</span> (<span class="params">speed</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> targetOffset = $(<span class="keyword">this</span>).offset().top</span><br><span class="line">    $(<span class="string">'html, body'</span>).stop().animate(&#123;<span class="attr">scrollTop</span>: targetOffset&#125;, speed)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#button'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'body'</span>).scrollTo(<span class="number">500</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="6-获取鼠标位置"><a href="#6-获取鼠标位置" class="headerlink" title="6. 获取鼠标位置"></a>6. 获取鼠标位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">document</span>).mousemove(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        $(<span class="string">'#XY'</span>).html(<span class="string">"X:"</span>+e.pageX + <span class="string">"| Y:"</span> + e.pageY)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="7-判断元素是否存在"><a href="#7-判断元素是否存在" class="headerlink" title="7. 判断元素是否存在"></a>7. 判断元素是否存在</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($(<span class="string">'#id'</span>).length)&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="8-点击-div-也可以跳转"><a href="#8-点击-div-也可以跳转" class="headerlink" title="8. 点击 div 也可以跳转"></a>8. 点击 div 也可以跳转</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.location = $(<span class="keyword">this</span>).find(<span class="string">'a'</span>).attr(<span class="string">'href'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="9-根据浏览器大小添加样式"><a href="#9-根据浏览器大小添加样式" class="headerlink" title="9. 根据浏览器大小添加样式"></a>9. 根据浏览器大小添加样式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkWindowSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>($(<span class="built_in">window</span>).width &gt; <span class="number">1200</span>)&#123;</span><br><span class="line">            $(<span class="string">'body'</span>).addClass(<span class="string">'add'</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $(<span class="string">'body'</span>).removeClass(<span class="string">'add'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">$(<span class="built_in">window</span>).resize(checkWindowSize)</span><br></pre></td></tr></table></figure>
+<h4 id="10-设置-div-在屏幕中央"><a href="#10-设置-div-在屏幕中央" class="headerlink" title="10. 设置 div 在屏幕中央"></a>10. 设置 div 在屏幕中央</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    jQuery.fn.center = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.css(<span class="string">'position'</span>,<span class="string">'absolute'</span>)</span><br><span class="line">        <span class="keyword">this</span>.css(<span class="string">'top'</span>, ($(<span class="built_in">window</span>).height() - <span class="keyword">this</span>.height()) / <span class="number">2</span> + $(<span class="built_in">window</span>).scrollTop() + <span class="string">'px'</span>)</span><br><span class="line">        <span class="keyword">this</span>.css(<span class="string">'left'</span>, ($(<span class="built_in">window</span>).width() - <span class="keyword">this</span>.width()) / <span class="number">2</span> + $(<span class="built_in">window</span>).scrollLeft() + <span class="string">'px'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    $(<span class="string">'#xy'</span>).center()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="11-创建自己的选择器"><a href="#11-创建自己的选择器" class="headerlink" title="11. 创建自己的选择器"></a>11. 创建自己的选择器</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $.extend($.expr[<span class="string">':'</span>], &#123;</span><br><span class="line">        moreThen500px: <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> $(a).width() &gt; <span class="number">500</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">'.box:moreThen500px'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//do</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="12-关闭所有动画效果"><a href="#12-关闭所有动画效果" class="headerlink" title="12. 关闭所有动画效果"></a>12. 关闭所有动画效果</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    jQuery.fx.off = <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="13-检测鼠标的左右键"><a href="#13-检测鼠标的左右键" class="headerlink" title="13. 检测鼠标的左右键"></a>13. 检测鼠标的左右键</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'#xy'</span>).mousedown(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        alert(e.which)</span><br><span class="line">        <span class="comment">//1 = 鼠标左键，2 = 鼠标中键，3 = 鼠标右键</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="14-回车提交表单"><a href="#14-回车提交表单" class="headerlink" title="14. 回车提交表单"></a>14. 回车提交表单</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'input'</span>).keyup(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(e.which === <span class="string">'13'</span>)&#123;</span><br><span class="line">            alert(<span class="string">'ok'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="15-设置全局-ajax-参数"><a href="#15-设置全局-ajax-参数" class="headerlink" title="15. 设置全局 ajax 参数"></a>15. 设置全局 ajax 参数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#load'</span>).ajaxStart(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    showLoading();</span><br><span class="line">    disableButtons();</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">'#load'</span>).ajaxCompleta(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    hideLoading();</span><br><span class="line">    enableButtons();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="16-获取选中的下拉框"><a href="#16-获取选中的下拉框" class="headerlink" title="16. 获取选中的下拉框"></a>16. 获取选中的下拉框</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#someElement'</span>).find(<span class="string">'option:selected'</span>)</span><br><span class="line">$(<span class="string">'#someElement option:selected'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="17-切换复选框"><a href="#17-切换复选框" class="headerlink" title="17. 切换复选框"></a>17. 切换复选框</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tog =<span class="literal">false</span></span><br><span class="line">$(<span class="string">'button'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'input[type=checkbox]'</span>).attr(<span class="string">'checked'</span>,!tog)</span><br><span class="line">    tog = !tog</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="18-使用-siblings-来选择同辈元素"><a href="#18-使用-siblings-来选择同辈元素" class="headerlink" title="18. 使用 siblings() 来选择同辈元素"></a>18. 使用 siblings() 来选择同辈元素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#nav li'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).addClass(<span class="string">'active'</span>)</span><br><span class="line">            .siblings().removeClass(<span class="string">'active'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="19-个性化链接"><a href="#19-个性化链接" class="headerlink" title="19. 个性化链接"></a>19. 个性化链接</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'a[href$=pdf]'</span>).addClass(<span class="string">'pdf'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="20-一段时间后自动关闭或者隐藏元素"><a href="#20-一段时间后自动关闭或者隐藏元素" class="headerlink" title="20. 一段时间后自动关闭或者隐藏元素"></a>20. 一段时间后自动关闭或者隐藏元素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'div'</span>).fadeIn(<span class="number">400</span>)</span><br><span class="line">&#125;, <span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/17/sublime 配置与使用/" rel="next" title="Sublime 配置与使用">
+                <i class="fa fa-chevron-left"></i> Sublime 配置与使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/19/你不知道的bootstrap中文网/" rel="prev" title="你不知道的bootstrap中文网">
+                你不知道的bootstrap中文网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/zindex_avatar.jpg"
+                alt="YG" />
+            
+              <p class="site-author-name" itemprop="name">YG</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZindexYG" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/3249847654" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-coffee"></i>
+                物语伙伴
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alexinea.com/" title="Alexinea" target="_blank">Alexinea</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.verge.wang/" title="一抹愿" target="_blank">一抹愿</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.jiasm.org/" title="贾顺名" target="_blank">贾顺名</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rainylog.com/" title="Rainy's Blog" target="_blank">Rainy's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yufan.me/" title="且听书吟" target="_blank">且听书吟</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#规则-amp-amp-格式"><span class="nav-number">1.</span> <span class="nav-text">规则 &amp;&amp; 格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQ-如何解决事件冒泡"><span class="nav-number">2.</span> <span class="nav-text">jQ 如何解决事件冒泡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#on-与-bind-的区别"><span class="nav-number">2.1.</span> <span class="nav-text">on() 与 bind() 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止冒泡行为"><span class="nav-number">2.2.</span> <span class="nav-text">阻止冒泡行为</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuey-的-Ajax"><span class="nav-number">3.</span> <span class="nav-text">jQuey 的 Ajax()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解析"><span class="nav-number">3.1.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ajaxSetup-设置默认值"><span class="nav-number">3.2.</span> <span class="nav-text">$.ajaxSetup() 设置默认值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的-JQ-代码段"><span class="nav-number">4.</span> <span class="nav-text">常用的 JQ 代码段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-禁用页面的右键菜单"><span class="nav-number">4.1.</span> <span class="nav-text">1. 禁用页面的右键菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-新窗口的开页面"><span class="nav-number">4.2.</span> <span class="nav-text">2. 新窗口的开页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-判断浏览器类型"><span class="nav-number">4.3.</span> <span class="nav-text">3. 判断浏览器类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-输入框文字获取焦点"><span class="nav-number">4.4.</span> <span class="nav-text">4. 输入框文字获取焦点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-返回头部滑动动画"><span class="nav-number">4.5.</span> <span class="nav-text">5. 返回头部滑动动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-获取鼠标位置"><span class="nav-number">4.6.</span> <span class="nav-text">6. 获取鼠标位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-判断元素是否存在"><span class="nav-number">4.7.</span> <span class="nav-text">7. 判断元素是否存在</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-点击-div-也可以跳转"><span class="nav-number">4.8.</span> <span class="nav-text">8. 点击 div 也可以跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-根据浏览器大小添加样式"><span class="nav-number">4.9.</span> <span class="nav-text">9. 根据浏览器大小添加样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-设置-div-在屏幕中央"><span class="nav-number">4.10.</span> <span class="nav-text">10. 设置 div 在屏幕中央</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-创建自己的选择器"><span class="nav-number">4.11.</span> <span class="nav-text">11. 创建自己的选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-关闭所有动画效果"><span class="nav-number">4.12.</span> <span class="nav-text">12. 关闭所有动画效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-检测鼠标的左右键"><span class="nav-number">4.13.</span> <span class="nav-text">13. 检测鼠标的左右键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-回车提交表单"><span class="nav-number">4.14.</span> <span class="nav-text">14. 回车提交表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-设置全局-ajax-参数"><span class="nav-number">4.15.</span> <span class="nav-text">15. 设置全局 ajax 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-获取选中的下拉框"><span class="nav-number">4.16.</span> <span class="nav-text">16. 获取选中的下拉框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-切换复选框"><span class="nav-number">4.17.</span> <span class="nav-text">17. 切换复选框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-使用-siblings-来选择同辈元素"><span class="nav-number">4.18.</span> <span class="nav-text">18. 使用 siblings() 来选择同辈元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-个性化链接"><span class="nav-number">4.19.</span> <span class="nav-text">19. 个性化链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-一段时间后自动关闭或者隐藏元素"><span class="nav-number">4.20.</span> <span class="nav-text">20. 一段时间后自动关闭或者隐藏元素</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YG</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+<script>
+  	var _mtac = {};
+  	(function() {
+  		var mta = document.createElement("script");
+  		mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.setAttribute("name", "MTAH5");
+  		mta.setAttribute("sid", "500566833");
+
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(mta, s);
+  	})();
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://tajs.qq.com/stats?sId=64829990";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Li281zuYVEchoWHi6n7LBXdT-gzGzoHsz", "zPVtChahoqujKQG8P5rMXBGn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
