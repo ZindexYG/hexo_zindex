@@ -2,131 +2,77 @@
 
 
 
-  
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.7.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
 
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="时针物语，时钟的时针滴答一下响了。" />
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="时之物语">
-<meta property="og:url" content="https://z-index.me/page/2/index.html">
-<meta property="og:site_name" content="时之物语">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时之物语">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
     algolia: {
       applicationID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: ''
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
 
+  <meta property="og:type" content="website">
+<meta property="og:title" content="时之物语">
+<meta property="og:url" content="https://z-index.me/page/2/index.html">
+<meta property="og:site_name" content="时之物语">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="时之物语">
+  <link rel="canonical" href="https://z-index.me/page/2/">
 
 
-  <link rel="canonical" href="https://z-index.me/page/2/"/>
-
-
-
-
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>时之物语</title>
   
@@ -138,38 +84,53 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="https://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-home">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+  <div class="site-meta">
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">时之物语</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
-        <h1 class="site-subtitle" itemprop="description"></h1>
-      
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -177,86 +138,79 @@
   </div>
 </div>
 
+
+
 <nav class="site-nav">
-  
-
-  
     <ul id="menu" class="menu">
-      
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home">
       
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+    
 
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
       
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
     </ul>
-  
-
-  
 </nav>
 
-
-
- </div>
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+            
+
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
       
-
-  
-
-  
-  
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/21/webpack学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2018/04/01/Hexo配置随记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YG">
@@ -267,65 +221,53 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="时之物语">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/21/webpack学习笔记/" itemprop="url">webpack学习笔记</a></h2>
+                
+                <a href="/2018/04/01/Hexo配置随记/" class="post-title-link" itemprop="url">Hexo配置随记</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T22:22:59+08:00">
-                2017-12-21
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-01 11:40:05" itemprop="dateCreated datePublished" datetime="2018-04-01T11:40:05+08:00">2018-04-01</time>
+            </span>
+          
             
 
             
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-08 18:23:49" itemprop="dateModified" datetime="2018-07-08T18:23:49+08:00">2018-07-08</time>
+              </span>
             
-          </span>
-
           
 
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/21/webpack学习笔记/" class="leancloud_visitors" data-flag-title="webpack学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
+          <br>
 
         </div>
       </header>
-    
 
     
     
@@ -333,45 +275,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p><img src="/images/webpack-banner.jpg" alt=""></p>
+          <p><img src="/images/hexo-banner.jpg" alt></p>
 <blockquote>
-<p>这是一份学习笔记，仅此记录一个学习过程</p>
+<p>你看起来不错，来做我的菜吧 ~</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/21/webpack学习笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/04/01/Hexo配置随记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
     
-
     
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -379,22 +305,15 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/19/你不知道的bootstrap中文网/">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2018/03/29/高德地图JS-api小总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YG">
@@ -405,65 +324,53 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="时之物语">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/19/你不知道的bootstrap中文网/" itemprop="url">你不知道的bootstrap中文网</a></h2>
+                
+                <a href="/2018/03/29/高德地图JS-api小总结/" class="post-title-link" itemprop="url">高德地图JS_api小总结</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T21:58:32+08:00">
-                2017-12-19
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-29 21:49:05" itemprop="dateCreated datePublished" datetime="2018-03-29T21:49:05+08:00">2018-03-29</time>
+            </span>
+          
             
 
             
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-08 18:23:49" itemprop="dateModified" datetime="2018-07-08T18:23:49+08:00">2018-07-08</time>
+              </span>
             
-          </span>
-
           
 
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/19/你不知道的bootstrap中文网/" class="leancloud_visitors" data-flag-title="你不知道的bootstrap中文网">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
+          <br>
 
         </div>
       </header>
-    
 
     
     
@@ -471,45 +378,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p><img src="/images/boot-banner.jpg" alt=""></p>
+          <p><img src="/images/amap-banner.jpg" alt></p>
 <blockquote>
-<p>本文介绍的是 <a href="http://www.bootcss.com/" target="_blank" rel="noopener">bootstrap中文网</a> 里的一些插件与模板 以及 <a href="https://book.douban.com/subject/26376363/" target="_blank" rel="noopener">《bootstrap实战》</a>里面介绍的一些工具</p>
+<p>一个练手项目的总结，其中感觉最有趣的就是高德地图的文档了（简直不要太友好了~）</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/19/你不知道的bootstrap中文网/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/03/29/高德地图JS-api小总结/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
     
-
     
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -517,22 +408,15 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/18/jQuery的使用心得/">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2018/01/09/parcel游记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YG">
@@ -543,65 +427,53 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="时之物语">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/18/jQuery的使用心得/" itemprop="url">jQuery的使用心得</a></h2>
+                
+                <a href="/2018/01/09/parcel游记/" class="post-title-link" itemprop="url">parcel 游记</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T00:43:19+08:00">
-                2017-12-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:57:59" itemprop="dateCreated datePublished" datetime="2018-01-09T23:57:59+08:00">2018-01-09</time>
+            </span>
+          
             
 
             
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-08 18:23:49" itemprop="dateModified" datetime="2018-07-08T18:23:49+08:00">2018-07-08</time>
+              </span>
             
-          </span>
-
           
 
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/18/jQuery的使用心得/" class="leancloud_visitors" data-flag-title="jQuery的使用心得">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
+          <br>
 
         </div>
       </header>
-    
 
     
     
@@ -609,45 +481,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p><img src="/images/jquery-banner.jpg" alt=""></p>
+          <p><img src="/images/parcel-banner.jpg" alt></p>
 <blockquote>
-<p>本文大部分都在参考 <a href="https://book.douban.com/subject/10792216/" target="_blank" rel="noopener">《锋利的jQuery》</a> 一书，几乎可以说是读书笔记</p>
+<p>本文是记录着两天使用 parcel 的情况，以及遇到的坑（犯过的傻…</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/18/jQuery的使用心得/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/01/09/parcel游记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
     
-
     
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -655,22 +511,15 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/17/sublime 配置与使用/">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/28/bs-table入坑记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YG">
@@ -681,65 +530,53 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="时之物语">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/17/sublime 配置与使用/" itemprop="url">Sublime 配置与使用</a></h2>
+                
+                <a href="/2017/12/28/bs-table入坑记/" class="post-title-link" itemprop="url">bs-table入坑记</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T10:05:11+08:00">
-                2017-12-17
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-28 22:00:48" itemprop="dateCreated datePublished" datetime="2017-12-28T22:00:48+08:00">2017-12-28</time>
+            </span>
+          
             
 
             
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-08 18:23:49" itemprop="dateModified" datetime="2018-07-08T18:23:49+08:00">2018-07-08</time>
+              </span>
             
-          </span>
-
           
 
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/17/sublime 配置与使用/" class="leancloud_visitors" data-flag-title="Sublime 配置与使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
+          <br>
 
         </div>
       </header>
-    
 
     
     
@@ -747,45 +584,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p><img src="/images/sublime-index.jpg" alt=""></p>
+          <p><img src="/images/BTable-banner.jpg" alt></p>
 <blockquote>
-<p>工具只是工具，本文只是本人的一点心得，无意引战</p>
+<p>本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/17/sublime 配置与使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/12/28/bs-table入坑记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
     
-
     
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -793,25 +614,122 @@
   
   </article>
 
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/22/时针滴答一下，响了/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之物语">
+    </span>
+      <header class="post-header">
+
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/22/时针滴答一下，响了/" class="post-title-link" itemprop="url">时针滴答一下，响了</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-22 21:53:14" itemprop="dateCreated datePublished" datetime="2017-12-22T21:53:14+08:00">2017-12-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-31 23:19:13" itemprop="dateModified" datetime="2018-12-31T23:19:13+08:00">2018-12-31</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/images/2017-banner.jpg" alt></p>
+<blockquote>
+<p>一些唠叨</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/12/22/时针滴答一下，响了/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
     
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
-
 
 
           </div>
           
 
-
-          
-
         </div>
-        
           
   
   <div class="sidebar-toggle">
@@ -823,324 +741,248 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/uploads/zindex_avatar.jpg"
-                alt="YG" />
-            
-              <p class="site-author-name" itemprop="name">YG</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">14</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
+    <img class="site-author-image" itemprop="image"
+      src="/uploads/zindex_avatar.jpg"
+      alt="YG">
+  <p class="site-author-name" itemprop="name">YG</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
           
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/ZindexYG" title="GitHub &rarr; https://github.com/ZindexYG" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/3249847654" title="Weibo &rarr; https://weibo.com/3249847654" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
 
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/ZindexYG" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://weibo.com/3249847654" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-            
-          </div>
 
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-coffee"></i>
-                物语伙伴
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://alexinea.com/" title="Alexinea" target="_blank">Alexinea</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://blog.verge.wang/" title="一抹愿" target="_blank">一抹愿</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://blog.jiasm.org/" title="贾顺名" target="_blank">贾顺名</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://rainylog.com/" title="Rainy's Blog" target="_blank">Rainy's Blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://yufan.me/" title="且听书吟" target="_blank">且听书吟</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-coffee"></i>
+      物语伙伴
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://alexinea.com/" title="https://alexinea.com/" rel="noopener" target="_blank">Alexinea</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://yufan.me/" title="https://yufan.me/" rel="noopener" target="_blank">且听书吟</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.verge.wang/" title="https://blog.verge.wang/" rel="noopener" target="_blank">一抹愿</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.jiasm.org/" title="https://blog.jiasm.org/" rel="noopener" target="_blank">贾顺名</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://rainylog.com/" title="https://rainylog.com/" rel="noopener" target="_blank">Rainy's Blog</a>
+        </li>
+      
+    </ul>
+  </div>
 
         </div>
-      </section>
-
-      
-
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">YG</span>
-
-  
 </div>
-
-
-
-
-
-
-
-
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
 
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      次
     </span>
   
-
+    <span class="post-meta-divider">|</span>
   
-    <span class="site-pv">
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
     </span>
   
 </div>
 
 
 
-<script>
-  	var _mtac = {};
-  	(function() {
-  		var mta = document.createElement("script");
-  		mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
-  		mta.setAttribute("name", "MTAH5");
-  		mta.setAttribute("sid", "500566833");
 
-  		var s = document.getElementsByTagName("script")[0];
-  		s.parentNode.insertBefore(mta, s);
-  	})();
-</script>
-
-
-
-  <script type="text/javascript">
+  <script>
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://tajs.qq.com/stats?sId=64829990";
+      hm.src = "//tajs.qq.com/stats?sId=64829990";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
 
 
-
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500566833");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
 
 
         
       </div>
     </footer>
-
-    
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
-        
       </div>
-    
 
     
 
   </div>
 
   
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
 
-
-
-
-
-
-
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
 
 
   
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
+  <script src="/js/next-boot.js?v=7.3.0"></script>
 
   
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
 
 
   
@@ -1156,133 +998,27 @@
 
 
 
-  
 
 
 
 
 
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("Li281zuYVEchoWHi6n7LBXdT-gzGzoHsz", "zPVtChahoqujKQG8P5rMXBGn");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
 
-  
 
-  
 
-  
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 
 </body>
 </html>
