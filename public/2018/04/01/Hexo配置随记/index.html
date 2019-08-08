@@ -7,7 +7,7 @@
 <html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -295,14 +295,18 @@
 <p>你看起来不错，来做我的菜吧 ~</p>
 </blockquote>
 <a id="more"></a>
+
 <h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><p>一键搭建？不存在的!</p>
 <p>查看本随记的时候，请先安装好了 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> 与 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></p>
 <p><code>Hexo</code> 的全局安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
 <h2 id="开始建站"><a href="#开始建站" class="headerlink" title="开始建站"></a>开始建站</h2><h3 id="本地建站"><a href="#本地建站" class="headerlink" title="本地建站"></a>本地建站</h3><p>进入一个安全的目录，比如<code>F:/</code>，注意别在根目录 <code>/</code> 瞎搞，打开 <code>Git bash</code>，逐个输入指令，</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;hexo_name&gt; //本地创建 hexo 文件夹</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> &lt;hexo_name&gt; //指令进入所创建的 hexo 文件夹</span><br><span class="line"></span><br><span class="line">npm install //下载 hexo 所需的依赖</span><br><span class="line"></span><br><span class="line">hexo server //启动本地服务，</span><br></pre></td></tr></table></figure>
+
 <p>默认情况下，访问网址为：<code>http://localhost:4000/</code>这下可以大概看到自己的站点是个啥样了，开启第一篇文章之路，运行下一个指令，</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [第一篇文章]</span><br></pre></td></tr></table></figure>
+
 <p>默认 <code>[第一篇文章].md</code> 文件会生成在 <code>&lt;hexo_name&gt;\source\_posts\</code> 路径下，<code>.md</code> 是一款使用 <a href="http://markdown.cn/" target="_blank" rel="noopener">Markdown语法</a> 的写作文件，<a href="http://markdown.cn/" target="_blank" rel="noopener">Markdown语法</a>了解一下？</p>
 <p>更多文章指令，尽在<a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="noopener">基本操作-写作</a></p>
 <h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>官方的 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置文档</a> 里面或许太过凌乱不堪，直接看文件 <code>_config.yml</code> 并开始配置一些建站需要的几个基本属性先，</p>
@@ -314,8 +318,7 @@
 <th>备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>title</td>
 <td>网站标题</td>
 <td>修改为自己的网站标题</td>
@@ -345,16 +348,18 @@
 <td>网站时区</td>
 <td></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>建站之后，就请去 官网了解一下 <a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="noopener">建站文档</a>， 这里说的比已经很全面了</p>
 <h2 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h2><p>一键建站是不太可能的，配置好之后一键部署上线还是可以的，这里我们关注的是 <code>Git</code> 上面的部署，其余部署配置，<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">部署文档</a> 了解一下？ 顺便 <code>Github</code> 官方配置 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitPage</a> 了解一下？</p>
 <p>展开讲一下，首先先安装 <code>hexo-deployer-git</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
 <p>然后在 <code>GitHub</code> 上新建一个空 <code>repo</code>，名称为 「你的用户名.github.io」，接着找到配置文件 <code>_config.yml</code>,搜索关键字 <code>deploy</code> 配置如下</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt; //库（Repository）地址 例：你的用户名.github.io</span><br><span class="line">  branch: [branch] //分支名称 例：master</span><br><span class="line">  message: [message] //自定义提交信息，默认是更新日期 可不填写</span><br></pre></td></tr></table></figure>
+
 <p>接下来运行指令，即可在 <code>你的用户名.github.io</code> 网址上看到你的 <code>bolg</code> 了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">//生成静态文件，快捷指令：hexo g</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br><span class="line">//部署上传文件，快捷指令：hexo d</span><br></pre></td></tr></table></figure>
+
 <p>大概就是<code>项目 -&gt; setting -&gt; GitHub Page -&gt; 开启</code> 这样一个流程 ，就可以预览 <code>blog</code> 了</p>
 <p>打开项目，打开 <code>Github page</code> 功能，<a href="https://pages.github.com/" target="_blank" rel="noopener">官方开启说明</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实大部分的而配置都是可以在官方的<a href="https://hexo.io/zh-cn" target="_blank" rel="noopener">文档</a>这边大概是一丢丢配置，以及常用指令的总结，后续看反馈，可以继续写一篇 <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a> 主题上面的配置，如果写不下，<code>本酱</code> 就直接在这里更吧~</p>
@@ -448,7 +453,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -509,7 +514,13 @@
         
           
         
-        <span class="site-state-item-count">23</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

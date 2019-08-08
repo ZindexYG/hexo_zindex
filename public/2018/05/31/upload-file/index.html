@@ -7,7 +7,7 @@
 <html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -295,7 +295,9 @@
 <p>这个应该是用来做菜的~</p>
 </blockquote>
 <a id="more"></a>
+
 <h2 id="FormData"><a href="#FormData" class="headerlink" title="FormData"></a>FormData</h2><h3 id="简单的上传例子"><a href="#简单的上传例子" class="headerlink" title="简单的上传例子"></a>简单的上传例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  先在 html 里面准便好 &lt;input class="file-input" tpye="file" /&gt; 标签</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fileInput = <span class="built_in">document</span>.querySelector(<span class="string">'.file-input'</span>);</span><br><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加 formData 上传文件</span></span><br><span class="line">fileInput.onchange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  formData.append(<span class="string">"fileIn"</span>, <span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//上传文件</span></span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">request.open(<span class="string">"POST"</span>, <span class="string">"/ajax.php"</span>);</span><br><span class="line">request.send(formData);</span><br></pre></td></tr></table></figure>
+
 <h3 id="解读步骤"><a href="#解读步骤" class="headerlink" title="解读步骤"></a>解读步骤</h3><ol>
 <li><code>fileInput</code> 的 <code>dom</code> 对象获取， <code>FormData</code> 对象生成；</li>
 <li>使用 <code>fileInput</code> 的 <code>onchange</code>  事件来获取，文件的内容；</li>
@@ -305,6 +307,7 @@
 <h3 id="原理说明"><a href="#原理说明" class="headerlink" title="原理说明"></a>原理说明</h3><p><code>FormData</code> 对象其实不止是可以用来上传文件，如同其名，可以模拟一系列表单控件的键值对，然后用于 <code>XMLHttpRequest</code> 的提交，其最大的优点就是可以异步上传一个二进制文件；</p>
 <p><code>FormData</code> 是无法读取文件的，其核心就是通过 <code>append()</code>，将文件变成新增字段，来上传文件；</p>
 <h2 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h2><h3 id="简单的读取文件例子"><a href="#简单的读取文件例子" class="headerlink" title="简单的读取文件例子"></a>简单的读取文件例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  先在 html 里面准便好 &lt;input class="file-input" tpye="file" /&gt; 标签</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fileInput = <span class="built_in">document</span>.querySelector(<span class="string">'.file-input'</span>);</span><br><span class="line"><span class="comment">// 创建 FileReader 对象</span></span><br><span class="line"><span class="keyword">var</span> fileReader = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">fileInput.onchange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 获取原声 File 对象</span></span><br><span class="line">  <span class="keyword">var</span> file = event.target.files[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">// 以二进制读取文件对象</span></span><br><span class="line">  fileReader.readAsArrayBuffer(file);</span><br><span class="line">  <span class="comment">//fileReader.readAsDataURL(file); // 以data:URL 格式的字符串以表示读取文件的内容</span></span><br><span class="line">  <span class="comment">//fileReader.readAsText(file); //以字符串形式表示读取到的文件内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取操作完成后</span></span><br><span class="line">fileReader.onload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="解读步骤-1"><a href="#解读步骤-1" class="headerlink" title="解读步骤"></a>解读步骤</h3><ol>
 <li>创建 <code>FileReader</code> 对象；</li>
 <li>通过 <code>fileInput</code> 的 <code>dom</code> 对象 <code>onchange</code> 的方法， 获取原始 <code>File</code> 对象；</li>
@@ -314,6 +317,7 @@
 <h3 id="原理说明-1"><a href="#原理说明-1" class="headerlink" title="原理说明"></a>原理说明</h3><p>一般来说，读取文件应用场景应该是需要作断点续存的时候，或者想要预览上传的图片；</p>
 <p>预览图片例子</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> fileInput = <span class="built_in">document</span>.querySelector(<span class="string">'.file-input'</span>);</span><br><span class="line"><span class="keyword">var</span> imgSrc = <span class="built_in">document</span>.querySelector(<span class="string">'.img'</span>)</span><br><span class="line"><span class="comment">// 创建 FileReader 对象</span></span><br><span class="line"><span class="keyword">var</span> fileReader = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">fileInput.onchange = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 获取原声 File 对象</span></span><br><span class="line">  <span class="keyword">var</span> file = event.target.files[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  fileReader.readAsDataURL(file); <span class="comment">// 以data:URL 格式的字符串以表示读取文件的内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取操作完成后</span></span><br><span class="line">fileReader.onload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e)</span><br><span class="line">  imgSrc.src = e.target.result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>由于本人使用 <code>FileReader</code> 得并不多，所以这里不作详细讨论了，有兴趣的同学可以，直接去看<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader" target="_blank" rel="noopener">MDN文档</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然上传文件很早就尝试过了，但是当时理解并不是很深入，而且加上最近几次在这方面知识的打击，有点不太能认了；</p>
 <p>感谢 <a href="https://github.com/ZhangPuXi" target="_blank" rel="noopener">白白</a> 的几次指导，（指导了好几次，本人还是忘了)</p>
@@ -410,7 +414,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -471,7 +475,13 @@
         
           
         
-        <span class="site-state-item-count">23</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

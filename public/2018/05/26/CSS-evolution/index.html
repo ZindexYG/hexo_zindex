@@ -7,7 +7,7 @@
 <html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -295,6 +295,7 @@
 <p>这技巧，为何你会那么熟练 ？</p>
 </blockquote>
 <a id="more"></a>
+
 <h2 id="rem-simple-flexible-适配方案"><a href="#rem-simple-flexible-适配方案" class="headerlink" title="rem + simple-flexible 适配方案"></a>rem + simple-flexible 适配方案</h2><h3 id="简单解析"><a href="#简单解析" class="headerlink" title="简单解析"></a>简单解析</h3><p><code>rem</code> 相对于根元素 <code>&lt;html&gt;</code> 的 <code>font-size</code> 的大小来计算坐作为一个单位；</p>
 <p><code>simple-flexible</code> 是根据手淘团队 <code>lib-flexible.js</code>，比较，改写的一个插件，兼容 UC 竖屏转横屏出现的 BUG，自定义视觉设计稿的宽度：designWidth，设定最大宽度：maxWidth</p>
 <p>这里有 <a href="https://github.com/kujian/simple-flexible" target="_blank" rel="noopener">simple-flexible</a> 的 <code>Github</code> 地址，下载下来用即可;</p>
@@ -316,13 +317,20 @@
 <p><code>lib-flexible.js</code> 基本原理是模拟 <code>vw</code> 把视觉稿分为 100份，以单位 a 来说，1rem = 10a;</p>
 <p>以视觉稿 750px 为例子</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1a = 7.5px， 1rem = 75px</span><br></pre></td></tr></table></figure>
+
 <h3 id="使用步骤-1"><a href="#使用步骤-1" class="headerlink" title="使用步骤"></a>使用步骤</h3><p>可以根据上面的步骤，外部引入 CDN 也可以</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/amfe-flexible/index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>也可以使用模块化方式</p>
-<p>Npm:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S amfe-flexible</span><br></pre></td></tr></table></figure></p>
-<p>JS:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'amfe-flexible'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">do something</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>Npm:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S amfe-flexible</span><br></pre></td></tr></table></figure>
+
+<p>JS:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'amfe-flexible'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">do something</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="优劣-1"><a href="#优劣-1" class="headerlink" title="优劣"></a>优劣</h3><p>在 UC 浏览器上发现了，横批竖屏转换不过来的情况，已经找到兼容方案，是通过js在页面的 <code>&lt;head&gt;</code> 里生成定义了 <code>&lt;html&gt;</code> 元素 <code>font-size</code> 的 <code>style</code> 元素来解决！</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style id=<span class="string">"rootFontSize"</span>&gt;html&#123;font-size: <span class="number">100</span>px !important;&#125;&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>而且官方也说明这个是 <code>vw</code> 的过度方案，不建议长期使用；</p>
 <h2 id="PostCSS-VW-适配方案"><a href="#PostCSS-VW-适配方案" class="headerlink" title="PostCSS + VW 适配方案"></a>PostCSS + VW 适配方案</h2><h3 id="简单解析-2"><a href="#简单解析-2" class="headerlink" title="简单解析"></a>简单解析</h3><p><code>PostCSS</code> 将 <code>CSS</code> 变成 <code>JavaScript</code> 的数据，使它变成可操作;</p>
 <p><code>VW</code> 是基于 Viewpost 视窗的长度单位;</p>
@@ -341,16 +349,23 @@
 <li><a href="https://webpack.docschina.org/" target="_blank" rel="noopener">webpack</a></li>
 </ul>
 <p>有过使用前端脚手架的童鞋，应该都有看到过项目根目录下面都会有一个 <code>.postcssrc</code> 文件，它里面都是一些配置选项比较著名的 <code>autoprefixer</code>，<code>cssnano</code>，<code>px2rem</code>，<code>cssnext</code>…等等好玩的配置插件，但是这里不作这些说明，只介绍 <code>postcss-px-to-viewport</code> 配合 vw 使用</p>
-<p>Npm：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S postcss-px-to-viewport</span><br></pre></td></tr></table></figure></p>
-<p>打开 <code>.postcssrc</code>，假定视觉设计稿的宽度为 750px 改写配置如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="string">"plugins"</span>: &#123;</span><br><span class="line">  <span class="string">"postcss-px-to-viewport"</span>: <span class="literal">true</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"rule"</span>: &#123;</span><br><span class="line">  <span class="string">"postcss-px-to-viewport"</span>: &#123;</span><br><span class="line">    <span class="string">"viewportWidth"</span>: <span class="number">750</span>,</span><br><span class="line">    <span class="string">"viewportHeight"</span>: <span class="number">1334</span>,</span><br><span class="line">    <span class="string">"unitPrecision"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"viewportUnit"</span>: <span class="string">"vw"</span>,</span><br><span class="line">    <span class="string">"selectorBlackList"</span>: [],</span><br><span class="line">    <span class="string">"minPixelValue"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">"mediaQuery"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure></p>
+<p>Npm：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S postcss-px-to-viewport</span><br></pre></td></tr></table></figure>
+
+<p>打开 <code>.postcssrc</code>，假定视觉设计稿的宽度为 750px 改写配置如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="string">"plugins"</span>: &#123;</span><br><span class="line">  <span class="string">"postcss-px-to-viewport"</span>: <span class="literal">true</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"rule"</span>: &#123;</span><br><span class="line">  <span class="string">"postcss-px-to-viewport"</span>: &#123;</span><br><span class="line">    <span class="string">"viewportWidth"</span>: <span class="number">750</span>,</span><br><span class="line">    <span class="string">"viewportHeight"</span>: <span class="number">1334</span>,</span><br><span class="line">    <span class="string">"unitPrecision"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"viewportUnit"</span>: <span class="string">"vw"</span>,</span><br><span class="line">    <span class="string">"selectorBlackList"</span>: [],</span><br><span class="line">    <span class="string">"minPixelValue"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">"mediaQuery"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+
 <p>配置完成之后，在项目中直接使用 px ，构建的时候就会自动转换为 vw 单位了，简直不要太爽了；</p>
 <p><code>postcss-px-to-viewport</code> 配置项说明</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"viewportWidth"</span>        <span class="comment">//设置视觉设计稿的宽度</span></span><br><span class="line"><span class="string">"viewportHeight"</span>       <span class="comment">//设置视觉设计稿的高度</span></span><br><span class="line"><span class="string">"unitPrecision"</span>:       <span class="comment">//单位的精度，即保留多少位小数</span></span><br><span class="line"><span class="string">"viewportUnit"</span>:        <span class="comment">//转换的单位</span></span><br><span class="line"><span class="string">"selectorBlackList"</span>:   <span class="comment">//需要忽略的选择器</span></span><br><span class="line"><span class="string">"minPixelValue"</span>:       <span class="comment">//最小像素值</span></span><br><span class="line"><span class="string">"mediaQuery"</span>:          <span class="comment">//是否允许媒体查询转换为 px</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="优劣-2"><a href="#优劣-2" class="headerlink" title="优劣"></a>优劣</h3><p>vw 的兼容性貌似还没那么好，有可能需要做降级处理，需要使用到 CSS Houdini 和 CSS Polyfill 上一些针对 vw 单位做一个降级处理；</p>
 <p>vw 在混合使用到 margin 的 px 时候 有可能超出 100vw ，目前使用 padding 来代替 marging 再配置上 box-sizing 可以解决，亦可以使用 css 的 calc() 函数来做一个计算；</p>
 <p>转换的时候多少还存在一点像素差，无法完全还原；</p>
 <h2 id="附加-rem-也不需要计算的装置"><a href="#附加-rem-也不需要计算的装置" class="headerlink" title="附加 rem 也不需要计算的装置"></a>附加 rem 也不需要计算的装置</h2><p>在 sublime 上面，有一个插件 <a href="https://github.com/flashlizi/cssrem" target="_blank" rel="noopener">cssrem</a> 可以让放手写 px 然后 sublime 自动转换成 rem ，简直可能爱上了 css，</p>
-<p>配置说明如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">px_to_rem                   <span class="comment">// px转rem的单位比例，默认为40，基本定义是视觉设计稿的宽度/10；</span></span><br><span class="line">max_rem_fraction_length     <span class="comment">// px转rem的小数部分的最大长度，默认为6；</span></span><br><span class="line">available_file_types        <span class="comment">// 启用此插件的文件类型。默认为：[".css", ".less", ".sass"]；</span></span><br></pre></td></tr></table></figure></p>
+<p>配置说明如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">px_to_rem                   <span class="comment">// px转rem的单位比例，默认为40，基本定义是视觉设计稿的宽度/10；</span></span><br><span class="line">max_rem_fraction_length     <span class="comment">// px转rem的小数部分的最大长度，默认为6；</span></span><br><span class="line">available_file_types        <span class="comment">// 启用此插件的文件类型。默认为：[".css", ".less", ".sass"]；</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里总结的三种适配方案本人都有在用，如果说用得最多的应该是第一种了，因为发现的时间比较早，所以用的自然也比较多了；</p>
 <p>当然，还有很多本人未知的方案，但是所有的适配方案都是为了完美的还原视觉设计稿，完美解决兼容性问题，当然这都是理想状态；</p>
 <p>感谢 <a href="https://github.com/ZhangPuXi" target="_blank" rel="noopener">@白白</a> 的帮忙(名词解析) + 鼓励(催稿)</p>
@@ -449,7 +464,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -510,7 +525,13 @@
         
           
         
-        <span class="site-state-item-count">23</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

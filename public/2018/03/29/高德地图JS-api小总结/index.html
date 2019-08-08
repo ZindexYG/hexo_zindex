@@ -7,7 +7,7 @@
 <html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -295,17 +295,22 @@
 <p>一个练手项目的总结，其中感觉最有趣的就是高德地图的文档了（简直不要太友好了~）</p>
 </blockquote>
 <a id="more"></a>
+
 <h3 id="最基础的调用"><a href="#最基础的调用" class="headerlink" title="最基础的调用"></a>最基础的调用</h3><p><a href="https://lbs.amap.com/api/javascript-api/summary" target="_blank" rel="noopener">高德地图JS_API</a></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--创建容器 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--引入高德地图JSAPI --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://webapi.amap.com/maps?v=1.4.4&amp;key=您申请的key值"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--引入UI组件库（1.0版本） --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http：//webapi.amap.com/ui/1.0/main.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 基础调用 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> map = <span class="keyword">new</span> AMap.Map(<span class="string">'container'</span>,&#123;</span></span><br><span class="line"><span class="javascript">        resizeEnable: <span class="literal">true</span>,</span></span><br><span class="line">        zoom: 10,</span><br><span class="line">        center: [116.480983, 40.0958]</span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
 <h3 id="Vue-调用"><a href="#Vue-调用" class="headerlink" title="Vue 调用"></a>Vue 调用</h3><h4 id="心酸过程"><a href="#心酸过程" class="headerlink" title="心酸过程"></a>心酸过程</h4><p>推荐一下 由 <a href="https://github.com/ElemeFE" target="_blank" rel="noopener">饿了么</a> 出品的 <a href="https://github.com/ElemeFE/vue-amap" target="_blank" rel="noopener">vue-amap</a> 高德地图组件，整体来说还是比较不错的，但是遇到几处 bug 超出了本人的知识范围，只好放弃。</p>
 <p>最后 看到了 <a href="http://vue-gaode.rxshc.com/" target="_blank" rel="noopener">在Vue中完美的使用高德地图</a> 这篇文章</p>
 <h4 id="调用过程（蛮好玩的）"><a href="#调用过程（蛮好玩的）" class="headerlink" title="调用过程（蛮好玩的）"></a>调用过程（蛮好玩的）</h4><p>这里引用了一个方法 remoteLoad() 蛮好用的脚本加载方法；</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">async</span> created() &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.AMap &amp;&amp; <span class="built_in">window</span>.AMapUI) &#123;</span><br><span class="line">    <span class="keyword">this</span>.initMap()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> remoteLoad(<span class="string">'http://webapi.amap.com/maps?v=1.4.5&amp;key=&#123;key&#125;'</span>)</span><br><span class="line">    <span class="keyword">await</span> remoteLoad(<span class="string">'http://webapi.amap.com/ui/1.0/main.js'</span>)</span><br><span class="line">    <span class="keyword">this</span>.initMap()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  initMap()&#123;</span><br><span class="line">    <span class="comment">// 初始化 AMap</span></span><br><span class="line">    <span class="keyword">this</span>.map  = <span class="keyword">new</span> AMap.Map(<span class="string">'layMap'</span>, &#123;</span><br><span class="line">      resizeEnable: <span class="literal">true</span>,</span><br><span class="line">      center: [<span class="number">116.30946</span>, <span class="number">39.937629</span>],</span><br><span class="line">      zoom: <span class="number">3</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      使用插件就根据 高德 Api 创建</span></span><br><span class="line"><span class="comment">      例如: DistrictSearch</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    AMap.service(<span class="string">'AMap.DistrictSearch'</span>, () =&gt; &#123;</span><br><span class="line">      <span class="comment">//实例化DistrictSearch</span></span><br><span class="line">      <span class="keyword">this</span>.district = <span class="keyword">new</span> AMap.DistrictSearch(&#123;</span><br><span class="line">        extensions: <span class="string">'all'</span>,</span><br><span class="line">        subdistrict: <span class="number">1</span>,</span><br><span class="line">        showbiz: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="插件的两种调用办法"><a href="#插件的两种调用办法" class="headerlink" title="插件的两种调用办法"></a>插件的两种调用办法</h3><h4 id="直接初始化"><a href="#直接初始化" class="headerlink" title="直接初始化"></a>直接初始化</h4><p>无论是纯页面，还是 vue 异步加载均可以直接在链接后面加上<code>plugin</code> 参数并赋予值；</p>
 <p>这种办法适用于在一个组件内多次调用了垓插件，又不想多次初始化的情况；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://webapi.amap.com/maps?v=1.4.4&amp;key=您申请的key值&amp;plugin=AMap.DistrictSearch</span><br></pre></td></tr></table></figure>
+
 <h4 id="根据需要调用"><a href="#根据需要调用" class="headerlink" title="根据需要调用"></a>根据需要调用</h4><p>部分插件在使用之前，需要使用 <code>AMap.service</code> 方法加载插件，然后在回调函数中可以进行服务的设定和查询：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">AMap.service(<span class="string">'AMap.DistrictSearch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//实例化DistrictSearch</span></span><br><span class="line">  <span class="keyword">this</span>.district = <span class="keyword">new</span> AMap.DistrictSearch(&#123;</span><br><span class="line">    extensions: <span class="string">'all'</span>,</span><br><span class="line">    subdistrict: <span class="number">1</span>,</span><br><span class="line">    showbiz: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>练手项目 - <a href="http://z-index.me/ele-ui-layout/dist/#/">demo</a></p>
 <p>可能会顿卡，刷新应该就好了</p>
 <ul>
@@ -400,7 +405,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -461,7 +466,13 @@
         
           
         
-        <span class="site-state-item-count">23</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

@@ -7,7 +7,7 @@
 <html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -295,10 +295,12 @@
 <p>这是一份学习笔记，仅此记录一个学习过程</p>
 </blockquote>
 <a id="more"></a>
+
 <h2 id="理解-WebPack"><a href="#理解-WebPack" class="headerlink" title="理解 WebPack"></a>理解 WebPack</h2><p>学习 WebPack 最好是从服务端的角度出发，或者说从 node 角度出发，到程序的角度，再到用户的角度；</p>
 <p>反过来，一部分用户是不需要一些渲染的页面的，那么从服务端开始，编写用户需要的页面；</p>
 <h2 id="package-json-文件"><a href="#package-json-文件" class="headerlink" title="package.json 文件"></a>package.json 文件</h2><p>package.json 是一个 node 生成的目录文件，下面 vue-cli 生成的一个 package.json；</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"vue-test"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"A Vue.js project"</span>,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"yg_zinger"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="comment">//more</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"vue"</span>: <span class="string">"^2.5.2"</span>,</span><br><span class="line">    <span class="string">"vue-router"</span>: <span class="string">"^3.0.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="comment">// more ...</span></span><br><span class="line">    <span class="string">"url-loader"</span>: <span class="string">"^0.5.8"</span>,</span><br><span class="line">    <span class="string">"vue-jest"</span>: <span class="string">"^1.0.2"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^13.3.0"</span>,</span><br><span class="line">    <span class="string">"vue-style-loader"</span>: <span class="string">"^3.0.1"</span>,</span><br><span class="line">    <span class="string">"vue-template-compiler"</span>: <span class="string">"^2.5.2"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.6.0"</span>,</span><br><span class="line">    <span class="string">"webpack-bundle-analyzer"</span>: <span class="string">"^2.9.0"</span>,</span><br><span class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"^2.9.1"</span>,</span><br><span class="line">    <span class="string">"webpack-merge"</span>: <span class="string">"^4.1.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"engines"</span>: &#123;</span><br><span class="line">    <span class="string">"node"</span>: <span class="string">"&gt;= 4.0.0"</span>,</span><br><span class="line">    <span class="string">"npm"</span>: <span class="string">"&gt;= 3.0.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"browserslist"</span>: [</span><br><span class="line">    <span class="string">"&gt; 1%"</span>,</span><br><span class="line">    <span class="string">"last 2 versions"</span>,</span><br><span class="line">    <span class="string">"not ie &lt;= 8"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="常见字段解析"><a href="#常见字段解析" class="headerlink" title="常见字段解析"></a>常见字段解析</h3><table>
 <thead>
 <tr>
@@ -306,8 +308,7 @@
 <th>解析</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>name</td>
 <td>项目名</td>
 </tr>
@@ -347,11 +348,11 @@
 <td>private</td>
 <td>设置为ture 表示不发布到 npm 平台下</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="主要配置"><a href="#主要配置" class="headerlink" title="主要配置"></a>主要配置</h2><p>如果是个人配置，大可不必使用脚手架，以及前端框架，把 webpack 当作一个打包工具即可；</p>
 <p>个人配置上面不需要太复杂，就拿一个 webpack.config.js 来看即可</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导入所需的依赖</span></span><br><span class="line"><span class="keyword">var</span> FriendlyErrorsWebpackPlugin = <span class="built_in">require</span>(<span class="string">'friendly-errors-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//模块输出</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 入口， 可以是字符串，数组，对象</span></span><br><span class="line">  entry: <span class="string">'./src/mian.js'</span>,</span><br><span class="line">  <span class="comment">// 输出配置， 一般有 filenema=输出名字, path=输出地址, publicPath=输出公共资源的路径 字段</span></span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + <span class="string">'/dist'</span>,</span><br><span class="line">    publicPath: <span class="string">'/static/'</span>,</span><br><span class="line">    filename: <span class="string">'build.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 插件</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.ProgressPlugin(),</span><br><span class="line">    <span class="keyword">new</span> FriendlyErrorsWebpackPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// 模块处理</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    <span class="comment">// 字段配置</span></span><br><span class="line">    rules: [&#123;</span><br><span class="line">      <span class="comment">//test = 正则匹配规则， use = 匹配对应 loader or 对象 options</span></span><br><span class="line">      test: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: <span class="string">"vue-loader"</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          loaders: &#123;</span><br><span class="line">            css: ExtractTextPlugin.extract(&#123;</span><br><span class="line">              use: <span class="string">'css-loader'</span></span><br><span class="line">            &#125;),</span><br><span class="line">            stylus: ExtractTextPlugin.extract(&#123;</span><br><span class="line">              use: [<span class="string">"css-loader"</span>, <span class="string">"scss-loader"</span>]</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      use: [<span class="string">'vue-style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'scss-loader'</span>]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        loader: <span class="string">"url-loader"</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          limit: <span class="number">10000</span>,</span><br><span class="line">          name: <span class="string">'images/[name].[hash:7].[ext]'</span> <span class="comment">// 将图片都放入images文件夹下，[hash:7]防缓存</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.(woff2?|eot|ttf|otf)(\?.*)?$/</span>,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        loader: <span class="string">"url-loader"</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          limit: <span class="number">10000</span>,</span><br><span class="line">          name: <span class="string">'fonts/[name].[hash:7].[ext]'</span> <span class="comment">// 将字体放入fonts文件夹下</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      use: <span class="string">"babel-loader"</span>,</span><br><span class="line">      include: [path.resolve(__dirname, <span class="string">'src'</span>)]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 压缩 javascript 的插件</span></span><br><span class="line"><span class="keyword">new</span> webpack.optimize.UglifyJsPlugin()</span><br><span class="line"><span class="comment">// 抽离 css 到css 文件</span></span><br><span class="line"><span class="keyword">new</span> ExtractTextPlugin(&#123;</span><br><span class="line">  filename: <span class="string">"css/style.css"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h2 id="plugins-常用插件"><a href="#plugins-常用插件" class="headerlink" title="plugins 常用插件"></a>plugins 常用插件</h2><p>现在大部分插件都会在 webpack 上面集成好，所以 <a href="https://doc.webpack-china.org/plugins/" target="_blank" rel="noopener">webpack文档</a> 就很关键了，多看文档多成长;</p>
 <p>下面介绍部分常用的，也是使用一些脚手架常见的插件，与个人理解；</p>
 <h3 id="对代码处理的插件"><a href="#对代码处理的插件" class="headerlink" title="对代码处理的插件"></a>对代码处理的插件</h3><table>
@@ -361,8 +362,7 @@
 <th>用处</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>BannerPlugin</td>
 <td>给代码添加版权信息</td>
 </tr>
@@ -390,8 +390,7 @@
 <td>UglifyJsPlugin</td>
 <td>自动压缩 JS 代码(需要安装，不自带)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="辅助打包后的代码"><a href="#辅助打包后的代码" class="headerlink" title="辅助打包后的代码"></a>辅助打包后的代码</h3><table>
 <thead>
 <tr>
@@ -399,8 +398,7 @@
 <th>用处</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>HtmlWebpackPlugin</td>
 <td>自动依据 entry 的配置引入依赖（需要安装，不自带）</td>
 </tr>
@@ -408,8 +406,7 @@
 <td>cleanWebpackPlugin</td>
 <td>每次打包，清空配置的文件夹，包名保持不一致 （需要安装，不自带）</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="辅助开发的相关属性"><a href="#辅助开发的相关属性" class="headerlink" title="辅助开发的相关属性"></a>辅助开发的相关属性</h2><table>
 <thead>
 <tr>
@@ -417,8 +414,7 @@
 <th>用处</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>devtool</td>
 <td>打包后的代码与原始代码不同，控制是否生成 &amp; 如何生成</td>
 </tr>
@@ -442,8 +438,7 @@
 <td>stats</td>
 <td>配置打包过程输出的内容，值：none，norml，rerbese，errors-only</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="精细的相关属性配置"><a href="#精细的相关属性配置" class="headerlink" title="精细的相关属性配置"></a>精细的相关属性配置</h2><table>
 <thead>
 <tr>
@@ -451,8 +446,7 @@
 <th>用处</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>content</td>
 <td>设置基础路径，默认当前</td>
 </tr>
@@ -468,8 +462,7 @@
 <td>extemals</td>
 <td>控制某个依赖，不打包，直接从用户环境获取</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>基本上到这里了，这里大部分东西都在 <a href="https://doc.webpack-china.org/" target="_blank" rel="noopener">Webpack社区</a> 里可以查得到，习惯用了脚手架，会让突然出现的错误，措手不及，所以我们需要学习，和记录；</p>
 <p>当然，最近出了个 <a href="https://parceljs.org/" target="_blank" rel="noopener">Parcel </a>，貌似更好用…有机会试一下</p>
 
@@ -559,7 +552,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -620,7 +613,13 @@
         
           
         
-        <span class="site-state-item-count">23</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
