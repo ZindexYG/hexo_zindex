@@ -1,309 +1,112 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=7.3.0">
-  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=7.3.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    search: {
-      root: '/',
-      path: ''
-    },
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-  <meta name="description" content="工具只是工具，本文只是本人的一点心得，无意引战">
-<meta name="keywords" content="Sublime,工具,语言环境">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Sublime 配置与使用">
-<meta property="og:url" content="https://z-index.me/2017/12/17/sublime 配置与使用/index.html">
-<meta property="og:site_name" content="时之物语">
-<meta property="og:description" content="工具只是工具，本文只是本人的一点心得，无意引战">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://z-index.me/images/sublime-index.jpg">
-<meta property="og:updated_time" content="2018-07-08T10:23:49.529Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sublime 配置与使用">
-<meta name="twitter:description" content="工具只是工具，本文只是本人的一点心得，无意引战">
-<meta name="twitter:image" content="https://z-index.me/images/sublime-index.jpg">
-  <link rel="canonical" href="https://z-index.me/2017/12/17/sublime 配置与使用/">
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>Sublime 配置与使用 | 时之物语</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico">
+  
+  
+  <title>Sublime 配置与使用 - 时之物语</title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.min.js"></script></head>
 
 
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">时之物语</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      <li class="menu-item">
+        <a href="/" class="menu-item-link menu-item-home">Home</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link menu-item-about">About</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/links" class="menu-item-link menu-item-friends">Friends</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">时之物语</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+        <main class="main">
+          
+  <input type="checkbox" id="toggle-toc" class="toggle-toc-right" />
+  <div class="toc-toggle toc-toggle-right">
+    <label for="toggle-toc">
+      <i class="fa fa-list-ol"></i>
+    </label>
+    <div class="toc-wrap toc-wrap-right">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础配置"><span class="toc-number">1.</span> <span class="toc-text">基础配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-Package-Control"><span class="toc-number">2.</span> <span class="toc-text">配置 Package Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件列表"><span class="toc-number">3.</span> <span class="toc-text">插件列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人使用癖好"><span class="toc-number">4.</span> <span class="toc-text">个人使用癖好</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#迅速打开浏览器"><span class="toc-number">4.1.</span> <span class="toc-text">迅速打开浏览器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#QutoHTML-把-HTML-拼接成-js-插入字符串"><span class="toc-number">4.2.</span> <span class="toc-text">QutoHTML 把 HTML 拼接成 js 插入字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GitSavvy-的翻译"><span class="toc-number">4.3.</span> <span class="toc-text">GitSavvy 的翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#status-状态操作表"><span class="toc-number">4.3.1.</span> <span class="toc-text">status 状态操作表</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#branches-分支操作表"><span class="toc-number">4.4.</span> <span class="toc-text">branches 分支操作表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rebase-合并操作表"><span class="toc-number">4.4.1.</span> <span class="toc-text">rebase 合并操作表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tages-标签操作表"><span class="toc-number">4.4.2.</span> <span class="toc-text">tages 标签操作表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#graph-查看操作日志"><span class="toc-number">4.4.3.</span> <span class="toc-text">graph 查看操作日志</span></a></li></ol></li></ol></li></ol>
     </div>
   </div>
+  <label class="mask" for="toggle-toc"></label>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-    <ul id="menu" class="menu">
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-    </ul>
-</nav>
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/17/sublime 配置与使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YG">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时之物语">
-    </span>
-      <header class="post-header">
-
-        
-          <h2 class="post-title" itemprop="name headline">Sublime 配置与使用
-
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-12-17 10:05:11" itemprop="dateCreated datePublished" datetime="2017-12-17T10:05:11+08:00">2017-12-17</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-08 18:23:49" itemprop="dateModified" datetime="2018-07-08T18:23:49+08:00">2018-07-08</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon"
-              >
-                <i class="fa fa-eye"></i>
-                 阅读次数： 
-                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-              </span>
-            </span>
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p><img src="/images/sublime-index.jpg" alt></p>
+<div id="post-content">
+  <h1>Sublime 配置与使用</h1>
+  <p><img src="/images/sublime-index.jpg" alt=""></p>
 <blockquote>
 <p>工具只是工具，本文只是本人的一点心得，无意引战</p>
 </blockquote>
 <a id="more"></a>
 
 <h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><p><code>Preferences – Distraction-Settings</code> 打开；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>, <span class="comment">//是否自动移除多余空格</span></span><br><span class="line"><span class="string">"ensure_newline_at_eof_on_save"</span>: <span class="literal">true</span>,<span class="comment">//是否在结束符号上换行</span></span><br><span class="line"><span class="string">"highlight_line"</span>: <span class="literal">true</span>,<span class="comment">//是否显示高亮</span></span><br><span class="line"><span class="string">"disable_tab_abbreviations"</span>: <span class="literal">true</span>, <span class="comment">//是否使用 tab 案件 显示缩写</span></span><br><span class="line"><span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>, <span class="comment">// 是否将 tab 符号 换为空格</span></span><br><span class="line"><span class="string">"draw_minimap_border"</span>: <span class="literal">true</span>, <span class="comment">//是否打开小地图的边框</span></span><br><span class="line"><span class="string">"save_on_focus_lost"</span>: <span class="literal">true</span>,<span class="comment">//是否打开吃失去焦点时立即自动保存</span></span><br><span class="line"><span class="string">"word_wrap"</span>: <span class="literal">true</span>,<span class="comment">//是否打开自动换行</span></span><br><span class="line"><span class="string">"fade_fold_buttons"</span>: <span class="literal">false</span>, <span class="comment">//是否打开右侧的闭合标签的符号</span></span><br><span class="line"><span class="string">"bold_folder_labels"</span>: <span class="literal">true</span>,<span class="comment">//是否打开侧栏加粗显示</span></span><br><span class="line"><span class="string">"highlight_modified_tabs"</span>: <span class="literal">true</span>,<span class="comment">//是否打开高亮尚未保存的文件</span></span><br><span class="line"><span class="string">"vintage_start_in_command_mode"</span>: <span class="literal">true</span>,<span class="comment">//命令模式是否看开启</span></span><br><span class="line"><span class="string">"auto_find_in_selection"</span>: <span class="literal">true</span>,<span class="comment">//是否打开选中范围搜索</span></span><br><span class="line"></span><br><span class="line"><span class="string">"scroll_past_end"</span>: <span class="literal">true</span>,<span class="comment">//是否打开滚动结束行为</span></span><br><span class="line"><span class="string">"tab_completion"</span>: <span class="literal">false</span>,<span class="comment">//是否打开 tab 自动完成标签</span></span><br><span class="line"></span><br><span class="line"><span class="string">"default_line_ending"</span>: <span class="string">"unix"</span>,<span class="comment">//默认table</span></span><br><span class="line"><span class="string">"ignored_packages"</span>: [],</span><br><span class="line"><span class="string">"line_padding_bottom"</span>: <span class="number">1</span>,<span class="comment">//行下间距</span></span><br><span class="line"><span class="string">"line_padding_top"</span>: <span class="number">1</span>,<span class="comment">//行上间距</span></span><br><span class="line"></span><br><span class="line"><span class="string">"font_options"</span>: <span class="string">"subpixel_antialias"</span>,<span class="comment">//字体默认配置</span></span><br><span class="line"><span class="string">"font_face"</span>: <span class="string">"microsoft yahei"</span>,<span class="comment">// 字体选择</span></span><br><span class="line"><span class="string">"tab_size"</span>: <span class="number">2</span>,<span class="comment">//标签栏，字体大小</span></span><br><span class="line"><span class="string">"font_size"</span>: <span class="number">14</span>,<span class="comment">//字代替大小</span></span><br><span class="line"></span><br><span class="line"><span class="string">"color_scheme"</span>: <span class="string">"Packages/ayu/ayu.tmTheme"</span>,<span class="comment">//颜色选择</span></span><br><span class="line"><span class="string">"theme"</span>: <span class="string">"Soda Light.sublime-theme"</span>,<span class="comment">//主题</span></span><br><span class="line"></span><br><span class="line"><span class="string">"rulers"</span>: [</span><br><span class="line">    <span class="number">80</span></span><br><span class="line">],<span class="comment">//行距</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
+"trim_trailing_white_space_on_save": true, //是否自动移除多余空格
+"ensure_newline_at_eof_on_save": true,//是否在结束符号上换行
+"highlight_line": true,//是否显示高亮
+"disable_tab_abbreviations": true, //是否使用 tab 案件 显示缩写
+"translate_tabs_to_spaces": true, // 是否将 tab 符号 换为空格
+"draw_minimap_border": true, //是否打开小地图的边框
+"save_on_focus_lost": true,//是否打开吃失去焦点时立即自动保存
+"word_wrap": true,//是否打开自动换行
+"fade_fold_buttons": false, //是否打开右侧的闭合标签的符号
+"bold_folder_labels": true,//是否打开侧栏加粗显示
+"highlight_modified_tabs": true,//是否打开高亮尚未保存的文件
+"vintage_start_in_command_mode": true,//命令模式是否看开启
+"auto_find_in_selection": true,//是否打开选中范围搜索
 
+"scroll_past_end": true,//是否打开滚动结束行为
+"tab_completion": false,//是否打开 tab 自动完成标签
+
+"default_line_ending": "unix",//默认table
+"ignored_packages": [],
+"line_padding_bottom": 1,//行下间距
+"line_padding_top": 1,//行上间距
+
+"font_options": "subpixel_antialias",//字体默认配置
+"font_face": "microsoft yahei",// 字体选择
+"tab_size": 2,//标签栏，字体大小
+"font_size": 14,//字代替大小
+
+"color_scheme": "Packages/ayu/ayu.tmTheme",//颜色选择
+"theme": "Soda Light.sublime-theme",//主题
+
+"rulers": [
+    80
+],//行距
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="配置-Package-Control"><a href="#配置-Package-Control" class="headerlink" title="配置 Package Control"></a>配置 Package Control</h3><p> Package Control 也算是插件管理器，官网在 <a href="https://packagecontrol.io/" target="_blank" rel="noopener">这里</a>；</p>
 <p>快捷键 <code>clrl+`</code> 或者 <code>View -&gt; Show Console</code> 打开窗口，粘贴下方代码至窗口，等待配置完成，重启即可；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure>
-
-<p>准备完成，现在可以玩弄插件了；</p>
+<pre><code>import urllib.request,os,hashlib; h = &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</code></pre><p>准备完成，现在可以玩弄插件了；</p>
 <h3 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h3><p>下面是我平常使用的插件列表；</p>
 <ul>
 <li>Alignment / 多选择器/</li>
@@ -325,11 +128,30 @@
 </ul>
 <h3 id="个人使用癖好"><a href="#个人使用癖好" class="headerlink" title="个人使用癖好"></a>个人使用癖好</h3><p>配置完插件之后，有几个配置，属于个人癖好，各位看官可以看着玩，打开 <code>Preferences – key-Bindings</code>；</p>
 <h4 id="迅速打开浏览器"><a href="#迅速打开浏览器" class="headerlink" title="迅速打开浏览器"></a>迅速打开浏览器</h4><p>加上这个配置可以在编辑文件时候，按 <code>F5</code> 可以直接用浏览器打开该文件，同理可以配置其他浏览器；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// chrome</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"keys"</span>: [<span class="string">"F5"</span>],</span><br><span class="line">  <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">  <span class="string">"args"</span>: &#123;</span><br><span class="line">    <span class="string">"paths"</span>: [],</span><br><span class="line">    <span class="string">"application"</span>: <span class="string">"C:\\Users\\user_name\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe"</span>,</span><br><span class="line">    <span class="string">"extensions"</span>: <span class="string">".*"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript"> // chrome
+{
+  "keys": ["F5"],
+  "command": "side_bar_files_open_with",
+  "args": {
+    "paths": [],
+    "application": "C:\\Users\\user_name\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe",
+    "extensions": ".*"
+  }
+},<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="QutoHTML-把-HTML-拼接成-js-插入字符串"><a href="#QutoHTML-把-HTML-拼接成-js-插入字符串" class="headerlink" title="QutoHTML 把 HTML 拼接成 js 插入字符串"></a>QutoHTML 把 HTML 拼接成 js 插入字符串</h4><p>详细看过 <code>QutoHTML</code> 文档的应该会发现它，有好几种模式，我这里只列举 <code>single</code> 和 <code>double</code>，即转变一行，和多行的字符串；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"keys"</span>: [<span class="string">"ctrl+alt+`"</span>],</span><br><span class="line">    <span class="string">"command"</span>: <span class="string">"quote_html"</span>,</span><br><span class="line">    <span class="string">"args"</span>: &#123;</span><br><span class="line">        <span class="string">"action"</span>: <span class="string">"single"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    <span class="string">"keys"</span>: [<span class="string">"ctrl+alt+shift+'"</span>],</span><br><span class="line">    <span class="string">"command"</span>: <span class="string">"quote_html"</span>,</span><br><span class="line">    <span class="string">"args"</span>: &#123;</span><br><span class="line">        <span class="string">"action"</span>: <span class="string">"double"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">{
+    "keys": ["ctrl+alt+`"],
+    "command": "quote_html",
+    "args": {
+        "action": "single"
+    }
+}, {
+    "keys": ["ctrl+alt+shift+'"],
+    "command": "quote_html",
+    "args": {
+        "action": "double"
+    }
+},<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="GitSavvy-的翻译"><a href="#GitSavvy-的翻译" class="headerlink" title="GitSavvy 的翻译"></a>GitSavvy 的翻译</h4><p>这个是我目前用的最舒服的一个 git 插件了</p>
 <p><a href="https://github.com/divmain/GitSavvy" target="_blank" rel="noopener">GitSavvy – 原文介绍</a></p>
 <p><a href="https://www.youtube.com/watch?v=HLU_D8ZiqRs" target="_blank" rel="noopener">GitSavvy – 视频教程</a></p>
@@ -794,382 +616,127 @@
 </tr>
 </tbody></table>
 <h5 id="graph-查看操作日志"><a href="#graph-查看操作日志" class="headerlink" title="graph 查看操作日志"></a>graph <small>查看操作日志</small></h5>
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          
-        
-        <div class="post-tags">
-            <a href="/tags/Sublime/" rel="tag"># Sublime</a>
-          
-            <a href="/tags/工具/" rel="tag"># 工具</a>
-          
-            <a href="/tags/语言环境/" rel="tag"># 语言环境</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-              <a href="/2017/12/18/jQuery的使用心得/" rel="prev" title="jQuery的使用心得">
-                jQuery的使用心得 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/zindex_avatar.jpg"
-      alt="YG">
-  <p class="site-author-name" itemprop="name">YG</p>
-  <div class="site-description motion-element" itemprop="description"></div>
 </div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/ZindexYG" title="GitHub &rarr; https://github.com/ZindexYG" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/3249847654" title="Weibo &rarr; https://weibo.com/3249847654" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
-  </div>
 
+<script>
+  // I'm not sure your browser supports `es6`
+  window.addEventListener('load', function () {
+    [].concat(Array.from(document.querySelectorAll('code')), Array.from(document.querySelectorAll('pre'))).filter(function (item) {return item.className.indexOf('language') >= 0}).forEach(function (tag) { tag.classList.add('line-numbers') })
+    Prism.highlightAll()
 
-  <div class="links-of-blogroll motion-element links-of-blogroll-block">
-    <div class="links-of-blogroll-title">
-      <i class="fa  fa-fw fa-coffee"></i>
-      物语伙伴
+    let scrollY = window.scrollY
+    let headersList = Array.from(document.querySelector('#post-content').querySelectorAll('h1,h2,h3,h4,h5,h6')).map(function (item) {
+      let rect = item.getBoundingClientRect()
+      let anchorTag = document.querySelector(`a.toc-link[href="#${item.id}"]`)
+
+      if (!anchorTag) return
+      return {
+        top: scrollY + rect.top - rect.height,
+        tag: item,
+        anchorTag: anchorTag
+      }
+    }).filter(function (item) { return item })
+
+    window.addEventListener('scroll', debounce(scrollHandler, 200))
+    scrollHandler()
+
+    function scrollHandler () {
+      let scrollY = window.scrollY
+      let minInfo = null
+
+      for (let item of headersList) {
+        if (!minInfo) {
+          minInfo = item
+          continue
+        }
+
+        if ((scrollY - item.top) >= 0 && (scrollY - minInfo.top) > (scrollY - item.top)) {
+          minInfo = item
+        }
+      }
+
+      if (minInfo) {
+        headersList.forEach(function (item) {
+          item.anchorTag && item.anchorTag.classList.remove('selected')
+        })
+        minInfo.anchorTag.classList.add('selected')
+      }
+    }
+
+    function debounce (func, delay) {
+      let debounceIdentify = 0
+      return function () {
+        debounceIdentify && clearTimeout(debounceIdentify)
+        debounceIdentify = setTimeout(function () {
+          debounceIdentify = 0
+          func.apply(this, arguments)
+        }, delay)
+      }
+    }
+  })
+</script>
+
+        </main>
+        <a href="#" class="goto-top">
+          <i class="fa fa-chevron-up"></i>
+        </a>
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://alexinea.com/" title="https://alexinea.com/" rel="noopener" target="_blank">Alexinea</a>
-        </li>
+    <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-info" class="inner">
+      <p class="copyright">&copy; 2020 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
+    </div>
+    <ul class="contact-info">
       
-        <li class="links-of-blogroll-item">
-          <a href="https://yufan.me/" title="https://yufan.me/" rel="noopener" target="_blank">且听书吟</a>
-        </li>
+        <a class="contact-link" href="https://github.com/zindexyg" target="_blank"><i class="fa fa-github"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.verge.wang/" title="https://blog.verge.wang/" rel="noopener" target="_blank">一抹愿</a>
-        </li>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.jiasm.org/" title="https://blog.jiasm.org/" rel="noopener" target="_blank">贾顺名</a>
-        </li>
+        <a class="contact-link" href="https://weibo.com/u/3249847654" target="_blank"><i class="fa fa-weibo"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://rainylog.com/" title="https://rainylog.com/" rel="noopener" target="_blank">Rainy's Blog</a>
-        </li>
+      
+      
+      
+        <a class="contact-link" href="mailto:zinger_yg@163.com" target="_blank"><i class="fa fa-envelope"></i></a>
       
     </ul>
   </div>
-
-        </div>
-      </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础配置"><span class="nav-number">1.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Package-Control"><span class="nav-number">2.</span> <span class="nav-text">配置 Package Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件列表"><span class="nav-number">3.</span> <span class="nav-text">插件列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人使用癖好"><span class="nav-number">4.</span> <span class="nav-text">个人使用癖好</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#迅速打开浏览器"><span class="nav-number">4.1.</span> <span class="nav-text">迅速打开浏览器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QutoHTML-把-HTML-拼接成-js-插入字符串"><span class="nav-number">4.2.</span> <span class="nav-text">QutoHTML 把 HTML 拼接成 js 插入字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitSavvy-的翻译"><span class="nav-number">4.3.</span> <span class="nav-text">GitSavvy 的翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#status-状态操作表"><span class="nav-number">4.3.1.</span> <span class="nav-text">status 状态操作表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#branches-分支操作表"><span class="nav-number">4.4.</span> <span class="nav-text">branches 分支操作表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#rebase-合并操作表"><span class="nav-number">4.4.1.</span> <span class="nav-text">rebase 合并操作表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tages-标签操作表"><span class="nav-number">4.4.2.</span> <span class="nav-text">tages 标签操作表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#graph-查看操作日志"><span class="nav-number">4.4.3.</span> <span class="nav-text">graph 查看操作日志</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">YG</span>
-</div>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
+</footer>
 
 
 
-
+      <script>
+      function footerHandler () {
+        if (!window.screen || !document.body) return
+        var hasComments = document.querySelector('.comments')
+        if ((window.screen.availHeight - (hasComments ? 350 : 0)) > document.body.clientHeight) {
+          document.body.classList.add('fixed')
+        } else {
+          document.body.classList.remove('fixed')
+        }
+      }
+      footerHandler()
+      window.addEventListener('resize', footerHandler)
+    </script>
+  </body>
   <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=64829990";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    var pathname = new URL(location.href).pathname.replace(/\/$/, '')
+
+    switch (pathname) {
+      case '/home':
+        document.querySelector('.menu-item-contact').classList.add('active')
+        break
+      case '/about':
+        document.querySelector('.menu-item-about').classList.add('active')
+        break
+      case '/links':
+        document.querySelector('.menu-item-friends').classList.add('active')
+        break
+      default:
+        document.querySelector('.menu-item-home').classList.add('active')
+    }
   </script>
-
-
-  <script>
-    var _mtac = {};
-    (function() {
-      var mta = document.createElement("script");
-      mta.src = "https://pingjs.qq.com/h5/stats.js";
-      mta.setAttribute("name", "MTAH5");
-      mta.setAttribute("sid", "500566833");
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(mta, s);
-    })();
-  </script>
-
-
-        
-      </div>
-    </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
-  </div>
-
-  
-    
-    
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  <script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-  
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
-
-
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
-
-
-
-  <script src="/js/next-boot.js?v=7.3.0"></script>
-
   
 
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
 </html>

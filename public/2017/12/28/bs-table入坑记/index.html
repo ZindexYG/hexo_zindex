@@ -1,296 +1,68 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=7.3.0">
-  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=7.3.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    search: {
-      root: '/',
-      path: ''
-    },
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-  <meta name="description" content="本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况">
-<meta name="keywords" content="bootstrap,笔记,plugs">
-<meta property="og:type" content="article">
-<meta property="og:title" content="bs-table入坑记">
-<meta property="og:url" content="https://z-index.me/2017/12/28/bs-table入坑记/index.html">
-<meta property="og:site_name" content="时之物语">
-<meta property="og:description" content="本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://z-index.me/images/BTable-banner.jpg">
-<meta property="og:updated_time" content="2018-07-08T10:23:49.529Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bs-table入坑记">
-<meta name="twitter:description" content="本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况">
-<meta name="twitter:image" content="https://z-index.me/images/BTable-banner.jpg">
-  <link rel="canonical" href="https://z-index.me/2017/12/28/bs-table入坑记/">
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>bs-table入坑记 | 时之物语</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico">
+  
+  
+  <title>bs-table入坑记 - 时之物语</title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.min.js"></script></head>
 
 
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">时之物语</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      <li class="menu-item">
+        <a href="/" class="menu-item-link menu-item-home">Home</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link menu-item-about">About</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/links" class="menu-item-link menu-item-friends">Friends</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">时之物语</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+        <main class="main">
+          
+  <input type="checkbox" id="toggle-toc" class="toggle-toc-right" />
+  <div class="toc-toggle toc-toggle-right">
+    <label for="toggle-toc">
+      <i class="fa fa-list-ol"></i>
+    </label>
+    <div class="toc-wrap toc-wrap-right">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bootstrap-table"><span class="toc-number">1.</span> <span class="toc-text">bootstrap-table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础玩法"><span class="toc-number">2.</span> <span class="toc-text">基础玩法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化插件参数"><span class="toc-number">3.</span> <span class="toc-text">初始化插件参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#直接在标签里面添加参数"><span class="toc-number">3.1.</span> <span class="toc-text">直接在标签里面添加参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-js-初始化带入参数"><span class="toc-number">3.2.</span> <span class="toc-text">使用 js 初始化带入参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进阶玩法"><span class="toc-number">4.</span> <span class="toc-text">进阶玩法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重要参数"><span class="toc-number">5.</span> <span class="toc-text">重要参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#html-里初始化基本的参数"><span class="toc-number">5.1.</span> <span class="toc-text">html 里初始化基本的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js-里完成请求与数据处理"><span class="toc-number">5.2.</span> <span class="toc-text">js 里完成请求与数据处理</span></a></li></ol></li></ol>
     </div>
   </div>
+  <label class="mask" for="toggle-toc"></label>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-    <ul id="menu" class="menu">
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-    </ul>
-</nav>
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2017/12/28/bs-table入坑记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YG">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时之物语">
-    </span>
-      <header class="post-header">
-
-        
-          <h2 class="post-title" itemprop="name headline">bs-table入坑记
-
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-12-28 22:00:48" itemprop="dateCreated datePublished" datetime="2017-12-28T22:00:48+08:00">2017-12-28</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-08 18:23:49" itemprop="dateModified" datetime="2018-07-08T18:23:49+08:00">2018-07-08</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon"
-              >
-                <i class="fa fa-eye"></i>
-                 阅读次数： 
-                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-              </span>
-            </span>
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p><img src="/images/BTable-banner.jpg" alt></p>
+<div id="post-content">
+  <h1>bs-table入坑记</h1>
+  <p><img src="/images/BTable-banner.jpg" alt=""></p>
 <blockquote>
 <p>本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况</p>
 </blockquote>
@@ -298,16 +70,57 @@
 
 <h3 id="bootstrap-table"><a href="#bootstrap-table" class="headerlink" title="bootstrap-table"></a><a href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/" target="_blank" rel="noopener">bootstrap-table</a></h3><p>基于 jQuery 的表格插件，重在该有的都有，相当适合上手，下称 <code>bs-table</code></p>
 <h3 id="基础玩法"><a href="#基础玩法" class="headerlink" title="基础玩法"></a>基础玩法</h3><p>最基本的引入和把玩，并没有很多高超的技巧，只要引入了　<code>css</code>，和 <code>js</code>，在不适用的情况下，在 <code>table</code>标签内直接添加 <code>data-toggle=&quot;table&quot;</code> 也是可以激活 <code>bs-table</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../style/bootstrap.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../style/bootstrap-table.min.css"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- some more... --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span> <span class="attr">data-toggle</span>=<span class="string">"table"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- some --&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- some --&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"dataBody"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- some more... --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/bootstrap-table.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/bootstrap-table-zh-CN.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../style/bootstrap.min.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../style/bootstrap-table.min.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token comment" spellcheck="true">&lt;!-- some more... --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>table<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>
+      <span class="token comment" spellcheck="true">&lt;!-- some --></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>
+      <span class="token comment" spellcheck="true">&lt;!-- some --></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dataBody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+ <span class="token comment" spellcheck="true">&lt;!-- some more... --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/jquery.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/bootstrap.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/bootstrap-table.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/bootstrap-table-zh-CN.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="初始化插件参数"><a href="#初始化插件参数" class="headerlink" title="初始化插件参数"></a>初始化插件参数</h3><p>具体文档已<a href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/" target="_blank" rel="noopener">官方</a>为主，官方的翻译也还好，此处列举代码里面的参数都是本人常用的，初始化插件参数的方式有两种：</p>
-<h4 id="直接在标签里面添加参数"><a href="#直接在标签里面添加参数" class="headerlink" title="直接在标签里面添加参数"></a>直接在标签里面添加参数</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table text-nowrap"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-toggle</span>=<span class="string">"table"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-checkbox-header</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-toggle</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-columns</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-query-params-type</span>=<span class="string">"undefined"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-refresh</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-search</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-strict-search</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- some --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="直接在标签里面添加参数"><a href="#直接在标签里面添加参数" class="headerlink" title="直接在标签里面添加参数"></a>直接在标签里面添加参数</h4><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>table text-nowrap<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>table<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-checkbox-header</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-columns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-query-params-type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>undefined<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-refresh</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-search</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-strict-search</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 
-<h4 id="使用-js-初始化带入参数"><a href="#使用-js-初始化带入参数" class="headerlink" title="使用 js 初始化带入参数"></a>使用 <code>js</code> 初始化带入参数</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table text-nowrap"</span> <span class="attr">id</span>=<span class="string">"myTable"</span></span></span><br><span class="line"><span class="tag"></span></span><br><span class="line">  &lt;!-- some --&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+  <span class="token comment" spellcheck="true">&lt;!-- some --></span>
 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用-js-初始化带入参数"><a href="#使用-js-初始化带入参数" class="headerlink" title="使用 js 初始化带入参数"></a>使用 <code>js</code> 初始化带入参数</h4><pre class="line-numbers language-html"><code class="language-html">&lt;table class="table text-nowrap" id="myTable"
+
+  <span class="token comment" spellcheck="true">&lt;!-- some --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>因为引入了 <code>jQuery</code> ,所以直接用就好了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $myTable = $(<span class="string">'#myTable'</span>)</span><br><span class="line">  $(<span class="string">'#myTable'</span>).bootstrapTable(&#123;</span><br><span class="line">    showHeader:<span class="literal">true</span>,</span><br><span class="line">    showFooter:<span class="literal">false</span>,</span><br><span class="line">    showColumns:<span class="literal">true</span>,</span><br><span class="line">    <span class="comment">//....</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> $myTable <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bootstrapTable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    showHeader<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+    showFooter<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+    showColumns<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//....</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="进阶玩法"><a href="#进阶玩法" class="headerlink" title="进阶玩法"></a>进阶玩法</h3><p>好了，基本的玩法之后熟悉之后，还是需要数据来玩，才能把　<code>bs-table</code> 玩得出彩；</p>
 <p>后台返回来的数据结构，一般会包含<code>当前页码</code>，<code>每页的数据量</code>，<code>数据总和</code>，<code>table 数据本身</code>;</p>
 <p>这里的演示，都在借助<a href="https://www.juhe.cn/" target="_blank" rel="noopener">聚合数据</a>里的免费图书数据；</p>
@@ -428,391 +241,205 @@
 <td>如果设置了分页，设置可供选择的页面数据条数。设置为 All 或者 Unlimited，则显示所有记录。</td>
 </tr>
 </tbody></table>
-<h4 id="html-里初始化基本的参数"><a href="#html-里初始化基本的参数" class="headerlink" title="html 里初始化基本的参数"></a><code>html</code> 里初始化基本的参数</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table text-nowrap"</span> <span class="attr">id</span>=<span class="string">"#myTable"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-checkbox-header</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-toggle</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-columns</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-toolbar</span>=<span class="string">"#toolbar"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-query-params-type</span>=<span class="string">"undefined"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-refresh</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-pagination-loop</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-pagination-switch</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-side-pagination</span>=<span class="string">"server"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-pagination</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-search</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-strict-search</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-show-export</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-field</span>=<span class="string">"getCheck"</span> <span class="attr">data-checkbox</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-field</span>=<span class="string">"title"</span>&gt;</span>书名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-field</span>=<span class="string">"sub1"</span>&gt;</span>简介<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-field</span>=<span class="string">"reading"</span>&gt;</span>购买数量<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- some --&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="html-里初始化基本的参数"><a href="#html-里初始化基本的参数" class="headerlink" title="html 里初始化基本的参数"></a><code>html</code> 里初始化基本的参数</h4><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>table text-nowrap<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#myTable<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-checkbox-header</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-columns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-toolbar</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#toolbar<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-query-params-type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>undefined<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-refresh</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-pagination-loop</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-pagination-switch</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-side-pagination</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>server<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-pagination</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-search</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-strict-search</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-show-export</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span> <span class="token attr-name">data-field</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getCheck<span class="token punctuation">"</span></span> <span class="token attr-name">data-checkbox</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span> <span class="token attr-name">data-field</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>书名<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span> <span class="token attr-name">data-field</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sub1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>简介<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span> <span class="token attr-name">data-field</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>reading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>购买数量<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- some --></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="js-里完成请求与数据处理"><a href="#js-里完成请求与数据处理" class="headerlink" title="js 里完成请求与数据处理"></a><code>js</code> 里完成请求与数据处理</h4><pre class="line-numbers language-javascript"><code class="language-javascript">
+<span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">'http://apis.juhe.cn/goodbook/querycatalog_id=242&amp;dtype=&amp;key=adbe8a45c24acd16f0315f4ee463215b'</span>
+  <span class="token keyword">var</span> $myTable <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bootstrapTable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//.... option init</span>
+    ajax<span class="token punctuation">:</span> ajaxRequest<span class="token punctuation">,</span>
+    responseHandler<span class="token punctuation">:</span> responseHandler<span class="token punctuation">,</span>
+    queryParams<span class="token punctuation">:</span> queryParams<span class="token punctuation">,</span>
+    pageList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    pageSize<span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
+    pageNumber<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    silent<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">//ajax 请求</span>
+  <span class="token keyword">function</span> <span class="token function">ajaxRequest</span><span class="token punctuation">(</span>parames<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    $<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> parames<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>result<span class="token punctuation">,</span> textStatus<span class="token punctuation">,</span> xhr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//返回值处理</span>
+        result<span class="token punctuation">.</span>resultcode <span class="token operator">?</span> parames<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//行与总数带入</span>
+          <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            <span class="token string">"rows"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>result<span class="token punctuation">.</span>data<span class="token punctuation">.</span>List<span class="token punctuation">,</span>
+            <span class="token string">"total"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>result<span class="token punctuation">.</span>data<span class="token punctuation">.</span>totalNum<span class="token punctuation">,</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> parames<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        parames<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">//请求参数处理</span>
+    <span class="token keyword">function</span> <span class="token function">queryParams</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        pageSize<span class="token punctuation">:</span> params<span class="token punctuation">.</span>pageSize<span class="token punctuation">,</span>
+        PageNumber<span class="token punctuation">:</span> params<span class="token punctuation">.</span>pageNumber<span class="token punctuation">,</span>
+        pn<span class="token punctuation">:</span> params<span class="token punctuation">.</span>pageNumber<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> params
+    <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">//返回值处理</span>
+    <span class="token keyword">function</span> <span class="token function">responseHandler</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> pageDate <span class="token operator">=</span> result<span class="token punctuation">.</span>rows <span class="token operator">?</span> result<span class="token punctuation">.</span>rows <span class="token punctuation">:</span> <span class="token number">0</span>
 
-<h4 id="js-里完成请求与数据处理"><a href="#js-里完成请求与数据处理" class="headerlink" title="js 里完成请求与数据处理"></a><code>js</code> 里完成请求与数据处理</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> url = <span class="string">'http://apis.juhe.cn/goodbook/querycatalog_id=242&amp;dtype=&amp;key=adbe8a45c24acd16f0315f4ee463215b'</span></span><br><span class="line">  <span class="keyword">var</span> $myTable = $(<span class="string">'#myTable'</span>)</span><br><span class="line">  $(<span class="string">'#myTable'</span>).bootstrapTable(&#123;</span><br><span class="line">    <span class="comment">//.... option init</span></span><br><span class="line">    ajax: ajaxRequest,</span><br><span class="line">    responseHandler: responseHandler,</span><br><span class="line">    queryParams: queryParams,</span><br><span class="line">    pageList: [<span class="number">15</span>],</span><br><span class="line">    pageSize: <span class="number">15</span>,</span><br><span class="line">    pageNumber: <span class="number">1</span>,</span><br><span class="line">    silent: <span class="literal">true</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">//ajax 请求</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">ajaxRequest</span>(<span class="params">parames</span>) </span>&#123;</span><br><span class="line">    $.post(url, parames.data, <span class="function"><span class="keyword">function</span> (<span class="params">result, textStatus, xhr</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//返回值处理</span></span><br><span class="line">        result.resultcode ? parames.success(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="comment">//行与总数带入</span></span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="string">"rows"</span>: result.result.data.List,</span><br><span class="line">            <span class="string">"total"</span>: result.result.data.totalNum,</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;()) : parames.error(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">        &#125;())</span><br><span class="line">      &#125;)</span><br><span class="line">      .fail(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        parames.error(&#123;&#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//请求参数处理</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">queryParams</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">      params = &#123;</span><br><span class="line">        pageSize: params.pageSize,</span><br><span class="line">        PageNumber: params.pageNumber,</span><br><span class="line">        pn: params.pageNumber,</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> params</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="comment">//返回值处理</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">responseHandler</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> pageDate = result.rows ? result.rows : <span class="number">0</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">"rows"</span>: result.rows || [], <span class="comment">//总页数,前面的key必须为"total"</span></span><br><span class="line">        <span class="string">"total"</span>: result.total || [], <span class="comment">//行数据，前面的key要与之前设置的dataField的值一致.</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">"rows"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>rows <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//总页数,前面的key必须为"total"</span>
+        <span class="token string">"total"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>total <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//行数据，前面的key要与之前设置的dataField的值一致.</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          
-        
-        <div class="post-tags">
-            <a href="/tags/bootstrap/" rel="tag"># bootstrap</a>
-          
-            <a href="/tags/笔记/" rel="tag"># 笔记</a>
-          
-            <a href="/tags/plugs/" rel="tag"># plugs</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-              <a href="/2017/12/22/时针滴答一下，响了/" rel="next" title="时针滴答一下，响了">
-                <i class="fa fa-chevron-left"></i> 时针滴答一下，响了
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-              <a href="/2018/01/09/parcel游记/" rel="prev" title="parcel 游记">
-                parcel 游记 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/zindex_avatar.jpg"
-      alt="YG">
-  <p class="site-author-name" itemprop="name">YG</p>
-  <div class="site-description motion-element" itemprop="description"></div>
 </div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/ZindexYG" title="GitHub &rarr; https://github.com/ZindexYG" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/3249847654" title="Weibo &rarr; https://weibo.com/3249847654" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
-  </div>
 
+<script>
+  // I'm not sure your browser supports `es6`
+  window.addEventListener('load', function () {
+    [].concat(Array.from(document.querySelectorAll('code')), Array.from(document.querySelectorAll('pre'))).filter(function (item) {return item.className.indexOf('language') >= 0}).forEach(function (tag) { tag.classList.add('line-numbers') })
+    Prism.highlightAll()
 
-  <div class="links-of-blogroll motion-element links-of-blogroll-block">
-    <div class="links-of-blogroll-title">
-      <i class="fa  fa-fw fa-coffee"></i>
-      物语伙伴
+    let scrollY = window.scrollY
+    let headersList = Array.from(document.querySelector('#post-content').querySelectorAll('h1,h2,h3,h4,h5,h6')).map(function (item) {
+      let rect = item.getBoundingClientRect()
+      let anchorTag = document.querySelector(`a.toc-link[href="#${item.id}"]`)
+
+      if (!anchorTag) return
+      return {
+        top: scrollY + rect.top - rect.height,
+        tag: item,
+        anchorTag: anchorTag
+      }
+    }).filter(function (item) { return item })
+
+    window.addEventListener('scroll', debounce(scrollHandler, 200))
+    scrollHandler()
+
+    function scrollHandler () {
+      let scrollY = window.scrollY
+      let minInfo = null
+
+      for (let item of headersList) {
+        if (!minInfo) {
+          minInfo = item
+          continue
+        }
+
+        if ((scrollY - item.top) >= 0 && (scrollY - minInfo.top) > (scrollY - item.top)) {
+          minInfo = item
+        }
+      }
+
+      if (minInfo) {
+        headersList.forEach(function (item) {
+          item.anchorTag && item.anchorTag.classList.remove('selected')
+        })
+        minInfo.anchorTag.classList.add('selected')
+      }
+    }
+
+    function debounce (func, delay) {
+      let debounceIdentify = 0
+      return function () {
+        debounceIdentify && clearTimeout(debounceIdentify)
+        debounceIdentify = setTimeout(function () {
+          debounceIdentify = 0
+          func.apply(this, arguments)
+        }, delay)
+      }
+    }
+  })
+</script>
+
+        </main>
+        <a href="#" class="goto-top">
+          <i class="fa fa-chevron-up"></i>
+        </a>
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://alexinea.com/" title="https://alexinea.com/" rel="noopener" target="_blank">Alexinea</a>
-        </li>
+    <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-info" class="inner">
+      <p class="copyright">&copy; 2020 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
+    </div>
+    <ul class="contact-info">
       
-        <li class="links-of-blogroll-item">
-          <a href="https://yufan.me/" title="https://yufan.me/" rel="noopener" target="_blank">且听书吟</a>
-        </li>
+        <a class="contact-link" href="https://github.com/zindexyg" target="_blank"><i class="fa fa-github"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.verge.wang/" title="https://blog.verge.wang/" rel="noopener" target="_blank">一抹愿</a>
-        </li>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.jiasm.org/" title="https://blog.jiasm.org/" rel="noopener" target="_blank">贾顺名</a>
-        </li>
+        <a class="contact-link" href="https://weibo.com/u/3249847654" target="_blank"><i class="fa fa-weibo"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://rainylog.com/" title="https://rainylog.com/" rel="noopener" target="_blank">Rainy's Blog</a>
-        </li>
+      
+      
+      
+        <a class="contact-link" href="mailto:zinger_yg@163.com" target="_blank"><i class="fa fa-envelope"></i></a>
       
     </ul>
   </div>
-
-        </div>
-      </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap-table"><span class="nav-number">1.</span> <span class="nav-text">bootstrap-table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础玩法"><span class="nav-number">2.</span> <span class="nav-text">基础玩法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化插件参数"><span class="nav-number">3.</span> <span class="nav-text">初始化插件参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接在标签里面添加参数"><span class="nav-number">3.1.</span> <span class="nav-text">直接在标签里面添加参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-js-初始化带入参数"><span class="nav-number">3.2.</span> <span class="nav-text">使用 js 初始化带入参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶玩法"><span class="nav-number">4.</span> <span class="nav-text">进阶玩法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要参数"><span class="nav-number">5.</span> <span class="nav-text">重要参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#html-里初始化基本的参数"><span class="nav-number">5.1.</span> <span class="nav-text">html 里初始化基本的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js-里完成请求与数据处理"><span class="nav-number">5.2.</span> <span class="nav-text">js 里完成请求与数据处理</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">YG</span>
-</div>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
+</footer>
 
 
 
-
+      <script>
+      function footerHandler () {
+        if (!window.screen || !document.body) return
+        var hasComments = document.querySelector('.comments')
+        if ((window.screen.availHeight - (hasComments ? 350 : 0)) > document.body.clientHeight) {
+          document.body.classList.add('fixed')
+        } else {
+          document.body.classList.remove('fixed')
+        }
+      }
+      footerHandler()
+      window.addEventListener('resize', footerHandler)
+    </script>
+  </body>
   <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=64829990";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    var pathname = new URL(location.href).pathname.replace(/\/$/, '')
+
+    switch (pathname) {
+      case '/home':
+        document.querySelector('.menu-item-contact').classList.add('active')
+        break
+      case '/about':
+        document.querySelector('.menu-item-about').classList.add('active')
+        break
+      case '/links':
+        document.querySelector('.menu-item-friends').classList.add('active')
+        break
+      default:
+        document.querySelector('.menu-item-home').classList.add('active')
+    }
   </script>
-
-
-  <script>
-    var _mtac = {};
-    (function() {
-      var mta = document.createElement("script");
-      mta.src = "https://pingjs.qq.com/h5/stats.js";
-      mta.setAttribute("name", "MTAH5");
-      mta.setAttribute("sid", "500566833");
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(mta, s);
-    })();
-  </script>
-
-
-        
-      </div>
-    </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
-  </div>
-
-  
-    
-    
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  <script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-  
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
-
-
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
-
-
-
-  <script src="/js/next-boot.js?v=7.3.0"></script>
-
   
 
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
 </html>

@@ -1,299 +1,68 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=7.3.0">
-  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=7.3.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    search: {
-      root: '/',
-      path: ''
-    },
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-  <meta name="description" content="愈发纯熟的业务代码——开始做菜">
-<meta name="keywords" content="业务,react,vue">
-<meta property="og:type" content="article">
-<meta property="og:title" content="管理系统内 Tag 功能的实现">
-<meta property="og:url" content="https://z-index.me/2019/08/08/BusinessOfTag/index.html">
-<meta property="og:site_name" content="时之物语">
-<meta property="og:description" content="愈发纯熟的业务代码——开始做菜">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://z-index.me/images/tagImage-banner.jpg">
-<meta property="og:image" content="https://codesandbox.io/static/img/play-codesandbox.svg">
-<meta property="og:image" content="https://codesandbox.io/static/img/play-codesandbox.svg">
-<meta property="og:image" content="https://codesandbox.io/static/img/play-codesandbox.svg">
-<meta property="og:updated_time" content="2019-08-16T16:42:05.811Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="管理系统内 Tag 功能的实现">
-<meta name="twitter:description" content="愈发纯熟的业务代码——开始做菜">
-<meta name="twitter:image" content="https://z-index.me/images/tagImage-banner.jpg">
-  <link rel="canonical" href="https://z-index.me/2019/08/08/BusinessOfTag/">
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>管理系统内 Tag 功能的实现 | 时之物语</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico">
+  
+  
+  <title>管理系统内 Tag 功能的实现 - 时之物语</title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.min.js"></script></head>
 
 
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">时之物语</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      <li class="menu-item">
+        <a href="/" class="menu-item-link menu-item-home">Home</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link menu-item-about">About</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/links" class="menu-item-link menu-item-friends">Friends</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">时之物语</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+        <main class="main">
+          
+  <input type="checkbox" id="toggle-toc" class="toggle-toc-right" />
+  <div class="toc-toggle toc-toggle-right">
+    <label for="toggle-toc">
+      <i class="fa fa-list-ol"></i>
+    </label>
+    <div class="toc-wrap toc-wrap-right">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-背景-amp-amp-需求分析"><span class="toc-number">1.</span> <span class="toc-text">1.背景 &amp;&amp; 需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-背景"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-需求分析"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 需求分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-实现逻辑"><span class="toc-number">2.</span> <span class="toc-text">2. 实现逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-内存逻辑"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 内存逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-外部交互逻辑"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 外部交互逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-内部交互逻辑"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 内部交互逻辑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-对比"><span class="toc-number">3.</span> <span class="toc-text">3. 对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-Vue-的实现"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Vue 的实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-React-的实现"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 React 的实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4. 总结</span></a></li></ol>
     </div>
   </div>
+  <label class="mask" for="toggle-toc"></label>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-    <ul id="menu" class="menu">
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-    </ul>
-</nav>
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2019/08/08/BusinessOfTag/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YG">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时之物语">
-    </span>
-      <header class="post-header">
-
-        
-          <h2 class="post-title" itemprop="name headline">管理系统内 Tag 功能的实现
-
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-08 00:03:52" itemprop="dateCreated datePublished" datetime="2019-08-08T00:03:52+08:00">2019-08-08</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-17 00:42:05" itemprop="dateModified" datetime="2019-08-17T00:42:05+08:00">2019-08-17</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon"
-              >
-                <i class="fa fa-eye"></i>
-                 阅读次数： 
-                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-              </span>
-            </span>
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p><img src="/images/tagImage-banner.jpg" alt></p>
+<div id="post-content">
+  <h1>管理系统内 Tag 功能的实现</h1>
+  <p><img src="/images/tagImage-banner.jpg" alt=""></p>
 <blockquote>
 <p>愈发纯熟的业务代码——开始做菜</p>
 </blockquote>
@@ -322,28 +91,168 @@
 <li>activeTag 活动状态的 Tag</li>
 </ul>
 <p>操作同归在 <code>Reduce</code> 内，方便后续 Tag 内外部交互</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*.</span></span><br><span class="line"><span class="comment">目录：/src/store/index.js</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> appReducer =&#123;</span><br><span class="line">  tabListStatus: <span class="function">(<span class="params">state = &#123; tabList: [], activeTab: <span class="literal">null</span> &#125;, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'tabListChange'</span>:</span><br><span class="line">          <span class="comment">//</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'tabListAdd'</span>:</span><br><span class="line">          <span class="comment">//</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'tabListRemove'</span>:</span><br><span class="line">          <span class="comment">//</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'tabListClear'</span>:</span><br><span class="line">          <span class="comment">//</span></span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> state</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">/*.
+目录：/src/store/index.js
+*/
+const appReducer ={
+  tabListStatus: (state = { tabList: [], activeTab: null }, action) => {
+    switch (action.type) {
+      case 'tabListChange':
+          //
+      case 'tabListAdd':
+          //
+      case 'tabListRemove':
+          //
+      case 'tabListClear':
+          //
+      default:
+        return state
+    }
+  },
+  // ...
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>所有内存初始状态，都在 <code>App.js</code>-&gt;<code>componentDidUpdate</code> 生命周期内存操作</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">目录：/src/App.js</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.props.tabListStatus !== prevProps.tabListStatus) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; tabList, activeTab &#125; = <span class="keyword">this</span>.props.tabListStatus</span><br><span class="line">    sessionStorage.setItem(<span class="string">'tabList'</span>, <span class="built_in">JSON</span>.stringify(tabList))</span><br><span class="line">    sessionStorage.setItem(<span class="string">'activeTab'</span>, <span class="built_in">JSON</span>.stringify(activeTab))</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      tabList,</span><br><span class="line">      activeTab: activeTab !== <span class="literal">null</span> ? activeTab.key : <span class="string">'/'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">/*
+目录：/src/App.js
+ */
 
+componentDidUpdate(prevProps, prevState) {
+  if (this.props.tabListStatus !== prevProps.tabListStatus) {
+    const { tabList, activeTab } = this.props.tabListStatus
+    sessionStorage.setItem('tabList', JSON.stringify(tabList))
+    sessionStorage.setItem('activeTab', JSON.stringify(activeTab))
+    this.setState({
+      tabList,
+      activeTab: activeTab !== null ? activeTab.key : '/'
+    })
+  }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-2-外部交互逻辑"><a href="#2-2-外部交互逻辑" class="headerlink" title="2.2 外部交互逻辑"></a>2.2 外部交互逻辑</h4><ol>
 <li>侧栏逻辑，新增</li>
 <li>点击逻辑，切换 Tag</li>
 <li>关闭 Tag</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 点击侧栏</span></span><br><span class="line">  handleOnMenuItem = <span class="function"><span class="params">param</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; tabListAdd, tabListStatus &#125; = <span class="keyword">this</span>.props</span><br><span class="line">    <span class="keyword">const</span> &#123; tabList &#125; = tabListStatus</span><br><span class="line">    <span class="keyword">const</span> userMenu = menuDataSource</span><br><span class="line">    <span class="keyword">const</span> menu = <span class="keyword">this</span>.menuItemFilter(userMenu, <span class="string">`/nav_<span class="subst">$&#123;param.key&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> paramTab = &#123;</span><br><span class="line">      title: menu.name,</span><br><span class="line">      key: menu.path,</span><br><span class="line">      queryParam: &#123;&#125;,</span><br><span class="line">      dataSource: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断是否为新增</span></span><br><span class="line">    <span class="keyword">let</span> pushBol = <span class="literal">true</span></span><br><span class="line">    tabList.map(<span class="function"><span class="params">tab</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (tab.key === paramTab.key) &#123;</span><br><span class="line">        pushBol = <span class="literal">false</span></span><br><span class="line">        paramTab = <span class="built_in">Object</span>.assign(&#123;&#125;,paramTab,tab)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> tab</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (pushBol) &#123;</span><br><span class="line">      tabList.push(paramTab)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tabListAdd(&#123;</span><br><span class="line">      tabList,</span><br><span class="line">      activeTab: paramTab</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.toPath(<span class="string">`nav_<span class="subst">$&#123;param.key&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 点击 Tag</span></span><br><span class="line">  onChange = <span class="function"><span class="params">activeKey</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// console.log('....', activeKey)</span></span><br><span class="line">    <span class="keyword">const</span> &#123; tabListStatus, tabListAdd &#125; = <span class="keyword">this</span>.props</span><br><span class="line">    <span class="keyword">const</span> &#123; tabList &#125; = tabListStatus</span><br><span class="line">    <span class="keyword">const</span> userMenu = tabList</span><br><span class="line">    <span class="keyword">const</span> menu = <span class="keyword">this</span>.menuChangeFilter(userMenu, activeKey)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> paramTab = &#123;</span><br><span class="line">      ...menu</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tabListAdd(&#123;</span><br><span class="line">      tabList,</span><br><span class="line">      activeTab: paramTab</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.toPath(activeKey)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 关闭逻辑</span></span><br><span class="line">  remove = <span class="function"><span class="params">targetKey</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> activeKey = <span class="keyword">this</span>.state.activeTab</span><br><span class="line">    <span class="keyword">let</span> panes = <span class="keyword">this</span>.state.tabList</span><br><span class="line">    <span class="keyword">let</span> lastIndex</span><br><span class="line">    panes.forEach(<span class="function">(<span class="params">pane, i</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (pane.key === targetKey) &#123;</span><br><span class="line">        lastIndex = panes.length - <span class="number">1</span> === i ? i - <span class="number">1</span> : i</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> panesFilter = panes.filter(<span class="function"><span class="params">pane</span> =&gt;</span> pane.key !== targetKey)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (panesFilter.length &amp;&amp; activeKey === targetKey) &#123;</span><br><span class="line">      <span class="keyword">if</span> (lastIndex &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        activeKey = panesFilter[lastIndex]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        activeKey = panesFilter[<span class="number">0</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      activeKey = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.props.tabListAdd(&#123;</span><br><span class="line">      tabList: panesFilter,</span><br><span class="line">      activeTab: activeKey</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.toPath(activeKey !== <span class="literal">null</span> ? activeKey.key : <span class="string">'/'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
+class App extends Component {
+  // 点击侧栏
+  handleOnMenuItem = param => {
+    const { tabListAdd, tabListStatus } = this.props
+    const { tabList } = tabListStatus
+    const userMenu = menuDataSource
+    const menu = this.menuItemFilter(userMenu, `/nav_${param.key}`)
 
+    let paramTab = {
+      title: menu.name,
+      key: menu.path,
+      queryParam: {},
+      dataSource: {}
+    }
+
+    //判断是否为新增
+    let pushBol = true
+    tabList.map(tab => {
+      if (tab.key === paramTab.key) {
+        pushBol = false
+        paramTab = Object.assign({},paramTab,tab)
+      }
+      return tab
+    })
+
+    if (pushBol) {
+      tabList.push(paramTab)
+    }
+
+    tabListAdd({
+      tabList,
+      activeTab: paramTab
+    })
+
+    this.toPath(`nav_${param.key}`)
+  }
+  // 点击 Tag
+  onChange = activeKey => {
+    // console.log('....', activeKey)
+    const { tabListStatus, tabListAdd } = this.props
+    const { tabList } = tabListStatus
+    const userMenu = tabList
+    const menu = this.menuChangeFilter(userMenu, activeKey)
+
+    const paramTab = {
+      ...menu
+    }
+
+    tabListAdd({
+      tabList,
+      activeTab: paramTab
+    })
+
+    this.toPath(activeKey)
+  }
+  // 关闭逻辑
+  remove = targetKey => {
+    let activeKey = this.state.activeTab
+    let panes = this.state.tabList
+    let lastIndex
+    panes.forEach((pane, i) => {
+      if (pane.key === targetKey) {
+        lastIndex = panes.length - 1 === i ? i - 1 : i
+      }
+    })
+    const panesFilter = panes.filter(pane => pane.key !== targetKey)
+
+    if (panesFilter.length && activeKey === targetKey) {
+      if (lastIndex >= 0) {
+        activeKey = panesFilter[lastIndex]
+      } else {
+        activeKey = panesFilter[0]
+      }
+    } else {
+      activeKey = null
+    }
+
+    this.props.tabListAdd({
+      tabList: panesFilter,
+      activeTab: activeKey
+    })
+
+    this.toPath(activeKey !== null ? activeKey.key : '/')
+  }
+
+  // ...
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-3-内部交互逻辑"><a href="#2-3-内部交互逻辑" class="headerlink" title="2.3 内部交互逻辑"></a>2.3 内部交互逻辑</h4><ul>
 <li>判断是否新增</li>
 <li>操作更新 <code>onChange</code>, <code>onClear</code>, <code>onSubmit</code></li>
 </ul>
 <p>使用标记符号，或者直接判断一个 key 值是否存在值，来发送请求，demo 内使用 dataSource 是否存在为空来判断是否需要发送请求</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; tabListStatus, musicList_query_param, musicList &#125; = <span class="keyword">this</span>.props</span><br><span class="line">  <span class="keyword">const</span> &#123; dataSource &#125; = tabListStatus.activeTab</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">Object</span>.keys(dataSource).length) &#123;</span><br><span class="line">    musicList(musicList_query_param)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
+componentDidMount() {
+  const { tabListStatus, musicList_query_param, musicList } = this.props
+  const { dataSource } = tabListStatus.activeTab
 
+  if (!Object.keys(dataSource).length) {
+    musicList(musicList_query_param)
+  }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>操作更新 <code>onChange</code>, <code>onClear</code>, <code>onSubmit</code> 除了这一些以外还会存在不同的操作，demo 大致分了这几个操作，均使用 reducer 操作，App.js 内监听操作，更改内存，模块内不参与内存更改</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">onChange = <span class="function">(<span class="params">tabList, e</span>) =&gt;</span> &#123;</span><br><span class="line">  e.persist()</span><br><span class="line">  <span class="keyword">if</span> (!e || !e.target) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> &#123; target &#125; = e</span><br><span class="line">  <span class="keyword">const</span> operateParam = operateQuery(tabList, &#123;</span><br><span class="line">    [target.id]: target.type === <span class="string">'checkbox'</span> ? target.checked : target.value</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.props.tabListChange(operateParam)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
+onChange = (tabList, e) => {
+  e.persist()
+  if (!e || !e.target) {
+    return
+  }
+  const { target } = e
+  const operateParam = operateQuery(tabList, {
+    [target.id]: target.type === 'checkbox' ? target.checked : target.value
+  })
 
+  this.props.tabListChange(operateParam)
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-对比"><a href="#3-对比" class="headerlink" title="3. 对比"></a>3. 对比</h3><h4 id="3-1-Vue-的实现"><a href="#3-1-Vue-的实现" class="headerlink" title="3.1 Vue 的实现"></a>3.1 Vue 的实现</h4><ul>
 <li>技术栈：vue + vue-router + vuex</li>
 <li>UI 框架：ant-design</li>
@@ -358,389 +267,130 @@
 <p><a href="https://codesandbox.io/s/react-tag-demo-z88jy?fontsize=14" target="_blank" rel="noopener"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-tag-demo"></a></p>
 <h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><p>实现上面肯定是 Vue 更快实现的，但对使用 React 内存的控制也是一件非常好玩的事情，如果项目大了，就更好玩了</p>
 <p>实际上这种实现有点鸡肋，因为用户一个不留意，关了页面，这些 Tag 就不存在了，无论是那种管理系统，这个实现如果配合到后台，可能就更好玩了</p>
-<p>感谢 <a href="https://github.com/ZhangPuXi" target="_blank" rel="noopener">@白白</a>，感谢 <a href>@同事</a>，都提供了很不错的思路</p>
+<p>感谢 <a href="https://github.com/ZhangPuXi" target="_blank" rel="noopener">@白白</a>，感谢 <a href="">@同事</a>，都提供了很不错的思路</p>
 <p>感谢阅读，代码很烂，请轻喷</p>
 
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          
-        
-        <div class="post-tags">
-            <a href="/tags/业务/" rel="tag"># 业务</a>
-          
-            <a href="/tags/react/" rel="tag"># react</a>
-          
-            <a href="/tags/vue/" rel="tag"># vue</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-              <a href="/2018/12/31/Import2019/" rel="next" title="时针滴答一下，响了">
-                <i class="fa fa-chevron-left"></i> 时针滴答一下，响了
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/17/Async-Await/" rel="prev" title="Async/Await 代替 Promise.all()">
-                Async/Await 代替 Promise.all() <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/zindex_avatar.jpg"
-      alt="YG">
-  <p class="site-author-name" itemprop="name">YG</p>
-  <div class="site-description motion-element" itemprop="description"></div>
 </div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/ZindexYG" title="GitHub &rarr; https://github.com/ZindexYG" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/3249847654" title="Weibo &rarr; https://weibo.com/3249847654" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
-  </div>
 
+<script>
+  // I'm not sure your browser supports `es6`
+  window.addEventListener('load', function () {
+    [].concat(Array.from(document.querySelectorAll('code')), Array.from(document.querySelectorAll('pre'))).filter(function (item) {return item.className.indexOf('language') >= 0}).forEach(function (tag) { tag.classList.add('line-numbers') })
+    Prism.highlightAll()
 
-  <div class="links-of-blogroll motion-element links-of-blogroll-block">
-    <div class="links-of-blogroll-title">
-      <i class="fa  fa-fw fa-coffee"></i>
-      物语伙伴
+    let scrollY = window.scrollY
+    let headersList = Array.from(document.querySelector('#post-content').querySelectorAll('h1,h2,h3,h4,h5,h6')).map(function (item) {
+      let rect = item.getBoundingClientRect()
+      let anchorTag = document.querySelector(`a.toc-link[href="#${item.id}"]`)
+
+      if (!anchorTag) return
+      return {
+        top: scrollY + rect.top - rect.height,
+        tag: item,
+        anchorTag: anchorTag
+      }
+    }).filter(function (item) { return item })
+
+    window.addEventListener('scroll', debounce(scrollHandler, 200))
+    scrollHandler()
+
+    function scrollHandler () {
+      let scrollY = window.scrollY
+      let minInfo = null
+
+      for (let item of headersList) {
+        if (!minInfo) {
+          minInfo = item
+          continue
+        }
+
+        if ((scrollY - item.top) >= 0 && (scrollY - minInfo.top) > (scrollY - item.top)) {
+          minInfo = item
+        }
+      }
+
+      if (minInfo) {
+        headersList.forEach(function (item) {
+          item.anchorTag && item.anchorTag.classList.remove('selected')
+        })
+        minInfo.anchorTag.classList.add('selected')
+      }
+    }
+
+    function debounce (func, delay) {
+      let debounceIdentify = 0
+      return function () {
+        debounceIdentify && clearTimeout(debounceIdentify)
+        debounceIdentify = setTimeout(function () {
+          debounceIdentify = 0
+          func.apply(this, arguments)
+        }, delay)
+      }
+    }
+  })
+</script>
+
+        </main>
+        <a href="#" class="goto-top">
+          <i class="fa fa-chevron-up"></i>
+        </a>
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://alexinea.com/" title="https://alexinea.com/" rel="noopener" target="_blank">Alexinea</a>
-        </li>
+    <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-info" class="inner">
+      <p class="copyright">&copy; 2020 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
+    </div>
+    <ul class="contact-info">
       
-        <li class="links-of-blogroll-item">
-          <a href="https://yufan.me/" title="https://yufan.me/" rel="noopener" target="_blank">且听书吟</a>
-        </li>
+        <a class="contact-link" href="https://github.com/zindexyg" target="_blank"><i class="fa fa-github"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.verge.wang/" title="https://blog.verge.wang/" rel="noopener" target="_blank">一抹愿</a>
-        </li>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.jiasm.org/" title="https://blog.jiasm.org/" rel="noopener" target="_blank">贾顺名</a>
-        </li>
+        <a class="contact-link" href="https://weibo.com/u/3249847654" target="_blank"><i class="fa fa-weibo"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://rainylog.com/" title="https://rainylog.com/" rel="noopener" target="_blank">Rainy's Blog</a>
-        </li>
+      
+      
+      
+        <a class="contact-link" href="mailto:zinger_yg@163.com" target="_blank"><i class="fa fa-envelope"></i></a>
       
     </ul>
   </div>
-
-        </div>
-      </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-背景-amp-amp-需求分析"><span class="nav-number">1.</span> <span class="nav-text">1.背景 &amp;&amp; 需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-背景"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-需求分析"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 需求分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现逻辑"><span class="nav-number">2.</span> <span class="nav-text">2. 实现逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-内存逻辑"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 内存逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-外部交互逻辑"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 外部交互逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-内部交互逻辑"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 内部交互逻辑</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-对比"><span class="nav-number">3.</span> <span class="nav-text">3. 对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Vue-的实现"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Vue 的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-React-的实现"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 React 的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-总结"><span class="nav-number">4.</span> <span class="nav-text">4. 总结</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">YG</span>
-</div>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
+</footer>
 
 
 
-
+      <script>
+      function footerHandler () {
+        if (!window.screen || !document.body) return
+        var hasComments = document.querySelector('.comments')
+        if ((window.screen.availHeight - (hasComments ? 350 : 0)) > document.body.clientHeight) {
+          document.body.classList.add('fixed')
+        } else {
+          document.body.classList.remove('fixed')
+        }
+      }
+      footerHandler()
+      window.addEventListener('resize', footerHandler)
+    </script>
+  </body>
   <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=64829990";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    var pathname = new URL(location.href).pathname.replace(/\/$/, '')
+
+    switch (pathname) {
+      case '/home':
+        document.querySelector('.menu-item-contact').classList.add('active')
+        break
+      case '/about':
+        document.querySelector('.menu-item-about').classList.add('active')
+        break
+      case '/links':
+        document.querySelector('.menu-item-friends').classList.add('active')
+        break
+      default:
+        document.querySelector('.menu-item-home').classList.add('active')
+    }
   </script>
-
-
-  <script>
-    var _mtac = {};
-    (function() {
-      var mta = document.createElement("script");
-      mta.src = "https://pingjs.qq.com/h5/stats.js";
-      mta.setAttribute("name", "MTAH5");
-      mta.setAttribute("sid", "500566833");
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(mta, s);
-    })();
-  </script>
-
-
-        
-      </div>
-    </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
-  </div>
-
-  
-    
-    
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  <script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-  
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
-
-
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
-
-
-
-  <script src="/js/next-boot.js?v=7.3.0"></script>
-
   
 
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
 </html>

@@ -1,296 +1,68 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-32x32.ico?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico?v=7.3.0">
-  <link rel="mask-icon" href="/images/favicon-z-32x32.ico?v=7.3.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    search: {
-      root: '/',
-      path: ''
-    },
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-  <meta name="description" content="这技巧，为何你会那么熟练 ？">
-<meta name="keywords" content="CSS,Post_css,layout">
-<meta property="og:type" content="article">
-<meta property="og:title" content="愈发熟练的 CSS 技巧">
-<meta property="og:url" content="https://z-index.me/2018/05/26/CSS-evolution/index.html">
-<meta property="og:site_name" content="时之物语">
-<meta property="og:description" content="这技巧，为何你会那么熟练 ？">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://z-index.me/images/CSS-Evolution-banner.jpg">
-<meta property="og:updated_time" content="2019-01-07T16:14:04.730Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="愈发熟练的 CSS 技巧">
-<meta name="twitter:description" content="这技巧，为何你会那么熟练 ？">
-<meta name="twitter:image" content="https://z-index.me/images/CSS-Evolution-banner.jpg">
-  <link rel="canonical" href="https://z-index.me/2018/05/26/CSS-evolution/">
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>愈发熟练的 CSS 技巧 | 时之物语</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-z-16x16.ico " />
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico">
+  
+  
+  <title>愈发熟练的 CSS 技巧 - 时之物语</title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.min.js"></script></head>
 
 
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">时之物语</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      <li class="menu-item">
+        <a href="/" class="menu-item-link menu-item-home">Home</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/about" class="menu-item-link menu-item-about">About</a>
+      </li>
+      
+      <li class="menu-item">
+        <a href="/links" class="menu-item-link menu-item-friends">Friends</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">时之物语</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+        <main class="main">
+          
+  <input type="checkbox" id="toggle-toc" class="toggle-toc-right" />
+  <div class="toc-toggle toc-toggle-right">
+    <label for="toggle-toc">
+      <i class="fa fa-list-ol"></i>
+    </label>
+    <div class="toc-wrap toc-wrap-right">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#rem-simple-flexible-适配方案"><span class="toc-number">1.</span> <span class="toc-text">rem + simple-flexible 适配方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单解析"><span class="toc-number">1.1.</span> <span class="toc-text">简单解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用步骤"><span class="toc-number">1.2.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优劣"><span class="toc-number">1.3.</span> <span class="toc-text">优劣</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rem-lib-flexible-适配方案"><span class="toc-number">2.</span> <span class="toc-text">rem + lib-flexible 适配方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单解析-1"><span class="toc-number">2.1.</span> <span class="toc-text">简单解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用步骤-1"><span class="toc-number">2.2.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优劣-1"><span class="toc-number">2.3.</span> <span class="toc-text">优劣</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PostCSS-VW-适配方案"><span class="toc-number">3.</span> <span class="toc-text">PostCSS + VW 适配方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单解析-2"><span class="toc-number">3.1.</span> <span class="toc-text">简单解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用步骤-2"><span class="toc-number">3.2.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优劣-2"><span class="toc-number">3.3.</span> <span class="toc-text">优劣</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附加-rem-也不需要计算的装置"><span class="toc-number">4.</span> <span class="toc-text">附加 rem 也不需要计算的装置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
   </div>
+  <label class="mask" for="toggle-toc"></label>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-    <ul id="menu" class="menu">
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-    </ul>
-</nav>
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://z-index.me/2018/05/26/CSS-evolution/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YG">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/zindex_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时之物语">
-    </span>
-      <header class="post-header">
-
-        
-          <h2 class="post-title" itemprop="name headline">愈发熟练的 CSS 技巧
-
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-26 23:56:26" itemprop="dateCreated datePublished" datetime="2018-05-26T23:56:26+08:00">2018-05-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-08 00:14:04" itemprop="dateModified" datetime="2019-01-08T00:14:04+08:00">2019-01-08</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon"
-              >
-                <i class="fa fa-eye"></i>
-                 阅读次数： 
-                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-              </span>
-            </span>
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p><img src="/images/CSS-Evolution-banner.jpg" alt></p>
+<div id="post-content">
+  <h1>愈发熟练的 CSS 技巧</h1>
+  <p><img src="/images/CSS-Evolution-banner.jpg" alt=""></p>
 <blockquote>
 <p>这技巧，为何你会那么熟练 ？</p>
 </blockquote>
@@ -316,21 +88,21 @@
 <h2 id="rem-lib-flexible-适配方案"><a href="#rem-lib-flexible-适配方案" class="headerlink" title="rem + lib-flexible 适配方案"></a>rem + lib-flexible 适配方案</h2><h3 id="简单解析-1"><a href="#简单解析-1" class="headerlink" title="简单解析"></a>简单解析</h3><p><code>lib-flexible.js</code> 是手淘团队制作的一个 Js 插件，实际上就是能过 JS 来动态改写 <code>&lt;meta&gt;</code> 标签；</p>
 <p><code>lib-flexible.js</code> 基本原理是模拟 <code>vw</code> 把视觉稿分为 100份，以单位 a 来说，1rem = 10a;</p>
 <p>以视觉稿 750px 为例子</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1a = 7.5px， 1rem = 75px</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-shell"><code class="language-shell">1a = 7.5px， 1rem = 75px<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="使用步骤-1"><a href="#使用步骤-1" class="headerlink" title="使用步骤"></a>使用步骤</h3><p>可以根据上面的步骤，外部引入 CDN 也可以</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/amfe-flexible/index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1, maximum-scale<span class="token punctuation">=</span>1, minimum-scale<span class="token punctuation">=</span>1, user-scalable<span class="token punctuation">=</span>no<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./node_modules/amfe-flexible/index.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>也可以使用模块化方式</p>
 <p>Npm:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S amfe-flexible</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-shell"><code class="language-shell">npm i -S amfe-flexible<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>JS:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'amfe-flexible'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">do something</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token string">'amfe-flexible'</span>
 
+<span class="token comment" spellcheck="true">/*
+do something
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="优劣-1"><a href="#优劣-1" class="headerlink" title="优劣"></a>优劣</h3><p>在 UC 浏览器上发现了，横批竖屏转换不过来的情况，已经找到兼容方案，是通过js在页面的 <code>&lt;head&gt;</code> 里生成定义了 <code>&lt;html&gt;</code> 元素 <code>font-size</code> 的 <code>style</code> 元素来解决！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style id=<span class="string">"rootFontSize"</span>&gt;html&#123;font-size: <span class="number">100</span>px !important;&#125;&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>style id<span class="token operator">=</span><span class="token string">"rootFontSize"</span><span class="token operator">></span>html<span class="token punctuation">{</span>font<span class="token operator">-</span>size<span class="token punctuation">:</span> 100px <span class="token operator">!</span>important<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>而且官方也说明这个是 <code>vw</code> 的过度方案，不建议长期使用；</p>
 <h2 id="PostCSS-VW-适配方案"><a href="#PostCSS-VW-适配方案" class="headerlink" title="PostCSS + VW 适配方案"></a>PostCSS + VW 适配方案</h2><h3 id="简单解析-2"><a href="#简单解析-2" class="headerlink" title="简单解析"></a>简单解析</h3><p><code>PostCSS</code> 将 <code>CSS</code> 变成 <code>JavaScript</code> 的数据，使它变成可操作;</p>
 <p><code>VW</code> 是基于 Viewpost 视窗的长度单位;</p>
@@ -350,22 +122,41 @@
 </ul>
 <p>有过使用前端脚手架的童鞋，应该都有看到过项目根目录下面都会有一个 <code>.postcssrc</code> 文件，它里面都是一些配置选项比较著名的 <code>autoprefixer</code>，<code>cssnano</code>，<code>px2rem</code>，<code>cssnext</code>…等等好玩的配置插件，但是这里不作这些说明，只介绍 <code>postcss-px-to-viewport</code> 配合 vw 使用</p>
 <p>Npm：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S postcss-px-to-viewport</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-shell"><code class="language-shell">npm i -S postcss-px-to-viewport<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>打开 <code>.postcssrc</code>，假定视觉设计稿的宽度为 750px 改写配置如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="string">"plugins"</span>: &#123;</span><br><span class="line">  <span class="string">"postcss-px-to-viewport"</span>: <span class="literal">true</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"rule"</span>: &#123;</span><br><span class="line">  <span class="string">"postcss-px-to-viewport"</span>: &#123;</span><br><span class="line">    <span class="string">"viewportWidth"</span>: <span class="number">750</span>,</span><br><span class="line">    <span class="string">"viewportHeight"</span>: <span class="number">1334</span>,</span><br><span class="line">    <span class="string">"unitPrecision"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"viewportUnit"</span>: <span class="string">"vw"</span>,</span><br><span class="line">    <span class="string">"selectorBlackList"</span>: [],</span><br><span class="line">    <span class="string">"minPixelValue"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">"mediaQuery"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//...</span>
+<span class="token string">"plugins"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"postcss-px-to-viewport"</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token string">"rule"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"postcss-px-to-viewport"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"viewportWidth"</span><span class="token punctuation">:</span> <span class="token number">750</span><span class="token punctuation">,</span>
+    <span class="token string">"viewportHeight"</span><span class="token punctuation">:</span> <span class="token number">1334</span><span class="token punctuation">,</span>
+    <span class="token string">"unitPrecision"</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    <span class="token string">"viewportUnit"</span><span class="token punctuation">:</span> <span class="token string">"vw"</span><span class="token punctuation">,</span>
+    <span class="token string">"selectorBlackList"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"minPixelValue"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">"mediaQuery"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>配置完成之后，在项目中直接使用 px ，构建的时候就会自动转换为 vw 单位了，简直不要太爽了；</p>
 <p><code>postcss-px-to-viewport</code> 配置项说明</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"viewportWidth"</span>        <span class="comment">//设置视觉设计稿的宽度</span></span><br><span class="line"><span class="string">"viewportHeight"</span>       <span class="comment">//设置视觉设计稿的高度</span></span><br><span class="line"><span class="string">"unitPrecision"</span>:       <span class="comment">//单位的精度，即保留多少位小数</span></span><br><span class="line"><span class="string">"viewportUnit"</span>:        <span class="comment">//转换的单位</span></span><br><span class="line"><span class="string">"selectorBlackList"</span>:   <span class="comment">//需要忽略的选择器</span></span><br><span class="line"><span class="string">"minPixelValue"</span>:       <span class="comment">//最小像素值</span></span><br><span class="line"><span class="string">"mediaQuery"</span>:          <span class="comment">//是否允许媒体查询转换为 px</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token string">"viewportWidth"</span>        <span class="token comment" spellcheck="true">//设置视觉设计稿的宽度</span>
+<span class="token string">"viewportHeight"</span>       <span class="token comment" spellcheck="true">//设置视觉设计稿的高度</span>
+<span class="token string">"unitPrecision"</span><span class="token punctuation">:</span>       <span class="token comment" spellcheck="true">//单位的精度，即保留多少位小数</span>
+<span class="token string">"viewportUnit"</span><span class="token punctuation">:</span>        <span class="token comment" spellcheck="true">//转换的单位</span>
+<span class="token string">"selectorBlackList"</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">//需要忽略的选择器</span>
+<span class="token string">"minPixelValue"</span><span class="token punctuation">:</span>       <span class="token comment" spellcheck="true">//最小像素值</span>
+<span class="token string">"mediaQuery"</span><span class="token punctuation">:</span>          <span class="token comment" spellcheck="true">//是否允许媒体查询转换为 px</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="优劣-2"><a href="#优劣-2" class="headerlink" title="优劣"></a>优劣</h3><p>vw 的兼容性貌似还没那么好，有可能需要做降级处理，需要使用到 CSS Houdini 和 CSS Polyfill 上一些针对 vw 单位做一个降级处理；</p>
 <p>vw 在混合使用到 margin 的 px 时候 有可能超出 100vw ，目前使用 padding 来代替 marging 再配置上 box-sizing 可以解决，亦可以使用 css 的 calc() 函数来做一个计算；</p>
 <p>转换的时候多少还存在一点像素差，无法完全还原；</p>
 <h2 id="附加-rem-也不需要计算的装置"><a href="#附加-rem-也不需要计算的装置" class="headerlink" title="附加 rem 也不需要计算的装置"></a>附加 rem 也不需要计算的装置</h2><p>在 sublime 上面，有一个插件 <a href="https://github.com/flashlizi/cssrem" target="_blank" rel="noopener">cssrem</a> 可以让放手写 px 然后 sublime 自动转换成 rem ，简直可能爱上了 css，</p>
 <p>配置说明如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">px_to_rem                   <span class="comment">// px转rem的单位比例，默认为40，基本定义是视觉设计稿的宽度/10；</span></span><br><span class="line">max_rem_fraction_length     <span class="comment">// px转rem的小数部分的最大长度，默认为6；</span></span><br><span class="line">available_file_types        <span class="comment">// 启用此插件的文件类型。默认为：[".css", ".less", ".sass"]；</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-javascript"><code class="language-javascript">px_to_rem                   <span class="token comment" spellcheck="true">// px转rem的单位比例，默认为40，基本定义是视觉设计稿的宽度/10；</span>
+max_rem_fraction_length     <span class="token comment" spellcheck="true">// px转rem的小数部分的最大长度，默认为6；</span>
+available_file_types        <span class="token comment" spellcheck="true">// 启用此插件的文件类型。默认为：[".css", ".less", ".sass"]；</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里总结的三种适配方案本人都有在用，如果说用得最多的应该是第一种了，因为发现的时间比较早，所以用的自然也比较多了；</p>
 <p>当然，还有很多本人未知的方案，但是所有的适配方案都是为了完美的还原视觉设计稿，完美解决兼容性问题，当然这都是理想状态；</p>
 <p>感谢 <a href="https://github.com/ZhangPuXi" target="_blank" rel="noopener">@白白</a> 的帮忙(名词解析) + 鼓励(催稿)</p>
@@ -378,386 +169,127 @@
 <li><a href="http://caibaojian.com/simple-flexible.html" target="_blank" rel="noopener">rem自适应js</a></li>
 </ul>
 
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          
-        
-        <div class="post-tags">
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-            <a href="/tags/Post-css/" rel="tag"># Post_css</a>
-          
-            <a href="/tags/layout/" rel="tag"># layout</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-              <a href="/2018/04/23/ajax-api/" rel="next" title="Ajax 基础知识">
-                <i class="fa fa-chevron-left"></i> Ajax 基础知识
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-              <a href="/2018/05/31/upload-file/" rel="prev" title="Ajax 之文件上传">
-                Ajax 之文件上传 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/uploads/zindex_avatar.jpg"
-      alt="YG">
-  <p class="site-author-name" itemprop="name">YG</p>
-  <div class="site-description motion-element" itemprop="description"></div>
 </div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">29</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/ZindexYG" title="GitHub &rarr; https://github.com/ZindexYG" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/3249847654" title="Weibo &rarr; https://weibo.com/3249847654" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
-  </div>
 
+<script>
+  // I'm not sure your browser supports `es6`
+  window.addEventListener('load', function () {
+    [].concat(Array.from(document.querySelectorAll('code')), Array.from(document.querySelectorAll('pre'))).filter(function (item) {return item.className.indexOf('language') >= 0}).forEach(function (tag) { tag.classList.add('line-numbers') })
+    Prism.highlightAll()
 
-  <div class="links-of-blogroll motion-element links-of-blogroll-block">
-    <div class="links-of-blogroll-title">
-      <i class="fa  fa-fw fa-coffee"></i>
-      物语伙伴
+    let scrollY = window.scrollY
+    let headersList = Array.from(document.querySelector('#post-content').querySelectorAll('h1,h2,h3,h4,h5,h6')).map(function (item) {
+      let rect = item.getBoundingClientRect()
+      let anchorTag = document.querySelector(`a.toc-link[href="#${item.id}"]`)
+
+      if (!anchorTag) return
+      return {
+        top: scrollY + rect.top - rect.height,
+        tag: item,
+        anchorTag: anchorTag
+      }
+    }).filter(function (item) { return item })
+
+    window.addEventListener('scroll', debounce(scrollHandler, 200))
+    scrollHandler()
+
+    function scrollHandler () {
+      let scrollY = window.scrollY
+      let minInfo = null
+
+      for (let item of headersList) {
+        if (!minInfo) {
+          minInfo = item
+          continue
+        }
+
+        if ((scrollY - item.top) >= 0 && (scrollY - minInfo.top) > (scrollY - item.top)) {
+          minInfo = item
+        }
+      }
+
+      if (minInfo) {
+        headersList.forEach(function (item) {
+          item.anchorTag && item.anchorTag.classList.remove('selected')
+        })
+        minInfo.anchorTag.classList.add('selected')
+      }
+    }
+
+    function debounce (func, delay) {
+      let debounceIdentify = 0
+      return function () {
+        debounceIdentify && clearTimeout(debounceIdentify)
+        debounceIdentify = setTimeout(function () {
+          debounceIdentify = 0
+          func.apply(this, arguments)
+        }, delay)
+      }
+    }
+  })
+</script>
+
+        </main>
+        <a href="#" class="goto-top">
+          <i class="fa fa-chevron-up"></i>
+        </a>
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://alexinea.com/" title="https://alexinea.com/" rel="noopener" target="_blank">Alexinea</a>
-        </li>
+    <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-info" class="inner">
+      <p class="copyright">&copy; 2020 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
+    </div>
+    <ul class="contact-info">
       
-        <li class="links-of-blogroll-item">
-          <a href="https://yufan.me/" title="https://yufan.me/" rel="noopener" target="_blank">且听书吟</a>
-        </li>
+        <a class="contact-link" href="https://github.com/zindexyg" target="_blank"><i class="fa fa-github"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.verge.wang/" title="https://blog.verge.wang/" rel="noopener" target="_blank">一抹愿</a>
-        </li>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.jiasm.org/" title="https://blog.jiasm.org/" rel="noopener" target="_blank">贾顺名</a>
-        </li>
+        <a class="contact-link" href="https://weibo.com/u/3249847654" target="_blank"><i class="fa fa-weibo"></i></a>
       
-        <li class="links-of-blogroll-item">
-          <a href="https://rainylog.com/" title="https://rainylog.com/" rel="noopener" target="_blank">Rainy's Blog</a>
-        </li>
+      
+      
+      
+        <a class="contact-link" href="mailto:zinger_yg@163.com" target="_blank"><i class="fa fa-envelope"></i></a>
       
     </ul>
   </div>
-
-        </div>
-      </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-simple-flexible-适配方案"><span class="nav-number">1.</span> <span class="nav-text">rem + simple-flexible 适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单解析"><span class="nav-number">1.1.</span> <span class="nav-text">简单解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤"><span class="nav-number">1.2.</span> <span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优劣"><span class="nav-number">1.3.</span> <span class="nav-text">优劣</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-lib-flexible-适配方案"><span class="nav-number">2.</span> <span class="nav-text">rem + lib-flexible 适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单解析-1"><span class="nav-number">2.1.</span> <span class="nav-text">简单解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤-1"><span class="nav-number">2.2.</span> <span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优劣-1"><span class="nav-number">2.3.</span> <span class="nav-text">优劣</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PostCSS-VW-适配方案"><span class="nav-number">3.</span> <span class="nav-text">PostCSS + VW 适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单解析-2"><span class="nav-number">3.1.</span> <span class="nav-text">简单解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤-2"><span class="nav-number">3.2.</span> <span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优劣-2"><span class="nav-number">3.3.</span> <span class="nav-text">优劣</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加-rem-也不需要计算的装置"><span class="nav-number">4.</span> <span class="nav-text">附加 rem 也不需要计算的装置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">YG</span>
-</div>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
+</footer>
 
 
 
-
+      <script>
+      function footerHandler () {
+        if (!window.screen || !document.body) return
+        var hasComments = document.querySelector('.comments')
+        if ((window.screen.availHeight - (hasComments ? 350 : 0)) > document.body.clientHeight) {
+          document.body.classList.add('fixed')
+        } else {
+          document.body.classList.remove('fixed')
+        }
+      }
+      footerHandler()
+      window.addEventListener('resize', footerHandler)
+    </script>
+  </body>
   <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=64829990";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    var pathname = new URL(location.href).pathname.replace(/\/$/, '')
+
+    switch (pathname) {
+      case '/home':
+        document.querySelector('.menu-item-contact').classList.add('active')
+        break
+      case '/about':
+        document.querySelector('.menu-item-about').classList.add('active')
+        break
+      case '/links':
+        document.querySelector('.menu-item-friends').classList.add('active')
+        break
+      default:
+        document.querySelector('.menu-item-home').classList.add('active')
+    }
   </script>
-
-
-  <script>
-    var _mtac = {};
-    (function() {
-      var mta = document.createElement("script");
-      mta.src = "https://pingjs.qq.com/h5/stats.js";
-      mta.setAttribute("name", "MTAH5");
-      mta.setAttribute("sid", "500566833");
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(mta, s);
-    })();
-  </script>
-
-
-        
-      </div>
-    </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
-  </div>
-
-  
-    
-    
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  <script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-  
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
-
-
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
-
-
-
-  <script src="/js/next-boot.js?v=7.3.0"></script>
-
   
 
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
 </html>

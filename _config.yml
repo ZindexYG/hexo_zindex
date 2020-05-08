@@ -5,10 +5,18 @@
 # Site
 title: 时之物语
 subtitle:
-description:
-author: YG
+description: 时之物语 ZYG's Blog
+author: 时之物语 ZYG's Blog 保留一切权利 ｜ 粤ICP备15078531号-1
 language: zh-CN
 timezone:
+
+# 社交
+contact:
+  github: https://github.com/zindexyg
+  weibo: https://weibo.com/u/3249847654
+  twitter: null
+  facebook: null
+  email: mailto:zinger_yg@163.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -27,6 +35,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -38,10 +47,9 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
-  auto_detect: false
-  tab_replace:
+  first_line: 0
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -49,7 +57,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 5
+  per_page: 6
   order_by: -date
 
 # Category & Tag
@@ -66,17 +74,27 @@ time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 5
+per_page: 6
 pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next-reloaded
+# theme: next-reloaded
+theme: hexo-theme-sheet
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:  git
-  repo:  git@github.com:ZindexYG/ZindexYG.github.io.git
+  type: git
+  repo: git@github.com:ZindexYG/ZindexYG.github.io.git
   branch: master
+
+# 评论系统
+disqus_shortname: null
+
+
+prism_plugin:
+  mode: 'realtime'    # realtime/preprocess
+  theme: 'coy'
+  line_number: true    # default false
