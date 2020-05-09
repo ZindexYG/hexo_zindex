@@ -22,7 +22,7 @@
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
 
-  <body class="">
+  <body class='fixed'>
     <div class="container">
       <header class="header">
   <div class="blog-title">
@@ -31,17 +31,17 @@
   <nav class="navbar">
     <ul class="menu">
       
-      <li class="menu-item">
-        <a href="/" class="menu-item-link menu-item-home">Home</a>
-      </li>
+        <li class="menu-item">
+          <a href="/" class="menu-item-link menu-item-home">Home</a>
+        </li>
       
-      <li class="menu-item">
-        <a href="/about" class="menu-item-link menu-item-about">About</a>
-      </li>
+        <li class="menu-item">
+          <a href="/about" class="menu-item-link menu-item-about">About</a>
+        </li>
       
-      <li class="menu-item">
-        <a href="/links" class="menu-item-link menu-item-friends">Friends</a>
-      </li>
+        <li class="menu-item">
+          <a href="/links" class="menu-item-link menu-item-friends">Friends</a>
+        </li>
       
     </ul>
   </nav>
@@ -247,11 +247,11 @@
     var pathname = new URL(location.href).pathname.replace(/\/$/, '')
 
     switch (pathname) {
-      case '/home':
-        document.querySelector('.menu-item-contact').classList.add('active')
-        break
       case '/about':
         document.querySelector('.menu-item-about').classList.add('active')
+        break
+      case '/contact':
+        document.querySelector('.menu-item-contact').classList.add('active')
         break
       case '/links':
         document.querySelector('.menu-item-friends').classList.add('active')
