@@ -7,3 +7,5 @@ package-lock.json
 
 .deploy*/
 public/
+
+themes/hexo-theme-sheet/
