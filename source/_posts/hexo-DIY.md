@@ -37,7 +37,7 @@ tags:
 
 ### 主题基本结构
 
-theme 的文件结构，观察其他主题也差不多是这样
+theme 的文件结构，观察其他主题也差不多是这样，可自行新建
 
 ```bash
 /theme
@@ -86,9 +86,62 @@ paginator({
 <body>
 ```
 
-3. `post` 界面上导航，当导航过多，会有显示问题
+PS：该问题在 文章数量大于或等于 8 的时候，不会出现，仅有在小于或等于 6 的时候会出现
+
+3. `post` 界面上导航，当页面标题过多，会有显示问题
 
 暂时没太多的想法，没修改
+
+仅帮助修改成了可在 ``_config.yml`` 配置 ``left | right``
+
+4. 启动时候会产生 ``theme.menu`` 丢失问题
+
+原因：大佬把 ``menu`` 配置写在全局 ``config`` 上了
+
+解决：现将配置后退只 主题 ``_config.yml``
+
+5. ``favicon`` 无配置项目
+
+已经新增入主题配置内 _config.yml，相关页面也写好配置
+
+```EJS
+<!-- theme/layout/_partial/head.esj -->
+
+<% if (theme.favicon.small) { %>
+<link rel="icon" type="image/png" sizes="16x16" href="<%- url_for(theme.favicon.small) %> " />
+<% } %>
+<% if(theme.favicon.medium) { %>
+<link rel="icon" type="image/png" sizes="32x32" href="<%- url_for(theme.favicon.small) %> " />
+<% } %>
+<% if (theme.favicon.apple_touch_icon) { %>
+<link rel="apple-touch-icon" sizes="180x180" href="<%- url_for(theme.favicon.apple_touch_icon) %>">
+<% } %>
+
+```
+6. 友链页面无法展示
+
+原因，友链为使用 hexo 新建页面，友情链接内容为资源页面内容
+
+解决：
+- 新建 ``_data/links.yml``
+- 新建 ``links/index`` (可使用 `` hexo new page --path about/me "About me" ``)
+
+```yml
+
+XXX:
+  link: https://xx.com/     # 地址
+  avatar: https://xxx.jpg   # 头像
+```
+
+```
+---
+layout: links
+title: links
+date: 2018-05-06 08:08:12
+tags:
+---
+```
+
 
 ### 总结
 
@@ -98,7 +151,7 @@ paginator({
 
 个人感觉 ``hexo`` 功能在写的方面还算满足个人需求了，主题与阅读上还存在很多问题，但并不是每个需求问题都能有官方的解决方案，其他人的解决方案也并不一定能完全满足，自己花时间为自己所喜爱的事情学习一下了
 
-大佬也是普通人，有生活与工作，第一次提了 PR 有点害羞，不知道能否合并
+大佬也是普通人，有生活与工作，第一次提了 PR 有点害羞
 
 感谢 [@贾顺名](https://blog.jiasm.org/) 指导并不嫌弃小弟叨扰
 
