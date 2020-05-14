@@ -104,9 +104,8 @@ PS：该问题在 文章数量大于或等于 8 的时候，不会出现，仅�
 
 已经新增入主题配置内 _config.yml，相关页面也写好配置
 
-```EJS
+```html
 <!-- theme/layout/_partial/head.esj -->
-
 <% if (theme.favicon.small) { %>
 <link rel="icon" type="image/png" sizes="16x16" href="<%- url_for(theme.favicon.small) %> " />
 <% } %>
@@ -126,14 +125,15 @@ PS：该问题在 文章数量大于或等于 8 的时候，不会出现，仅�
 - 新建 ``_data/links.yml``
 - 新建 ``links/index`` (可使用 `` hexo new page --path about/me "About me" ``)
 
+``_data/links.yml``
 ```yml
-
 XXX:
   link: https://xx.com/     # 地址
   avatar: https://xxx.jpg   # 头像
 ```
 
-```
+``links/index``
+```Markdown
 ---
 layout: links
 title: links
