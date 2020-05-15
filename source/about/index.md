@@ -4,10 +4,16 @@ date: 2017-12-15 01:25:05
 comments: false
 ---
 
-目前还不知道怎么表达自己
+> 时针滴答一声，响了
 
-虽然不认识你
+感谢您有空关注了这个页面<br/>
+虽然不知道你是谁，但依然感谢
 
-但是
+社区
 
-谢谢你，来这里看我
+- [思否](https://segmentfault.com/u/zindexyg)
+- [掘金](https://segmentfault.com/u/zindexyg)
+
+
+
+
