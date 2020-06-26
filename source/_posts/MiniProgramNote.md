@@ -143,6 +143,25 @@ App({
 
 ```
 
+### 关于 IconFont
+
+- 创建自定义组件
+- [阿里图库](https://iconfont.cn)，需要的 Icon 放入自己的项目
+- 下载，选中 css 文件内容复制到自定义组件内的 wxss 文件内
+
+``<text class="iconfont icon-{{icon}}"></text>``
+
+```JavaScript
+Component({
+  options: {
+    styleIsolation: 'apply-shared' // 样式可被 page影响
+  },
+  properties: {
+    icon: String
+  }
+})
+```
+
 ### 小结
 
 该项目属于一次个人的体验，也算是给自己接触小程序开发的一个契机，目前感觉还是很良好的
