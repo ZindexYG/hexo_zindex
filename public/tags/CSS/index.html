@@ -13,11 +13,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico">
   
   
-  <title>CSS - 时之物语</title>
+  <title>css - 时之物语</title>
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -56,45 +56,27 @@
   <title>
     
   </title>
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
 <body>
   <section class="posts">
     
-      <a class="post" href="/2020/06/25/MiniProgramNote/">
+      <a class="post" href="/2021/03/05/audio-diy-style/">
         <div class="post-title">
-          微信小程序实习记
+          关于 Audio 自定义样式
         </div>
         <div class="post-content">
           
 
-看起来还算有趣
+菜还是那道菜，料不一样了
 
         </div>
         <div class="post-meta">
           <span class="disqus-comment-count" data-disqus-identifier=""></span>
           <span class="post-time">
-            2020-06-25 19:23
-          </span>
-        </div>
-      </a>
-      
-      <a class="post" href="/2018/05/26/CSS-evolution/">
-        <div class="post-title">
-          愈发熟练的 CSS 技巧
-        </div>
-        <div class="post-content">
-          
-
-这技巧，为何你会那么熟练 ？
-
-        </div>
-        <div class="post-meta">
-          <span class="disqus-comment-count" data-disqus-identifier=""></span>
-          <span class="post-time">
-            2018-05-26 23:56
+            2021-03-05 19:50
           </span>
         </div>
       </a>
@@ -114,7 +96,7 @@
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2020 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2021 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>
@@ -155,6 +137,22 @@
 
     switch (pathname) {
       case '/about':
+        document.querySelector('.menu-item-about').classList.add('active')
+        break
+      case '/contact':
+        document.querySelector('.menu-item-contact').classList.add('active')
+        break
+      case '/links':
+        document.querySelector('.menu-item-friends').classList.add('active')
+        break
+      default:
+        document.querySelector('.menu-item-home').classList.add('active')
+    }
+  </script>
+  
+
+</html>
+    case '/about':
         document.querySelector('.menu-item-about').classList.add('active')
         break
       case '/contact':
