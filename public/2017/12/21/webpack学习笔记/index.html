@@ -17,7 +17,7 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -55,7 +55,7 @@
       <i class="fa fa-list-ol"></i>
     </label>
     <div class="toc-wrap toc-wrap-right">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解-WebPack"><span class="toc-number">1.</span> <span class="toc-text">理解 WebPack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json-文件"><span class="toc-number">2.</span> <span class="toc-text">package.json 文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见字段解析"><span class="toc-number">2.1.</span> <span class="toc-text">常见字段解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要配置"><span class="toc-number">3.</span> <span class="toc-text">主要配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plugins-常用插件"><span class="toc-number">4.</span> <span class="toc-text">plugins 常用插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对代码处理的插件"><span class="toc-number">4.1.</span> <span class="toc-text">对代码处理的插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辅助打包后的代码"><span class="toc-number">4.2.</span> <span class="toc-text">辅助打包后的代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#辅助开发的相关属性"><span class="toc-number">5.</span> <span class="toc-text">辅助开发的相关属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#精细的相关属性配置"><span class="toc-number">6.</span> <span class="toc-text">精细的相关属性配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%A7%A3-WebPack"><span class="toc-number">1.</span> <span class="toc-text">理解 WebPack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json-%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">package.json 文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">常见字段解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">主要配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plugins-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">plugins 常用插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">对代码处理的插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-number">4.2.</span> <span class="toc-text">辅助打包后的代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E5%BC%80%E5%8F%91%E7%9A%84%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7"><span class="toc-number">5.</span> <span class="toc-text">辅助开发的相关属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E7%BB%86%E7%9A%84%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">精细的相关属性配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
     </div>
   </div>
   <label class="mask" for="toggle-toc"></label>
@@ -412,7 +412,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2021 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>
