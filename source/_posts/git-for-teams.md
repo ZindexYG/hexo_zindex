@@ -8,7 +8,7 @@ tags:
 
 ![banner](/images/git-for-teams.jpg)
 
-> 灶台大了，酱料也要备多一点才行呀
+> 工具往往需要反复检验
 
 <!-- more -->
 
