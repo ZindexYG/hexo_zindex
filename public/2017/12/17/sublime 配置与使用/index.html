@@ -14,10 +14,50 @@
   
   
   <title>Sublime 配置与使用 - 时之物语</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sublime 配置与使用">
+  <meta property="og:url" content="https://z-index.me/2017/12/17/sublime%20%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+  <meta property="og:site_name" content="时之物语">
+  <meta property="og:description" content="
+
+工具只是工具，本文只是本人的一点心得，无意引战
+">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:image" content="https://z-index.me/images/default-cover.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sublime 配置与使用">
+  <meta name="twitter:description" content="
+
+工具只是工具，本文只是本人的一点心得，无意引战
+">
+  <meta name="twitter:image" content="https://z-index.me/images/default-cover.jpg">
+  
+
+  <!-- 文章特定的元数据 -->
+  
+  <meta property="article:published_time" content="2017-12-17T02:05:11.000Z">
+  
+  <meta property="article:modified_time" content="2025-07-14T04:12:09.301Z">
+  
+  
+  
+  <meta property="article:tag" content="Sublime">
+  
+  <meta property="article:tag" content="工具">
+  
+  <meta property="article:tag" content="语言环境">
+  
+  
+  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -62,11 +102,11 @@
 
 <div id="post-content">
   <h1>Sublime 配置与使用</h1>
-  <p><img src="/images/sublime-index.jpg" alt=""></p>
+  <p><img src="/images/sublime-index.jpg"></p>
 <blockquote>
 <p>工具只是工具，本文只是本人的一点心得，无意引战</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><p><code>Preferences – Distraction-Settings</code> 打开；</p>
 <pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
@@ -104,57 +144,61 @@
     80
 ],//行距
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="配置-Package-Control"><a href="#配置-Package-Control" class="headerlink" title="配置 Package Control"></a>配置 Package Control</h3><p> Package Control 也算是插件管理器，官网在 <a href="https://packagecontrol.io/" target="_blank" rel="noopener">这里</a>；</p>
+<h3 id="配置-Package-Control"><a href="#配置-Package-Control" class="headerlink" title="配置 Package Control"></a>配置 Package Control</h3><p> Package Control 也算是插件管理器，官网在 <a target="_blank" rel="noopener" href="https://packagecontrol.io/">这里</a>；</p>
 <p>快捷键 <code>clrl+`</code> 或者 <code>View -&gt; Show Console</code> 打开窗口，粘贴下方代码至窗口，等待配置完成，重启即可；</p>
-<pre><code>import urllib.request,os,hashlib; h = &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</code></pre><p>准备完成，现在可以玩弄插件了；</p>
+<pre><code>import urllib.request,os,hashlib; h = &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)
+</code></pre>
+<p>准备完成，现在可以玩弄插件了；</p>
 <h3 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h3><p>下面是我平常使用的插件列表；</p>
 <ul>
-<li>Alignment / 多选择器/</li>
-<li>AutoFileName / 自动补全文件路径与文件名/</li>
-<li>Sublime Batter Completion / 代码提示/</li>
-<li>BracketHighlighter / 行高亮工具/</li>
-<li>CSS Format / css代码提示/</li>
-<li>Emmet / 创建文件/</li>
-<li>GitSavvy / sublime 里面的git 工具/</li>
-<li>JsFormat / javascript格式化(貌似没更新了，没用了)/</li>
-<li>LESS / LESS 代码提示/</li>
-<li>Markdown Preview / MD文档格式化显示工具，好用/</li>
-<li>Nodejs / 链接 nodejs(主要用作依赖)/</li>
-<li>QuoteHTML / 把 HTML 拼接成 js 插入字符串/</li>
-<li>SideBar / 侧栏增强工具/</li>
-<li>SublimeTmpl / 新建文件模板/</li>
-<li>AutoPrefixer / 自动补全浏览器私有前缀 /</li>
-<li>HTML/CSS/JS Prettify / 格式化插件/</li>
+<li>Alignment &#x2F; 多选择器&#x2F;</li>
+<li>AutoFileName &#x2F; 自动补全文件路径与文件名&#x2F;</li>
+<li>Sublime Batter Completion &#x2F; 代码提示&#x2F;</li>
+<li>BracketHighlighter &#x2F; 行高亮工具&#x2F;</li>
+<li>CSS Format &#x2F; css代码提示&#x2F;</li>
+<li>Emmet &#x2F; 创建文件&#x2F;</li>
+<li>GitSavvy &#x2F; sublime 里面的git 工具&#x2F;</li>
+<li>JsFormat &#x2F; javascript格式化(貌似没更新了，没用了)&#x2F;</li>
+<li>LESS &#x2F; LESS 代码提示&#x2F;</li>
+<li>Markdown Preview &#x2F; MD文档格式化显示工具，好用&#x2F;</li>
+<li>Nodejs &#x2F; 链接 nodejs(主要用作依赖)&#x2F;</li>
+<li>QuoteHTML &#x2F; 把 HTML 拼接成 js 插入字符串&#x2F;</li>
+<li>SideBar &#x2F; 侧栏增强工具&#x2F;</li>
+<li>SublimeTmpl &#x2F; 新建文件模板&#x2F;</li>
+<li>AutoPrefixer &#x2F; 自动补全浏览器私有前缀 &#x2F;</li>
+<li>HTML&#x2F;CSS&#x2F;JS Prettify &#x2F; 格式化插件&#x2F;</li>
 </ul>
 <h3 id="个人使用癖好"><a href="#个人使用癖好" class="headerlink" title="个人使用癖好"></a>个人使用癖好</h3><p>配置完插件之后，有几个配置，属于个人癖好，各位看官可以看着玩，打开 <code>Preferences – key-Bindings</code>；</p>
 <h4 id="迅速打开浏览器"><a href="#迅速打开浏览器" class="headerlink" title="迅速打开浏览器"></a>迅速打开浏览器</h4><p>加上这个配置可以在编辑文件时候，按 <code>F5</code> 可以直接用浏览器打开该文件，同理可以配置其他浏览器；</p>
 <pre class="line-numbers language-JavaScript"><code class="language-JavaScript"> // chrome
-{
+&#123;
   "keys": ["F5"],
   "command": "side_bar_files_open_with",
-  "args": {
+  "args": &#123;
     "paths": [],
     "application": "C:\\Users\\user_name\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe",
     "extensions": ".*"
-  }
-},<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  &#125;
+&#125;,
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="QutoHTML-把-HTML-拼接成-js-插入字符串"><a href="#QutoHTML-把-HTML-拼接成-js-插入字符串" class="headerlink" title="QutoHTML 把 HTML 拼接成 js 插入字符串"></a>QutoHTML 把 HTML 拼接成 js 插入字符串</h4><p>详细看过 <code>QutoHTML</code> 文档的应该会发现它，有好几种模式，我这里只列举 <code>single</code> 和 <code>double</code>，即转变一行，和多行的字符串；</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">{
+<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">&#123;
     "keys": ["ctrl+alt+`"],
     "command": "quote_html",
-    "args": {
+    "args": &#123;
         "action": "single"
-    }
-}, {
+    &#125;
+&#125;, &#123;
     "keys": ["ctrl+alt+shift+'"],
     "command": "quote_html",
-    "args": {
+    "args": &#123;
         "action": "double"
-    }
-},<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    &#125;
+&#125;,
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="GitSavvy-的翻译"><a href="#GitSavvy-的翻译" class="headerlink" title="GitSavvy 的翻译"></a>GitSavvy 的翻译</h4><p>这个是我目前用的最舒服的一个 git 插件了</p>
-<p><a href="https://github.com/divmain/GitSavvy" target="_blank" rel="noopener">GitSavvy – 原文介绍</a></p>
-<p><a href="https://www.youtube.com/watch?v=HLU_D8ZiqRs" target="_blank" rel="noopener">GitSavvy – 视频教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/divmain/GitSavvy">GitSavvy – 原文介绍</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HLU_D8ZiqRs">GitSavvy – 视频教程</a></p>
 <ul>
 <li>最常用的一个指令 <code>shift</code> + <code>ctrl</code> + ‘p’ 输入 <code>Git:status</code> 或者 <code>gs</code></li>
 </ul>
@@ -684,7 +728,7 @@
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2025 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>

@@ -13,11 +13,31 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-z-32x32.ico">
   
   
-  <title>JavaScript - 时之物语</title>
+  <title>javascript - 时之物语</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="时之物语">
+  <meta property="og:url" content="https://z-index.me">
+  <meta property="og:site_name" content="时之物语">
+  <meta property="og:description" content="时之物语 ZYG&#39;s Blog">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:image" content="https://z-index.me/images/default-cover.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="时之物语">
+  <meta name="twitter:description" content="时之物语 ZYG&#39;s Blog">
+  <meta name="twitter:image" content="https://z-index.me/images/default-cover.jpg">
+  
+
+  <!-- 文章特定的元数据 -->
+  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -61,56 +81,38 @@
 <body>
   <section class="posts">
     
-      <a class="post" href="/2021/03/05/audio-diy-style/">
+      <a class="post" href="/2018/05/31/upload-file/">
         <div class="post-title">
-          关于 Audio 自定义样式
+          Ajax 之文件上传
         </div>
         <div class="post-content">
           
 
-菜还是那道菜，料不一样了
+这个应该是用来做菜的~
 
         </div>
         <div class="post-meta">
           <span class="disqus-comment-count" data-disqus-identifier=""></span>
           <span class="post-time">
-            2021-03-05 19:50
+            2018-05-31 23:40
           </span>
         </div>
       </a>
       
-      <a class="post" href="/2020/10/25/js-api-reduce/">
+      <a class="post" href="/2018/04/23/ajax-api/">
         <div class="post-title">
-          理解 JavaScript 中 Reduce()
+          Ajax 基础知识
         </div>
         <div class="post-content">
           
 
-新鲜的调料，与从前不同的是？
+代码一把梭,快来人教我做菜吧
 
         </div>
         <div class="post-meta">
           <span class="disqus-comment-count" data-disqus-identifier=""></span>
           <span class="post-time">
-            2020-10-25 20:51
-          </span>
-        </div>
-      </a>
-      
-      <a class="post" href="/2017/12/21/webpack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <div class="post-title">
-          webpack学习笔记
-        </div>
-        <div class="post-content">
-          
-
-这是一份学习笔记，仅此记录一个学习过程
-
-        </div>
-        <div class="post-meta">
-          <span class="disqus-comment-count" data-disqus-identifier=""></span>
-          <span class="post-time">
-            2017-12-21 22:22
+            2018-04-23 21:38
           </span>
         </div>
       </a>
@@ -130,7 +132,7 @@
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2025 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>
@@ -168,6 +170,25 @@
   </body>
   <script>
     var pathname = new URL(location.href).pathname.replace(/\/$/, '')
+
+    switch (pathname) {
+      case '/about':
+        document.querySelector('.menu-item-about').classList.add('active')
+        break
+      case '/contact':
+        document.querySelector('.menu-item-contact').classList.add('active')
+        break
+      case '/links':
+        document.querySelector('.menu-item-friends').classList.add('active')
+        break
+      default:
+        document.querySelector('.menu-item-home').classList.add('active')
+    }
+  </script>
+  
+
+</html>
+   var pathname = new URL(location.href).pathname.replace(/\/$/, '')
 
     switch (pathname) {
       case '/about':

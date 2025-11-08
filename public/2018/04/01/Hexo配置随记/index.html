@@ -14,10 +14,48 @@
   
   
   <title>Hexo配置随记 - 时之物语</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Hexo配置随记">
+  <meta property="og:url" content="https://z-index.me/2018/04/01/Hexo%E9%85%8D%E7%BD%AE%E9%9A%8F%E8%AE%B0/">
+  <meta property="og:site_name" content="时之物语">
+  <meta property="og:description" content="
+
+你看起来不错，来做我的菜吧 ~
+">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:image" content="https://z-index.me/images/default-cover.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hexo配置随记">
+  <meta name="twitter:description" content="
+
+你看起来不错，来做我的菜吧 ~
+">
+  <meta name="twitter:image" content="https://z-index.me/images/default-cover.jpg">
+  
+
+  <!-- 文章特定的元数据 -->
+  
+  <meta property="article:published_time" content="2018-04-01T03:40:05.000Z">
+  
+  <meta property="article:modified_time" content="2025-07-14T04:12:09.300Z">
+  
+  
+  
+  <meta property="article:tag" content="随记">
+  
+  <meta property="article:tag" content="Hexo">
+  
+  
+  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -62,16 +100,17 @@
 
 <div id="post-content">
   <h1>Hexo配置随记</h1>
-  <p><img src="/images/hexo-banner.jpg" alt=""></p>
+  <p><img src="/images/hexo-banner.jpg"></p>
 <blockquote>
 <p>你看起来不错，来做我的菜吧 ~</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><p>一键搭建？不存在的!</p>
-<p>查看本随记的时候，请先安装好了 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> 与 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></p>
+<p>查看本随记的时候，请先安装好了 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 与 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a></p>
 <p><code>Hexo</code> 的全局安装</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="开始建站"><a href="#开始建站" class="headerlink" title="开始建站"></a>开始建站</h2><h3 id="本地建站"><a href="#本地建站" class="headerlink" title="本地建站"></a>本地建站</h3><p>进入一个安全的目录，比如<code>F:/</code>，注意别在根目录 <code>/</code> 瞎搞，打开 <code>Git bash</code>，逐个输入指令，</p>
 <pre class="line-numbers language-bash"><code class="language-bash">hexo init <span class="token operator">&lt;</span>hexo_name<span class="token operator">></span> //本地创建 hexo 文件夹
 
@@ -79,12 +118,14 @@
 
 <span class="token function">npm</span> <span class="token function">install</span> //下载 hexo 所需的依赖
 
-hexo server //启动本地服务，<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+hexo server //启动本地服务，
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>默认情况下，访问网址为：<code>http://localhost:4000/</code>这下可以大概看到自己的站点是个啥样了，开启第一篇文章之路，运行下一个指令，</p>
-<pre class="line-numbers language-bash"><code class="language-bash">hexo new <span class="token punctuation">[</span>第一篇文章<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>默认 <code>[第一篇文章].md</code> 文件会生成在 <code>&lt;hexo_name&gt;\source\_posts\</code> 路径下，<code>.md</code> 是一款使用 <a href="http://markdown.cn/" target="_blank" rel="noopener">Markdown语法</a> 的写作文件，<a href="http://markdown.cn/" target="_blank" rel="noopener">Markdown语法</a>了解一下？</p>
-<p>更多文章指令，尽在<a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="noopener">基本操作-写作</a></p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>官方的 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置文档</a> 里面或许太过凌乱不堪，直接看文件 <code>_config.yml</code> 并开始配置一些建站需要的几个基本属性先，</p>
+<pre class="line-numbers language-bash"><code class="language-bash">hexo new <span class="token punctuation">[</span>第一篇文章<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>默认 <code>[第一篇文章].md</code> 文件会生成在 <code>&lt;hexo_name&gt;\source\_posts\</code> 路径下，<code>.md</code> 是一款使用 <a target="_blank" rel="noopener" href="http://markdown.cn/">Markdown语法</a> 的写作文件，<a target="_blank" rel="noopener" href="http://markdown.cn/">Markdown语法</a>了解一下？</p>
+<p>更多文章指令，尽在<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/writing.html">基本操作-写作</a></p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>官方的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration.html">配置文档</a> 里面或许太过凌乱不堪，直接看文件 <code>_config.yml</code> 并开始配置一些建站需要的几个基本属性先，</p>
 <table>
 <thead>
 <tr>
@@ -124,29 +165,32 @@ hexo server //启动本地服务，<span aria-hidden="true" class="line-numbers-
 <td></td>
 </tr>
 </tbody></table>
-<p>建站之后，就请去 官网了解一下 <a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="noopener">建站文档</a>， 这里说的比已经很全面了</p>
-<h2 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h2><p>一键建站是不太可能的，配置好之后一键部署上线还是可以的，这里我们关注的是 <code>Git</code> 上面的部署，其余部署配置，<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">部署文档</a> 了解一下？ 顺便 <code>Github</code> 官方配置 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitPage</a> 了解一下？</p>
+<p>建站之后，就请去 官网了解一下 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/setup.html">建站文档</a>， 这里说的比已经很全面了</p>
+<h2 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h2><p>一键建站是不太可能的，配置好之后一键部署上线还是可以的，这里我们关注的是 <code>Git</code> 上面的部署，其余部署配置，<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/deployment.html">部署文档</a> 了解一下？ 顺便 <code>Github</code> 官方配置 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitPage</a> 了解一下？</p>
 <p>展开讲一下，首先先安装 <code>hexo-deployer-git</code></p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后在 <code>GitHub</code> 上新建一个空 <code>repo</code>，名称为 「你的用户名.github.io」，接着找到配置文件 <code>_config.yml</code>,搜索关键字 <code>deploy</code> 配置如下</p>
 <pre class="line-numbers language-json"><code class="language-json">deploy<span class="token operator">:</span>
   type<span class="token operator">:</span> git
   repo<span class="token operator">:</span> &lt;repository url> //库（Repository）地址 例：你的用户名.github.io
   branch<span class="token operator">:</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> //分支名称 例：master
-  message<span class="token operator">:</span> <span class="token punctuation">[</span>message<span class="token punctuation">]</span> //自定义提交信息，默认是更新日期 可不填写<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  message<span class="token operator">:</span> <span class="token punctuation">[</span>message<span class="token punctuation">]</span> //自定义提交信息，默认是更新日期 可不填写
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>接下来运行指令，即可在 <code>你的用户名.github.io</code> 网址上看到你的 <code>bolg</code> 了</p>
 <pre class="line-numbers language-bash"><code class="language-bash">hexo generate
 //生成静态文件，快捷指令：hexo g
 
 hexo deploy
-//部署上传文件，快捷指令：hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+//部署上传文件，快捷指令：hexo d
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>大概就是<code>项目 -&gt; setting -&gt; GitHub Page -&gt; 开启</code> 这样一个流程 ，就可以预览 <code>blog</code> 了</p>
-<p>打开项目，打开 <code>Github page</code> 功能，<a href="https://pages.github.com/" target="_blank" rel="noopener">官方开启说明</a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实大部分的而配置都是可以在官方的<a href="https://hexo.io/zh-cn" target="_blank" rel="noopener">文档</a>这边大概是一丢丢配置，以及常用指令的总结，后续看反馈，可以继续写一篇 <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a> 主题上面的配置，如果写不下，<code>本酱</code> 就直接在这里更吧~</p>
+<p>打开项目，打开 <code>Github page</code> 功能，<a target="_blank" rel="noopener" href="https://pages.github.com/">官方开启说明</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实大部分的而配置都是可以在官方的<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn">文档</a>这边大概是一丢丢配置，以及常用指令的总结，后续看反馈，可以继续写一篇 <a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT</a> 主题上面的配置，如果写不下，<code>本酱</code> 就直接在这里更吧~</p>
 <p>好了，今年的 4月到了，1号完美的没有人跟<code>本酱</code>表白~</p>
 <p>感谢阅读~</p>
-<p>感谢<a href="https://yufan.me/" target="_blank" rel="noopener">学姐大人</a>很久以前（大概3年前）的推荐；</p>
-<p>感谢<a href="http://www.liaoyunduo.com/" target="_blank" rel="noopener">小心校长大人</a>的<a href="http://www.liaoyunduo.com/2017/10/01/1/" target="_blank" rel="noopener">配置指导文章</a>；</p>
+<p>感谢<a target="_blank" rel="noopener" href="https://yufan.me/">学姐大人</a>很久以前（大概3年前）的推荐；</p>
+<p>感谢<a target="_blank" rel="noopener" href="http://www.liaoyunduo.com/">小心校长大人</a>的<a target="_blank" rel="noopener" href="http://www.liaoyunduo.com/2017/10/01/1/">配置指导文章</a>；</p>
 <p>感谢两位同学的催更，<a href="#">天亮</a>，<a href="#">凯荣</a>；</p>
 
 </div>
@@ -217,7 +261,7 @@ hexo deploy
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2025 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>

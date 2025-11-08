@@ -95,6 +95,6 @@ deploy:
 disqus_shortname: null
 
 prism_plugin:
-  mode: "realtime" # realtime/preprocess
-  theme: "coy"
+  mode: 'realtime' # realtime/preprocess
+  theme: 'coy'
   line_number: true # default false

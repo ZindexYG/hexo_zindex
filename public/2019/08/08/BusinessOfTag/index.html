@@ -14,10 +14,50 @@
   
   
   <title>管理系统内 Tag 功能的实现 - 时之物语</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="管理系统内 Tag 功能的实现">
+  <meta property="og:url" content="https://z-index.me/2019/08/08/BusinessOfTag/">
+  <meta property="og:site_name" content="时之物语">
+  <meta property="og:description" content="
+
+愈发纯熟的业务代码——开始做菜
+">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:image" content="https://z-index.me/images/default-cover.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="管理系统内 Tag 功能的实现">
+  <meta name="twitter:description" content="
+
+愈发纯熟的业务代码——开始做菜
+">
+  <meta name="twitter:image" content="https://z-index.me/images/default-cover.jpg">
+  
+
+  <!-- 文章特定的元数据 -->
+  
+  <meta property="article:published_time" content="2019-08-07T16:03:52.000Z">
+  
+  <meta property="article:modified_time" content="2025-07-14T04:12:09.300Z">
+  
+  
+  
+  <meta property="article:tag" content="业务">
+  
+  <meta property="article:tag" content="react">
+  
+  <meta property="article:tag" content="vue">
+  
+  
+  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -62,11 +102,11 @@
 
 <div id="post-content">
   <h1>管理系统内 Tag 功能的实现</h1>
-  <p><img src="/images/tagImage-banner.jpg" alt=""></p>
+  <p><img src="/images/tagImage-banner.jpg"></p>
 <blockquote>
 <p>愈发纯熟的业务代码——开始做菜</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <style>
 .posts-expand .post-body img{
@@ -74,7 +114,7 @@
 }
 </style>
 <h3 id="1-背景-amp-amp-需求分析"><a href="#1-背景-amp-amp-需求分析" class="headerlink" title="1.背景 &amp;&amp; 需求分析"></a>1.背景 &amp;&amp; 需求分析</h3><h4 id="1-1-背景"><a href="#1-1-背景" class="headerlink" title="1.1 背景"></a>1.1 背景</h4><p>某日，被后台拿着一个别人实现好的管理系统说道了一顿，说需要实现得比某框架更好</p>
-<p>地址：<a href="https://pigx.pig4cloud.com/" target="_blank" rel="noopener">pig4cloud</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://pigx.pig4cloud.com/">pig4cloud</a></p>
 <h4 id="1-2-需求分析"><a href="#1-2-需求分析" class="headerlink" title="1.2 需求分析"></a>1.2 需求分析</h4><p>需求：管理系统内实现浏览器 Tag 标签的功能</p>
 <p>分析：</p>
 <ol>
@@ -84,7 +124,7 @@
 </ol>
 <h3 id="2-实现逻辑"><a href="#2-实现逻辑" class="headerlink" title="2. 实现逻辑"></a>2. 实现逻辑</h3><p>技术栈：react + react-router + react-redux + react-saga</p>
 <p>重点：<code>组件更新，页面不变</code></p>
-<p>上 demo ：<a href="https://codesandbox.io/s/react-tag-demo-z88jy?fontsize=14" target="_blank" rel="noopener"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-tag-demo"></a></p>
+<p>上 demo ：<a target="_blank" rel="noopener" href="https://codesandbox.io/s/react-tag-demo-z88jy?fontsize=14"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-tag-demo"></a></p>
 <h4 id="2-1-内存逻辑"><a href="#2-1-内存逻辑" class="headerlink" title="2.1 内存逻辑"></a>2.1 内存逻辑</h4><p>思路：却分活动状态内的存，和在打开过的内存，两个内存同事更新，切换 Tag 从打开过的数组内调取数据，有数据使用该数据，无数据则发起请求</p>
 <ul>
 <li>tagList 侧栏点击过的 Tag 数组</li>
@@ -94,9 +134,9 @@
 <pre class="line-numbers language-JavaScript"><code class="language-JavaScript">/*.
 目录：/src/store/index.js
 */
-const appReducer ={
-  tabListStatus: (state = { tabList: [], activeTab: null }, action) => {
-    switch (action.type) {
+const appReducer =&#123;
+  tabListStatus: (state = &#123; tabList: [], activeTab: null &#125;, action) => &#123;
+    switch (action.type) &#123;
       case 'tabListChange':
           //
       case 'tabListAdd':
@@ -107,27 +147,27 @@ const appReducer ={
           //
       default:
         return state
-    }
-  },
+    &#125;
+  &#125;,
   // ...
-}
+&#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>所有内存初始状态，都在 <code>App.js</code>-&gt;<code>componentDidUpdate</code> 生命周期内存操作</p>
 <pre class="line-numbers language-JavaScript"><code class="language-JavaScript">/*
 目录：/src/App.js
  */
 
-componentDidUpdate(prevProps, prevState) {
-  if (this.props.tabListStatus !== prevProps.tabListStatus) {
-    const { tabList, activeTab } = this.props.tabListStatus
+componentDidUpdate(prevProps, prevState) &#123;
+  if (this.props.tabListStatus !== prevProps.tabListStatus) &#123;
+    const &#123; tabList, activeTab &#125; = this.props.tabListStatus
     sessionStorage.setItem('tabList', JSON.stringify(tabList))
     sessionStorage.setItem('activeTab', JSON.stringify(activeTab))
-    this.setState({
+    this.setState(&#123;
       tabList,
       activeTab: activeTab !== null ? activeTab.key : '/'
-    })
-  }
-}
+    &#125;)
+  &#125;
+&#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-2-外部交互逻辑"><a href="#2-2-外部交互逻辑" class="headerlink" title="2.2 外部交互逻辑"></a>2.2 外部交互逻辑</h4><ol>
 <li>侧栏逻辑，新增</li>
@@ -135,93 +175,93 @@ componentDidUpdate(prevProps, prevState) {
 <li>关闭 Tag</li>
 </ol>
 <pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
-class App extends Component {
+class App extends Component &#123;
   // 点击侧栏
-  handleOnMenuItem = param => {
-    const { tabListAdd, tabListStatus } = this.props
-    const { tabList } = tabListStatus
+  handleOnMenuItem = param => &#123;
+    const &#123; tabListAdd, tabListStatus &#125; = this.props
+    const &#123; tabList &#125; = tabListStatus
     const userMenu = menuDataSource
-    const menu = this.menuItemFilter(userMenu, `/nav_${param.key}`)
+    const menu = this.menuItemFilter(userMenu, `/nav_$&#123;param.key&#125;`)
 
-    let paramTab = {
+    let paramTab = &#123;
       title: menu.name,
       key: menu.path,
-      queryParam: {},
-      dataSource: {}
-    }
+      queryParam: &#123;&#125;,
+      dataSource: &#123;&#125;
+    &#125;
 
     //判断是否为新增
     let pushBol = true
-    tabList.map(tab => {
-      if (tab.key === paramTab.key) {
+    tabList.map(tab => &#123;
+      if (tab.key === paramTab.key) &#123;
         pushBol = false
-        paramTab = Object.assign({},paramTab,tab)
-      }
+        paramTab = Object.assign(&#123;&#125;,paramTab,tab)
+      &#125;
       return tab
-    })
+    &#125;)
 
-    if (pushBol) {
+    if (pushBol) &#123;
       tabList.push(paramTab)
-    }
+    &#125;
 
-    tabListAdd({
+    tabListAdd(&#123;
       tabList,
       activeTab: paramTab
-    })
+    &#125;)
 
-    this.toPath(`nav_${param.key}`)
-  }
+    this.toPath(`nav_$&#123;param.key&#125;`)
+  &#125;
   // 点击 Tag
-  onChange = activeKey => {
+  onChange = activeKey => &#123;
     // console.log('....', activeKey)
-    const { tabListStatus, tabListAdd } = this.props
-    const { tabList } = tabListStatus
+    const &#123; tabListStatus, tabListAdd &#125; = this.props
+    const &#123; tabList &#125; = tabListStatus
     const userMenu = tabList
     const menu = this.menuChangeFilter(userMenu, activeKey)
 
-    const paramTab = {
+    const paramTab = &#123;
       ...menu
-    }
+    &#125;
 
-    tabListAdd({
+    tabListAdd(&#123;
       tabList,
       activeTab: paramTab
-    })
+    &#125;)
 
     this.toPath(activeKey)
-  }
+  &#125;
   // 关闭逻辑
-  remove = targetKey => {
+  remove = targetKey => &#123;
     let activeKey = this.state.activeTab
     let panes = this.state.tabList
     let lastIndex
-    panes.forEach((pane, i) => {
-      if (pane.key === targetKey) {
+    panes.forEach((pane, i) => &#123;
+      if (pane.key === targetKey) &#123;
         lastIndex = panes.length - 1 === i ? i - 1 : i
-      }
-    })
+      &#125;
+    &#125;)
     const panesFilter = panes.filter(pane => pane.key !== targetKey)
 
-    if (panesFilter.length && activeKey === targetKey) {
-      if (lastIndex >= 0) {
+    if (panesFilter.length && activeKey === targetKey) &#123;
+      if (lastIndex >= 0) &#123;
         activeKey = panesFilter[lastIndex]
-      } else {
+      &#125; else &#123;
         activeKey = panesFilter[0]
-      }
-    } else {
+      &#125;
+    &#125; else &#123;
       activeKey = null
-    }
+    &#125;
 
-    this.props.tabListAdd({
+    this.props.tabListAdd(&#123;
       tabList: panesFilter,
       activeTab: activeKey
-    })
+    &#125;)
 
     this.toPath(activeKey !== null ? activeKey.key : '/')
-  }
+  &#125;
 
   // ...
-}
+&#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-3-内部交互逻辑"><a href="#2-3-内部交互逻辑" class="headerlink" title="2.3 内部交互逻辑"></a>2.3 内部交互逻辑</h4><ul>
 <li>判断是否新增</li>
@@ -229,45 +269,45 @@ class App extends Component {
 </ul>
 <p>使用标记符号，或者直接判断一个 key 值是否存在值，来发送请求，demo 内使用 dataSource 是否存在为空来判断是否需要发送请求</p>
 <pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
-componentDidMount() {
-  const { tabListStatus, musicList_query_param, musicList } = this.props
-  const { dataSource } = tabListStatus.activeTab
+componentDidMount() &#123;
+  const &#123; tabListStatus, musicList_query_param, musicList &#125; = this.props
+  const &#123; dataSource &#125; = tabListStatus.activeTab
 
-  if (!Object.keys(dataSource).length) {
+  if (!Object.keys(dataSource).length) &#123;
     musicList(musicList_query_param)
-  }
-}
+  &#125;
+&#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>操作更新 <code>onChange</code>, <code>onClear</code>, <code>onSubmit</code> 除了这一些以外还会存在不同的操作，demo 大致分了这几个操作，均使用 reducer 操作，App.js 内监听操作，更改内存，模块内不参与内存更改</p>
 <pre class="line-numbers language-JavaScript"><code class="language-JavaScript">
-onChange = (tabList, e) => {
+onChange = (tabList, e) => &#123;
   e.persist()
-  if (!e || !e.target) {
+  if (!e || !e.target) &#123;
     return
-  }
-  const { target } = e
-  const operateParam = operateQuery(tabList, {
+  &#125;
+  const &#123; target &#125; = e
+  const operateParam = operateQuery(tabList, &#123;
     [target.id]: target.type === 'checkbox' ? target.checked : target.value
-  })
+  &#125;)
 
   this.props.tabListChange(operateParam)
-}
+&#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-对比"><a href="#3-对比" class="headerlink" title="3. 对比"></a>3. 对比</h3><h4 id="3-1-Vue-的实现"><a href="#3-1-Vue-的实现" class="headerlink" title="3.1 Vue 的实现"></a>3.1 Vue 的实现</h4><ul>
 <li>技术栈：vue + vue-router + vuex</li>
 <li>UI 框架：ant-design</li>
 </ul>
 <p>关键：keep-alive</p>
-<p><a href="https://codesandbox.io/s/vue-tag-demo-qi4dr?fontsize=14" target="_blank" rel="noopener"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit vue-tag-demo"></a></p>
+<p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/vue-tag-demo-qi4dr?fontsize=14"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit vue-tag-demo"></a></p>
 <h4 id="3-2-React-的实现"><a href="#3-2-React-的实现" class="headerlink" title="3.2 React 的实现"></a>3.2 React 的实现</h4><ul>
 <li>技术栈：react + react-router + redux</li>
 <li>UI 框架：ant-design</li>
 </ul>
 <p>关键：redux 与内存处理</p>
-<p><a href="https://codesandbox.io/s/react-tag-demo-z88jy?fontsize=14" target="_blank" rel="noopener"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-tag-demo"></a></p>
+<p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/react-tag-demo-z88jy?fontsize=14"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit react-tag-demo"></a></p>
 <h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><p>实现上面肯定是 Vue 更快实现的，但对使用 React 内存的控制也是一件非常好玩的事情，如果项目大了，就更好玩了</p>
 <p>实际上这种实现有点鸡肋，因为用户一个不留意，关了页面，这些 Tag 就不存在了，无论是那种管理系统，这个实现如果配合到后台，可能就更好玩了</p>
-<p>感谢 <a href="https://github.com/ZhangPuXi" target="_blank" rel="noopener">@白白</a>，感谢 <a href="">@同事</a>，都提供了很不错的思路</p>
+<p>感谢 <a target="_blank" rel="noopener" href="https://github.com/ZhangPuXi">@白白</a>，感谢 <a href="">@同事</a>，都提供了很不错的思路</p>
 <p>感谢阅读，代码很烂，请轻喷</p>
 
 </div>
@@ -338,7 +378,7 @@ onChange = (tabList, e) => {
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2025 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>

@@ -14,10 +14,50 @@
   
   
   <title>bs-table入坑记 - 时之物语</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="bs-table入坑记">
+  <meta property="og:url" content="https://z-index.me/2017/12/28/bs-table%E5%85%A5%E5%9D%91%E8%AE%B0/">
+  <meta property="og:site_name" content="时之物语">
+  <meta property="og:description" content="
+
+本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况
+">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:image" content="https://z-index.me/images/default-cover.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="bs-table入坑记">
+  <meta name="twitter:description" content="
+
+本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况
+">
+  <meta name="twitter:image" content="https://z-index.me/images/default-cover.jpg">
+  
+
+  <!-- 文章特定的元数据 -->
+  
+  <meta property="article:published_time" content="2017-12-28T14:00:48.000Z">
+  
+  <meta property="article:modified_time" content="2025-07-14T04:12:09.301Z">
+  
+  
+  
+  <meta property="article:tag" content="bootstrap">
+  
+  <meta property="article:tag" content="笔记">
+  
+  <meta property="article:tag" content="plugs">
+  
+  
+  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -62,13 +102,13 @@
 
 <div id="post-content">
   <h1>bs-table入坑记</h1>
-  <p><img src="/images/BTable-banner.jpg" alt=""></p>
+  <p><img src="/images/BTable-banner.jpg"></p>
 <blockquote>
 <p>本文旨在记录我使用 bootstrap-table 时候的一些记录,和与部分需求结合的使用情况</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
-<h3 id="bootstrap-table"><a href="#bootstrap-table" class="headerlink" title="bootstrap-table"></a><a href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/" target="_blank" rel="noopener">bootstrap-table</a></h3><p>基于 jQuery 的表格插件，重在该有的都有，相当适合上手，下称 <code>bs-table</code></p>
+<h3 id="bootstrap-table"><a href="#bootstrap-table" class="headerlink" title="bootstrap-table"></a><a target="_blank" rel="noopener" href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/">bootstrap-table</a></h3><p>基于 jQuery 的表格插件，重在该有的都有，相当适合上手，下称 <code>bs-table</code></p>
 <h3 id="基础玩法"><a href="#基础玩法" class="headerlink" title="基础玩法"></a>基础玩法</h3><p>最基本的引入和把玩，并没有很多高超的技巧，只要引入了　<code>css</code>，和 <code>js</code>，在不适用的情况下，在 <code>table</code>标签内直接添加 <code>data-toggle=&quot;table&quot;</code> 也是可以激活 <code>bs-table</code></p>
 <pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../style/bootstrap.min.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../style/bootstrap-table.min.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -91,8 +131,9 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/jquery.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/bootstrap.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/bootstrap-table.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/bootstrap-table-zh-CN.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="初始化插件参数"><a href="#初始化插件参数" class="headerlink" title="初始化插件参数"></a>初始化插件参数</h3><p>具体文档已<a href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/" target="_blank" rel="noopener">官方</a>为主，官方的翻译也还好，此处列举代码里面的参数都是本人常用的，初始化插件参数的方式有两种：</p>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../js/bootstrap-table-zh-CN.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="初始化插件参数"><a href="#初始化插件参数" class="headerlink" title="初始化插件参数"></a>初始化插件参数</h3><p>具体文档已<a target="_blank" rel="noopener" href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/">官方</a>为主，官方的翻译也还好，此处列举代码里面的参数都是本人常用的，初始化插件参数的方式有两种：</p>
 <h4 id="直接在标签里面添加参数"><a href="#直接在标签里面添加参数" class="headerlink" title="直接在标签里面添加参数"></a>直接在标签里面添加参数</h4><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>table text-nowrap<span class="token punctuation">"</span></span>
   <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>table<span class="token punctuation">"</span></span>
   <span class="token attr-name">data-checkbox-header</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
@@ -105,25 +146,28 @@
 
   <span class="token comment" spellcheck="true">&lt;!-- some --></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="使用-js-初始化带入参数"><a href="#使用-js-初始化带入参数" class="headerlink" title="使用 js 初始化带入参数"></a>使用 <code>js</code> 初始化带入参数</h4><pre class="line-numbers language-html"><code class="language-html">&lt;table class="table text-nowrap" id="myTable"
 
   <span class="token comment" spellcheck="true">&lt;!-- some --></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>因为引入了 <code>jQuery</code> ,所以直接用就好了</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> $myTable <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span>
-  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bootstrapTable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bootstrapTable</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     showHeader<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
     showFooter<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>
     showColumns<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token comment" spellcheck="true">//....</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="进阶玩法"><a href="#进阶玩法" class="headerlink" title="进阶玩法"></a>进阶玩法</h3><p>好了，基本的玩法之后熟悉之后，还是需要数据来玩，才能把　<code>bs-table</code> 玩得出彩；</p>
 <p>后台返回来的数据结构，一般会包含<code>当前页码</code>，<code>每页的数据量</code>，<code>数据总和</code>，<code>table 数据本身</code>;</p>
-<p>这里的演示，都在借助<a href="https://www.juhe.cn/" target="_blank" rel="noopener">聚合数据</a>里的免费图书数据；</p>
+<p>这里的演示，都在借助<a target="_blank" rel="noopener" href="https://www.juhe.cn/">聚合数据</a>里的免费图书数据；</p>
 <p>这边只作本人习惯的写法，过多的就不写了；</p>
 <h3 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h3><table>
 <thead>
@@ -196,7 +240,7 @@
 <td>data-query-params</td>
 <td>Function</td>
 <td>function(params) {return params;}</td>
-<td>请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果 queryParamsType = ‘limit’ ,返回参数必须包含 limit, offset, search, sort, order 否则, 需要包含: pageSize, pageNumber, searchText, sortName, sortOrder 返回false将会终止请求</td>
+<td>请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果 queryParamsType &#x3D; ‘limit’ ,返回参数必须包含 limit, offset, search, sort, order 否则, 需要包含: pageSize, pageNumber, searchText, sortName, sortOrder 返回false将会终止请求</td>
 </tr>
 <tr>
 <td>queryParamsType</td>
@@ -267,10 +311,10 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="js-里完成请求与数据处理"><a href="#js-里完成请求与数据处理" class="headerlink" title="js 里完成请求与数据处理"></a><code>js</code> 里完成请求与数据处理</h4><pre class="line-numbers language-javascript"><code class="language-javascript">
-<span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">'http://apis.juhe.cn/goodbook/querycatalog_id=242&amp;dtype=&amp;key=adbe8a45c24acd16f0315f4ee463215b'</span>
   <span class="token keyword">var</span> $myTable <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span>
-  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bootstrapTable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myTable'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bootstrapTable</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//.... option init</span>
     ajax<span class="token punctuation">:</span> ajaxRequest<span class="token punctuation">,</span>
     responseHandler<span class="token punctuation">:</span> responseHandler<span class="token punctuation">,</span>
@@ -279,44 +323,44 @@
     pageSize<span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
     pageNumber<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
     silent<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
   <span class="token comment" spellcheck="true">//ajax 请求</span>
-  <span class="token keyword">function</span> <span class="token function">ajaxRequest</span><span class="token punctuation">(</span>parames<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    $<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> parames<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>result<span class="token punctuation">,</span> textStatus<span class="token punctuation">,</span> xhr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">ajaxRequest</span><span class="token punctuation">(</span>parames<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    $<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> parames<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>result<span class="token punctuation">,</span> textStatus<span class="token punctuation">,</span> xhr<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">//返回值处理</span>
-        result<span class="token punctuation">.</span>resultcode <span class="token operator">?</span> parames<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        result<span class="token punctuation">.</span>resultcode <span class="token operator">?</span> parames<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token comment" spellcheck="true">//行与总数带入</span>
-          <span class="token keyword">return</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token string">"rows"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>result<span class="token punctuation">.</span>data<span class="token punctuation">.</span>List<span class="token punctuation">,</span>
             <span class="token string">"total"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>result<span class="token punctuation">.</span>data<span class="token punctuation">.</span>totalNum<span class="token punctuation">,</span>
-          <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> parames<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        parames<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+          <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> parames<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        parames<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">//请求参数处理</span>
-    <span class="token keyword">function</span> <span class="token function">queryParams</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">queryParams</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      params <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         pageSize<span class="token punctuation">:</span> params<span class="token punctuation">.</span>pageSize<span class="token punctuation">,</span>
         PageNumber<span class="token punctuation">:</span> params<span class="token punctuation">.</span>pageNumber<span class="token punctuation">,</span>
         pn<span class="token punctuation">:</span> params<span class="token punctuation">.</span>pageNumber<span class="token punctuation">,</span>
-      <span class="token punctuation">}</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> params
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">//返回值处理</span>
-    <span class="token keyword">function</span> <span class="token function">responseHandler</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">responseHandler</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">var</span> pageDate <span class="token operator">=</span> result<span class="token punctuation">.</span>rows <span class="token operator">?</span> result<span class="token punctuation">.</span>rows <span class="token punctuation">:</span> <span class="token number">0</span>
 
-      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token string">"rows"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>rows <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//总页数,前面的key必须为"total"</span>
         <span class="token string">"total"</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>total <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//行数据，前面的key要与之前设置的dataField的值一致.</span>
-      <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </div>
@@ -387,7 +431,7 @@
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2025 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>

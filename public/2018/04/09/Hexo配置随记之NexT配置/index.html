@@ -14,10 +14,48 @@
   
   
   <title>Hexo配置随记之NexT配置 - 时之物语</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Hexo配置随记之NexT配置">
+  <meta property="og:url" content="https://z-index.me/2018/04/09/Hexo%E9%85%8D%E7%BD%AE%E9%9A%8F%E8%AE%B0%E4%B9%8BNexT%E9%85%8D%E7%BD%AE/">
+  <meta property="og:site_name" content="时之物语">
+  <meta property="og:description" content="
+
+你看起来很适合我，来喂饱我吧~
+">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:image" content="https://z-index.me/images/default-cover.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hexo配置随记之NexT配置">
+  <meta name="twitter:description" content="
+
+你看起来很适合我，来喂饱我吧~
+">
+  <meta name="twitter:image" content="https://z-index.me/images/default-cover.jpg">
+  
+
+  <!-- 文章特定的元数据 -->
+  
+  <meta property="article:published_time" content="2018-04-09T14:31:24.000Z">
+  
+  <meta property="article:modified_time" content="2025-07-14T04:12:09.300Z">
+  
+  
+  
+  <meta property="article:tag" content="随记">
+  
+  <meta property="article:tag" content="Hexo">
+  
+  
+  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -62,19 +100,21 @@
 
 <div id="post-content">
   <h1>Hexo配置随记之NexT配置</h1>
-  <p><img src="/images/NexT-banner.jpg" alt=""></p>
+  <p><img src="/images/NexT-banner.jpg"></p>
 <blockquote>
 <p>你看起来很适合我，来喂饱我吧~</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><p>已经搭建好的 <code>Hexo</code> 的平台，在本地可以用 <code>server</code> 打开的也算；</p>
-<p>如果没有，请阅读<a href="http://t.cn/RnDaF00" target="_blank" rel="noopener">Hexo配置随记</a>，再执行以下指令；</p>
-<pre class="line-numbers language-bash"><code class="language-bash">hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">hexo主题</a>，这里有所有的主题，任君选择，找好主题之后，从 <code>Github</code> 上面下载下来，本人使用的是 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT</a></p>
+<p>如果没有，请阅读<a target="_blank" rel="noopener" href="http://t.cn/RnDaF00">Hexo配置随记</a>，再执行以下指令；</p>
+<pre class="line-numbers language-bash"><code class="language-bash">hexo server
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/wiki/Themes">hexo主题</a>，这里有所有的主题，任君选择，找好主题之后，从 <code>Github</code> 上面下载下来，本人使用的是 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">NexT</a></p>
 <p>将主题，放入 <code>theme</code> 目录下，回到 <code>_config.yml</code> 文件，配置 <code>theme</code> 字段为 下载好的目录名称，</p>
-<pre class="line-numbers language-bash"><code class="language-bash">theme: hexo-theme-next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><p>这里依然更加建议去阅读 <a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT文档</a>，本酱就直接说一下我的配置顺序好了；</p>
+<pre class="line-numbers language-bash"><code class="language-bash">theme: hexo-theme-next
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><p>这里依然更加建议去阅读 <a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/">NexT文档</a>，本酱就直接说一下我的配置顺序好了；</p>
 <p>这里要注意配置的路径，主题配置的路径为 <code>/theme/_config.yml</code></p>
 <h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4><table>
 <thead>
@@ -130,12 +170,13 @@
 <td></td>
 </tr>
 </tbody></table>
-<h4 id="统计配置"><a href="#统计配置" class="headerlink" title="统计配置"></a>统计配置</h4><p>个人认为，能否促进一个人写 blog 数据是关键，所以这里说一下数据统计的配置，主要使用的 <a href="http://ta.qq.com/" target="_blank" rel="noopener">腾讯分析</a></p>
+<h4 id="统计配置"><a href="#统计配置" class="headerlink" title="统计配置"></a>统计配置</h4><p>个人认为，能否促进一个人写 blog 数据是关键，所以这里说一下数据统计的配置，主要使用的 <a target="_blank" rel="noopener" href="http://ta.qq.com/">腾讯分析</a></p>
 <p>申请一个账号，QQ 账号即可，设置好站点之后，点击 <code>获取代码</code> 截取代码中 <code>sId</code> 字段后边的值，配置到 主题配置里面的 <code>tencent_analytics</code> 里即可</p>
-<pre class="line-numbers language-bash"><code class="language-bash">tencent_analytics： sId<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">tencent_analytics： sId
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="域名配置"><a href="#域名配置" class="headerlink" title="域名配置"></a>域名配置</h4><p>在 <code>source/</code> 目录下，创建一个 <code>CNAME</code> 文件，里面只写一个自己购买的域名后保存好；</p>
 <p>在自己域名管理器下，解析域名的时候，用 <code>CNAME</code> 方式重定向，指向自己的 <code>xxx.github.io</code> 去即可；</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>Hexo</code> 的配置文就到此结束了，有啥不懂，多看<a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT官方文档</a> 和<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">Hexo官方文档</a> 欢迎微博讨论 <a href="http://t.cn/RmMh8rx" target="_blank" rel="noopener">噫酱从不言弃</a>，</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>Hexo</code> 的配置文就到此结束了，有啥不懂，多看<a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/">NexT官方文档</a> 和<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration.html">Hexo官方文档</a> 欢迎微博讨论 <a target="_blank" rel="noopener" href="http://t.cn/RmMh8rx">噫酱从不言弃</a>，</p>
 <p>最后，感谢阅读。</p>
 <p>感谢 <a href="#">吴凯荣</a> 感谢 <a href="#">亮亮</a>。</p>
 
@@ -207,7 +248,7 @@
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2025 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>

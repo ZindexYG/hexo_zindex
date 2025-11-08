@@ -14,10 +14,50 @@
   
   
   <title>你不知道的bootstrap中文网 - 时之物语</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="你不知道的bootstrap中文网">
+  <meta property="og:url" content="https://z-index.me/2017/12/19/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84bootstrap%E4%B8%AD%E6%96%87%E7%BD%91/">
+  <meta property="og:site_name" content="时之物语">
+  <meta property="og:description" content="
+
+本文介绍的是 bootstrap中文网 里的一些插件与模板 以及 《bootstrap实战》里面介绍的一些工具
+">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:image" content="https://z-index.me/images/default-cover.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="你不知道的bootstrap中文网">
+  <meta name="twitter:description" content="
+
+本文介绍的是 bootstrap中文网 里的一些插件与模板 以及 《bootstrap实战》里面介绍的一些工具
+">
+  <meta name="twitter:image" content="https://z-index.me/images/default-cover.jpg">
+  
+
+  <!-- 文章特定的元数据 -->
+  
+  <meta property="article:published_time" content="2017-12-19T13:58:32.000Z">
+  
+  <meta property="article:modified_time" content="2025-07-14T04:12:09.302Z">
+  
+  
+  
+  <meta property="article:tag" content="bootstrap">
+  
+  <meta property="article:tag" content="plugs">
+  
+  <meta property="article:tag" content="读书笔记">
+  
+  
+  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -62,19 +102,19 @@
 
 <div id="post-content">
   <h1>你不知道的bootstrap中文网</h1>
-  <p><img src="/images/boot-banner.jpg" alt=""></p>
+  <p><img src="/images/boot-banner.jpg"></p>
 <blockquote>
-<p>本文介绍的是 <a href="http://www.bootcss.com/" target="_blank" rel="noopener">bootstrap中文网</a> 里的一些插件与模板 以及 <a href="https://book.douban.com/subject/26376363/" target="_blank" rel="noopener">《bootstrap实战》</a>里面介绍的一些工具</p>
+<p>本文介绍的是 <a target="_blank" rel="noopener" href="http://www.bootcss.com/">bootstrap中文网</a> 里的一些插件与模板 以及 <a target="_blank" rel="noopener" href="https://book.douban.com/subject/26376363/">《bootstrap实战》</a>里面介绍的一些工具</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="xampp-本地快速搭建网页服务器"><a href="#xampp-本地快速搭建网页服务器" class="headerlink" title="xampp 本地快速搭建网页服务器"></a>xampp 本地快速搭建网页服务器</h3><p><a href="https://www.apachefriends.org/zh_cn/index.html" target="_blank" rel="noopener">xampp</a> 是一款快速搭建网页服务器的软件，当然 win 下面还有 IIS 这种选项，可以快速搭建一个网页服务平台，这些我们不争论。好就好在，这款软件可以搭建 WordPress 让我们愉快把玩它；</p>
-<h3 id="WinLess-编写-LESS"><a href="#WinLess-编写-LESS" class="headerlink" title="WinLess 编写 LESS"></a>WinLess 编写 LESS</h3><p><a href="http://winless.org/" target="_blank" rel="noopener">WinLess</a>,在当今打包工具横行的前端界，这个可谓是很古老的东西了，但依然还是很好用的，其用法也很简单，在 <code>.less</code> 文件下编写，之后打开 WinLess 把 <code>.less</code> 编译成 <code>.css</code> 文件，使得我们即使在业务需求下编写纯页面文档，也可以不用编写那些难忍的前缀属性了；</p>
-<h3 id="H5BP"><a href="#H5BP" class="headerlink" title="H5BP"></a>H5BP</h3><p><a href="http://www.bootcss.com/p/html5boilerplate/" target="_blank" rel="noopener">H5BP</a> 让我们快速搭建 web app，可以根据自己需要定制一些 meta 标签，以及 jQ，bootstrap，Normalize，定制的页面直接符合了一个项目规范，所有需要的文档一应俱全，只待编写了；</p>
-<h2 id="插件库"><a href="#插件库" class="headerlink" title="插件库"></a>插件库</h2><h3 id="Zepto-js-轻量版-jQ"><a href="#Zepto-js-轻量版-jQ" class="headerlink" title="Zepto.js 轻量版 jQ"></a>Zepto.js 轻量版 jQ</h3><p><a href="http://zeptojs.bootcss.com/" target="_blank" rel="noopener">Zepto</a> 严格来说不算是一个插件，在移动端，我们的流量异常的可贵，<code>jQ.min.js</code> 压缩到 90kb 已经是很好了，然而还是有很多我们用不到的方法，而 <code>Zepto.min.js</code> 可以压缩到 20kb 左右，简直天秀；</p>
-<h3 id="messenger-弹框组件库"><a href="#messenger-弹框组件库" class="headerlink" title="messenger 弹框组件库"></a>messenger 弹框组件库</h3><p><a href="http://www.bootcss.com/p/messenger/" target="_blank" rel="noopener">messenger</a>,这个组件好玩之处在于，它有不同的样式选择，也在于只需要依赖 jQ 即可，bootStrap 可有可无；</p>
-<h3 id="Chart-js-图表绘制工具库"><a href="#Chart-js-图表绘制工具库" class="headerlink" title="Chart.js 图表绘制工具库"></a>Chart.js 图表绘制工具库</h3><p><a href="http://www.bootcss.com/p/chart.js/docs/" target="_blank" rel="noopener">Chart.js</a> 不依赖任何工具库，好玩，轻便，中文文档也写得好，更主要是兼容低端浏览器，简直是工作利器；</p>
-<h3 id="BootCDN-免费开源的-CDN-加速"><a href="#BootCDN-免费开源的-CDN-加速" class="headerlink" title="BootCDN 免费开源的 CDN 加速"></a>BootCDN 免费开源的 CDN 加速</h3><p><a href="http://www.bootcdn.cn/" target="_blank" rel="noopener">BootCDN</a>，在特殊原因下，这个 CDN 基本上是很良心了，该有的都有，而且速度也不错，平常也是常用这个；</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="xampp-本地快速搭建网页服务器"><a href="#xampp-本地快速搭建网页服务器" class="headerlink" title="xampp 本地快速搭建网页服务器"></a>xampp 本地快速搭建网页服务器</h3><p><a target="_blank" rel="noopener" href="https://www.apachefriends.org/zh_cn/index.html">xampp</a> 是一款快速搭建网页服务器的软件，当然 win 下面还有 IIS 这种选项，可以快速搭建一个网页服务平台，这些我们不争论。好就好在，这款软件可以搭建 WordPress 让我们愉快把玩它；</p>
+<h3 id="WinLess-编写-LESS"><a href="#WinLess-编写-LESS" class="headerlink" title="WinLess 编写 LESS"></a>WinLess 编写 LESS</h3><p><a target="_blank" rel="noopener" href="http://winless.org/">WinLess</a>,在当今打包工具横行的前端界，这个可谓是很古老的东西了，但依然还是很好用的，其用法也很简单，在 <code>.less</code> 文件下编写，之后打开 WinLess 把 <code>.less</code> 编译成 <code>.css</code> 文件，使得我们即使在业务需求下编写纯页面文档，也可以不用编写那些难忍的前缀属性了；</p>
+<h3 id="H5BP"><a href="#H5BP" class="headerlink" title="H5BP"></a>H5BP</h3><p><a target="_blank" rel="noopener" href="http://www.bootcss.com/p/html5boilerplate/">H5BP</a> 让我们快速搭建 web app，可以根据自己需要定制一些 meta 标签，以及 jQ，bootstrap，Normalize，定制的页面直接符合了一个项目规范，所有需要的文档一应俱全，只待编写了；</p>
+<h2 id="插件库"><a href="#插件库" class="headerlink" title="插件库"></a>插件库</h2><h3 id="Zepto-js-轻量版-jQ"><a href="#Zepto-js-轻量版-jQ" class="headerlink" title="Zepto.js 轻量版 jQ"></a>Zepto.js 轻量版 jQ</h3><p><a target="_blank" rel="noopener" href="http://zeptojs.bootcss.com/">Zepto</a> 严格来说不算是一个插件，在移动端，我们的流量异常的可贵，<code>jQ.min.js</code> 压缩到 90kb 已经是很好了，然而还是有很多我们用不到的方法，而 <code>Zepto.min.js</code> 可以压缩到 20kb 左右，简直天秀；</p>
+<h3 id="messenger-弹框组件库"><a href="#messenger-弹框组件库" class="headerlink" title="messenger 弹框组件库"></a>messenger 弹框组件库</h3><p><a target="_blank" rel="noopener" href="http://www.bootcss.com/p/messenger/">messenger</a>,这个组件好玩之处在于，它有不同的样式选择，也在于只需要依赖 jQ 即可，bootStrap 可有可无；</p>
+<h3 id="Chart-js-图表绘制工具库"><a href="#Chart-js-图表绘制工具库" class="headerlink" title="Chart.js 图表绘制工具库"></a>Chart.js 图表绘制工具库</h3><p><a target="_blank" rel="noopener" href="http://www.bootcss.com/p/chart.js/docs/">Chart.js</a> 不依赖任何工具库，好玩，轻便，中文文档也写得好，更主要是兼容低端浏览器，简直是工作利器；</p>
+<h3 id="BootCDN-免费开源的-CDN-加速"><a href="#BootCDN-免费开源的-CDN-加速" class="headerlink" title="BootCDN 免费开源的 CDN 加速"></a>BootCDN 免费开源的 CDN 加速</h3><p><a target="_blank" rel="noopener" href="http://www.bootcdn.cn/">BootCDN</a>，在特殊原因下，这个 CDN 基本上是很良心了，该有的都有，而且速度也不错，平常也是常用这个；</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里面的文档几乎都在列表最前面，该有的都有了，而且都是可以访问的链接，很良心，学习起来也不费事，感谢阅读</p>
 
 </div>
@@ -145,7 +185,7 @@
     <footer class="footer">
   <div class="footer-content">
     <div class="footer-info" class="inner">
-      <p class="copyright">&copy; 2022 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
+      <p class="copyright">&copy; 2025 时之物语 ZYG&#39;s Blog 保留一切权利 ｜ 粤ICP备15078531号-1<br></p>
       powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       theme by <a href="https://github.com/Jiasm/hexo-theme-sheet" target="_blank">Sheet</a>
     </div>
